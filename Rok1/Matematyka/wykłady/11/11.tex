@@ -1,0 +1,141 @@
+\
+documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{polski}  
+\usepackage{indentfirst} 
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{placeins}
+
+\author{Łukasz Dubiel}
+\title{Matematyka - wykład 11}
+
+\begin{document}
+\maketitle
+
+\section{Całki nieelementarne}
+Dla każdej funkcji elementarnej jej pochodna jest jakąś (inną) funkcją elementarną.
+
+Z całkami, sorry, nie jest tak prosto.
+
+\bigskip
+Przykład całki nie elementarnej
+$\int\sqrt{1+x^3}dx$ - całka eliptyczna
+
+$$\int e^{-x^2}dx$$
+$$\int \cos{x^2}dx$$ \\
+$$\int \sin{x^2}dx$$ \\
+$$\int \frac{\sin{x}}{x}dx$$ sinus całkowy \\
+$$\int \frac{\cos{x}}{x}dx$$  \\
+$$\int \frac{e^x}{x}dx$$ \\
+$$\int \frac{dx}{\ln{x}}$$ \\
+
+\section{Najprostsze metody całkowania}
+
+\subsection{Twierdzenie o liniowości całki}
+Niech $\alpha$ - liczba rzeczywista, $f$,$g \in C(I), \ \ I \subset \mathbb{R}$
+
+Wtedy
+\begin{enumerate}
+\item{$\int (\alpha f(x))dx = \alpha \int f(x) dx$}
+\item{$\int(f(x) + g(x))dx = \int f(x) dx + \int g(x)dx$}
+\end{enumerate}
+Dowód 
+
+Ad.1) $$\frac{d}{dx}(\alpha f(x)) = \alpha f(x)$$
+
+Ad.2) $$\frac{d}{dx}(\int f(x)dx + \int g(x)dx) = \frac{d}{dx}(\int f(x)dx) + \frac{d}{dx}(\int g(x)dx) = f(x) + g(x)$$
+
+\subsection{Całkowanie przez cześci}
+Jeśli funkcje $u,v \in C^1(I)\quad I \subset \mathbb{R}$ -przedział otwarty 
+to
+$$\int u(x)v'(x)dx = u(x)v(x) - \int u'(x)v(x)dx \quad \forall x \in I $$
+Dowód.
+Robimy pochodną prawej strony i jak otrzymamy lewą, to jest ok.
+$$\frac{d}{dx}\left(u(x)v(x) - \int u'(x)v(x)dx\right)$$
+I wychodzi od razu 
+
+\subsubsection{Przykład - rozwalamy logarytm}
+$$\int \ln{x} dx $$
+Możemy równoważnie zapisać
+$$\int 1 \ln{x} dx $$
+I teraz przyjmując $u(x) = \ln{x}$ , $v'(x) = 1$ dostajemy
+$$\int 1 \ln{x} dx = x\ln{x} - \int x \frac{1}{x} dx = x\ln{x} - x + c$$
+
+Przyjmując $u(x) = 1$ i $v'(x) = \ln{x}$ dochodzi do wielkiej bani.
+\subsection{Przykład - rozwalamy $\int x^2\sin{x}dx$}
+$$\int x^2 \sin{x} dx$$
+przyjmujemy $u(x)=x^2$ i $v'(x) = \sin{x}$ przez co $u'(x) = 2x$ i $v(x) = -\cos{x}$
+Czyli mamy
+$$\int x^2 \sin{x} dx = x^2\sin{x} + 2\int x\cos{x}$$
+Stosujemy jeszcze raz... Przyjmijmy $u(x) = x$ oraz $v'(x) = -\cos{x}$ i teraz dostajemy 
+$$\int x \cos{x}dx = x\cos{x} + \int \sin{x}$$
+$$\int x^2 \sin{x} dx = x^2\sin{x} + 2x\cos{x} + \cos{x} + c$$
+
+\subsection{Przykład $\int e^x\sin{x}dx$}
+$$\int e^x\sin{x}dx$$
+Stosując przez części $u(x) = e^x$, a $v'(x) = \sin{x}$
+$$\int e^x\sin{x}dx = -e^{x}\cos{x} + \int e^x \cos{x} dx$$
+Wygląda na to iż nie za bardzo, to może jeszcze raz
+$$\int e^x \cos{x} dx$$
+I teraz $u(x) = e^x$, oraz $v'(x) = \cos{x}$ i dostajemy
+$$\int e^x \cos{x} dx = e^x\sin{x} - \int e^x\sin{x} dx$$
+Okazuje się że ostatni wyraz jest naszą szukaną całką tak więc na drugą stronę.
+$$\int e^x\sin{x} dx = \frac{e^x\cos{x} + e^x\sin{x}}{2}$$
+
+\subsection{Całkowanie przez podstawianie}
+TW:
+Niech $I,Y  \subset \mathbb{R}$ - przedziały otwarte, $ \phi : J \to I$ jest bijekcją  
+Jeśli $\phi \in C^1(J)$ to
+
+$$\int f(\phi(x))\phi'(x)dt = \int f(t)dt \quad t = \phi{x}$$
+\newpage
+Dowód:
+Niech $F(t)$ - pierwotna $f(t)$
+$$\int f(t)dt = F(t) + C$$
+$$\frac{d}{dt}\left( F(\phi(x)) \right)$$
+
+\subsection{Przykład}
+$$\int x e^{x^2} dx$$
+tak więc $f(x) = \frac{1}{2}e^x$ oraz $\phi(x) = x^2 = t$ i uzyskujemy
+$$\int x e^{x^2} dx = \int \frac{1}{2}e^{x^2}2xdx = \int \frac{1}{2}e^t dt = \frac{1}{2}e^{x^2} + C$$ 
+
+\subsection{Przykład}
+$$\int \sin{2x}dx $$
+Dwa podstawienia $ t = 2x$ oraz $ t = \sin{x}$.
+Wychodzą dwa różne wyniki różne od stałej.
+
+\subsection{Szczególne przypadki}
+\subsubsection{Logarytm laturalny}
+$$\int \frac{g'(x)}{g(x)}dx$$
+Przez podstawienie $ g(x) = t $ dostaniemy, że
+$$\int \frac{g'(x)}{g(x)}dx = \ln{|g(x)|} + C$$
+\subsubsection{$g(x)^{\alpha}$}
+$$\int g'(x)(g(x))^{\alpha}dx$$
+podstawienie $ t = g(x) $ uzyskamy
+$$ \int t^\alpha dt == \frac{t^{\alpha+1}}{\alpha +1} = \frac{(g(x))^{\alpha+1}}{\alpha+1}$$
+
+\subsubsection{Przykłady}
+$$\int \tan{x} dx$$
+ćwiczenie 
+$$\int \ctg{x} dx$$
+$$\int (2x+3)^6 dx$$
+$$\int x^3\sqrt{4+x^2}dx$$
+
+$$\int \arctan{x}dx$$
+Całkujemy przez części $u(x) = \arctan{x}$ , $v'(x) = 1$
+Czyli
+$$\int \arctan{x}dx = x\arctan{x} - \int \frac{x}{1+x^2}dx$$
+Tym razem bierzemy podstawienie $t = x^2 + 1$, więc 
+$$\frac{1}{2}\int \frac{dt}{t} = \frac{1}{2}\ln{1+x^2} + C$$ czyli 
+$$\int \arctan{x}dx = x \arctan{x} - \frac{1}{2}\ln{1+x^2} + C$$
+
+$$\int \arcsin{x}dx$$
+Przez części
+
+\end{document}

@@ -1,0 +1,41 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{polski}  
+\usepackage{indentfirst} 
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{placeins}
+
+\author{Łukasz Dubiel}
+\title{Drgania }
+
+\begin{document}
+\maketitle
+\section{Drgania elektryczne - RLC}
+\subsection{Opór krytyczny}
+Drganie periodyczne przejdzie w drganie aperiodyczne tylko i wyłącznie gdy
+$$ \frac{1}{\sqrt{LC}} \geq \frac{R}{2L} $$
+Przez co dosdtajemy
+$$ \beta_k = \frac{1}{CL} $$
+
+\subsection{Drgania wymuszone}
+Działanie na układ $$F_z = F_0 \cos{\Omega t}$$
+Równie przejdzie w postaci
+$$ \frac{d}{d^2x} + 2\beta\frac{d}{dx} + \omega_0^2 = y \cos{\Omega t}$$
+
+$$ A(\Omega) = \frac{y}{\sqrt{(\omega_0^2 - \Omega^2)^2 - 4 \beta^2 \Omega^2}} $$
+
+\subsubsection{Brak oporów ( $ \beta = 0 $ )}
+
+$$ A(\Omega) = \frac{y}{\sqrt{(\omega_0^2 \Omega^2)^2}} $$
+
+\subsubsection{Opory $ \beta \not = 0$}
+$$ \Omega_r = \sqrt{\omega_0^2 - 2\beta^2} $$
+Gdy tłumienie rośnie, częstotliwość rezonansowa spada.
+
+\end{document}

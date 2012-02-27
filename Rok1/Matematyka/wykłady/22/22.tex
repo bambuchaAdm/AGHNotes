@@ -1,0 +1,262 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{polski}  
+\usepackage{indentfirst} 
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{placeins}
+
+\author{Łukasz Dubiel}
+\title{Układy równań}
+
+\begin{document}
+
+\maketitle
+
+\section{Definicja} Układem $m$ równań z $n$ niewiadomymi nazywamy układ równań,
+\begin{equation}
+\label{rowanie}
+\begin{cases}
+a_{11} x_1 + \ldots + a_{1n} x_n = b_1 \\
+a_{21} x_1 + \ldots + a_{2n} x_n = b_2 \\
+\quad \vdots \\
+a_{m1} x_1 + \ldots + a_{mn} x_n = b_n \\
+\end{cases}
+\end{equation}
+gdzie $a_{ij} \in \mathbb{R}$ to współczynniki układu $\eqref{rowanie}$. $b_i \in \mathbb{R}$ to wyrazy wolne, $x_j$ - to niewiadome, $\forall i \in \{1, \ldots , m\} \quad \forall j \in \{1,\ldots, n\}$
+
+Rozwiązaniem układu $\eqref{rowanie}$ nazywamy każdą $n$-ke liczb $(x_1,\ldots,x_n) \in \mathbb{R}^n$, która spełnia wszystkie równanie układu $\eqref{rownanie}$
+
+Macierze związane z układem $\eqref{rownanie}$
+
+Macierz $ A = \begin{vmatrix}
+	11 & 12 & 13\\
+	21 & 22 & 23\\
+	31 & 32 & 33\\
+\end{vmatrix}$ nazywamy macierzą współczynników układu $\eqref{rownanie}$ .
+
+Macierz $\begin{bmatrix}
+	b_1 \\
+	b_2 \\
+	\vdots \\
+	b_n
+\end{bmatrix}$ nazywamy macierza ( kolumna ) wyrazów wolnych.
+
+Macierz $ X = \begin{bmatrix}
+	11\\
+	21\\
+	31\\
+\end{bmatrix}$ nazywamy macierzą (kolumną) niewiadomych.
+
+Macierz $ [A|B] = \begin{bmatrix}
+	11 & 12 & 13 & 14\\
+	21 & 22 & 23 & 24\\
+	31 & 32 & 33 & 34\\
+\end{bmatrix}$ nazywamy macierzą uzupełnie układu $\eqref{rownanie}$
+
+\subsection{Uwaga}
+Układ $\eqref{rownanie}$ można zapisać w sposób równoważny w postaci macierzowej.
+$$ A \cdot X = B $$
+
+\section{Definicja}
+Układ $\eqref{rownanie}$ nazywamy jednorodną wtedy i tylko wtedy, gdy $\forall i \in  \{ 1 , \ldots , m \} \quad b_i = 0$, czyli B jest macierzą zerową. 
+W przeciwnym wypadku mówimy, że układ $\eqref{rownanie}$ jest niejednorodny.
+\section{Definicja}
+Układ $\eqref{rownanie}$ nazywamy oznaczonym (nieoznaczonym) [sprzecznym] wtedy i tylko wtedy, gdy posiada dokładnie jedno rozwiązanie (nieskończonie wiele rozwiązań)[zero rozwiązań]. 
+
+\section{Układy kwadratowe}
+\subsection{Definicja}
+Układ $\eqref{rownanie}$ nazywamy układem kwadratowym wtedy i tylko wtedy, gdy $m = n$ ( czyli macierz A jest kwadratowa).
+\subsection{Definicja układu Cramera}
+Układ kwadratowy $\eqref{rownanie}$ nazywamy układem Cramera, wtedy i tylko wtedy, gdy $ \det{A} \not = 0$
+
+\section{Twierdzenie Cramera}
+Jeśli układ $\eqref{rownanie}$ jest układem Cramera, to
+\begin{enumerate}
+\item{ układ $\eqref{rownanie}$ jest zonaczony}
+\item{ rozwiązaniem układu jest dane przez tak zwane wzory Cramera.
+$$ \forall j \in \{1, \ldots , n \} \quad x_j = \frac{\det{A_{x_j}}}{\det{A}}$$ gdzie $A_{x_j}$ powstaje przez $A$ przez zastąpienie $j$-tej kolumny kolumną wyrazów wolnych.}
+\end{enumerate}
+\section{Przykłady}
+$$ \begin{cases} 2x - 3y - z = 1 \\ x - y = 0 \\ 2x + z = - 1\end{cases}$$
+Sposób I ( z wzorów Cramera )
+$ \det{A} = \begin{bmatrix}
+	2 & 3 & -1\\
+	1 & -1 & 0\\
+	2 & 0 & 1\\
+\end{bmatrix}= -1 \Rightarrow \hbox{Układ jest układem cramera} \\ \det{A_x} = \begin{bmatrix}
+	1 & 3 & -1\\
+	0 & -1 & 0\\
+	1 & 0 & 1\\
+\end{bmatrix} = 0 \quad \det{A_y} = \begin{bmatrix}
+	2 & 1 & -1\\
+	1 & 0 & 0\\
+	2 & 1 & 1\\
+\end{bmatrix} = 0 \quad \det{A_z} =\begin{bmatrix}
+	2 & 3 & 1\\
+	1 & -1 & 0\\
+	2 & 0 & -1\\
+\end{bmatrix} = 1$
+Czyli układ jest układem oznaczonym i rozwiazania są dane wzorami Cramera $ X = (0 , 0 , -1) $
+
+Drugi sposób
+$$ A \cdot X = B \quad/ A^{-1} \cdot $$
+$$ A^{-1} \cdot A \cdot X = A^{-1} \cdot B $$
+$$ X = A^{-1}\cdot B$$
+
+$$ A^{-1}=\begin{bmatrix}
+	1 & -3 & 1\\
+	1 & -4 & 1\\
+	-1 & 6 & -1\\
+\end{bmatrix}$$
+$$ X = \begin{bmatrix}
+	x\\
+	y\\
+	z\\
+\end{bmatrix} = \begin{bmatrix}
+	1 & -3 & 1\\
+	1 & -4 & 1\\
+	-1 & 6 & -1\\
+\end{bmatrix}\cdot \begin{bmatrix}
+	1\\
+	0\\
+	-1\\
+\end{bmatrix} = \begin{bmatrix}
+	0\\
+	0\\
+	1\\
+\end{bmatrix} $$
+
+\section{Układy dowolne}
+\section{Twierdzenie Kroneckera - Capellego}
+Układ $\eqref{rownanie}$ posiada co najmniej 1 rozwiązanie $\iff r(A) = r([A|B])$ 
+$$ A \cdot X = B \iff \begin{bmatrix}
+	11 & 12 & 13 \\
+	21 & 22 & 23 \\
+	31 & 32 & 33 \\
+\end{bmatrix} \cdot \begin{bmatrix}
+	x_1\\
+	x_2\\
+	\vdots\\
+	x_n
+\end{bmatrix} = \begin{bmatrix}
+	11\\
+	21\\
+	31\\
+	41\\
+\end{bmatrix} \iff x_1 \begin{bmatrix}
+	11\\
+	21\\
+	31\\
+	41\\
+\end{bmatrix} + x_2 \begin{bmatrix}
+	11\\
+	21\\
+	31\\
+	41\\
+\end{bmatrix} + \ldots + x_n \begin{bmatrix}
+	11\\
+	21\\
+	31\\
+	41\\
+\end{bmatrix} = \begin{bmatrix}
+	11\\
+	21\\
+	31\\
+	41\\
+\end{bmatrix}
+$$
+Czyli kolumna B jest liniowo niezależna z A, jeśli tylko układ $\eqref{rownanie}$ ma rozwiązanie, a to zonacza, że $r([A|B]) = r(A)$
+
+\subsection{Wniosek}
+Układ jest sprzeczny $\iff r(a) < r([A|B])$
+
+\section{Twierdzenie o układach niesprzecznych}
+\begin{enumerate}
+\item{Jeśli $r(A) = r([A|B]) = n$ czyli rząd jest równy ilości zmiennych to układ $\eqref{rownanie}$ jest oznaczony}
+\item{Jeśli $r(A) = r([A|B]) = r < n$ czyli rząd jest mniejszy niż ilość zmiennych to układ $\eqref{rownanie}$ jest nieoznaczony, a rozwiązania zależą od $(n-r)$ parametrów.}
+\end{enumerate}
+\subsection{Uwaga}
+nie ma innych układów równań liniowych niż sprzeczne, nieoznaczone i oznaczone.
+
+\subsection{Wniosek o układach jednorodnych}
+Układy jednorodne są niesprzeczne. Jeśli są oznaczone to jednym rozwiązaniem jest wektor zerowy. 
+
+\subsection{Wnioski o układach kwadratowych}
+\begin{enumerate}
+\item{Twierdzenie Cramera jest wnioskiem z twierdzenie o układach niesprzecznych, bo \\$\det{A} \not = 0 \Rightarrow r(A) = n$}
+\item{Jeśli dla układzie kwadratowego mamy, $\det{A} = 0$ oraz $x_i \quad \det{A_{x_i}} \not = 0$ to układ jest sprzczy gdyż $r(A) < n$ , a $r([A|B]) = n$ }
+\item{Jeśli dal układu lniowego mamy $ \det{A} = \det{A_{x_1}} = \det{A_{x_2}} = \cdot = \det{A_{x_n}} = 0$, to jedyne co wiemy, że ukłąd nie jest oznaczony. Gdyż
+$r(A) < n$ oraz $r([A|B]) < n$ i nic nie wiemy.}
+\end{enumerate}
+\section{Algorytm Gaussa ( rozwiązywania dowolnych układów równań)}
+Wystarczy sprowadzić macierz $[A|B]$ do postaci schodkowej i wszystko widać.  ( Operacje elementarne na macierzy $[A|B]$ odpowiadają równoważnemu przekształcaniu układu $\eqref{rownanie}$ - zbiór rozwiązań się nie zmieni !).
+\subsection{Przykład 1}
+$$ \begin{cases}
+x- y = 3 \\
+2x+y = 0 \\
+-x + 2y = -5 
+\end{cases} $$
+\subsection{Przykład 2}
+$$ \begin{cases}
+2x -2y - 6z = 0 \\
+x - y + 2z = 1 \\
+3x - 2y + 11z = 1 \\
+-x -3z = 1 \\
+\end{cases}$$
+\subsection{Przykład 3}
+$$ \begin{cases}
+x_1 + 2x_2 + x_3 - x_4 + x_5 = 0 \\
+x_1 + 2x_2  +2 x_3 + x_4 + 2x_5 = 1 \\
+-2x_1 - 4x_2 x_3 + 2x_4 - x_5 - 2 \\
+\end{cases}
+$$
+
+Za parametry przyjmujemy kolumny, gdzie nie ma schodków. 
+
+\section{Twierdzenie o układach jednorodnych}
+Dla układu jednorodnego, który możemy zapisać $$ A \cdot X = 0$$ z $n$ niewiadomymi, określamy zbiór rozwiązań $$W_{0} := \{ (x_1,\ldots,x_n) \in \mathbb{R}^n : A \cdot \begin{bmatrix}
+	11\\
+	21\\
+	31\\
+\end{bmatrix} = \begin{bmatrix}
+	11\\
+	21\\
+	31\\
+\end{bmatrix} \}$$
+Wtedy 
+\begin{enumerate}
+\item{$W_0$ jest podprzestrzenią wektorową w $\mathbb{R}^n$}
+\item{$\dim{W_0} = n - r(A)$}
+\end{enumerate}
+
+\section{Twierdzenie o układach niejednorodnych}
+Niech \begin{equation}A \cdot Y = B \label{nie} \end{equation} - układ niejednorodny, oraz \begin{equation}A \cdot X = 0 \label{jed} \end{equation} - to jest układ jednorodny i jest stworzony z układem \eqref{nie}
+
+Jeśli $ Y = \begin{bmatrix}
+	y_1\\
+	\vdots\\
+	y_n\\
+\end{bmatrix}$ - jedno z rozwiązań układu $\eqref{nie}$, to
+\begin{enumerate}
+\item{Wtedy rozwiązanie układu niejednorodnego $\eqref{nie}$ ma postać $Y = X + Y_{0}$, gdzie X jest jednym z równań układu $\eqref{jed}$}
+\item{Dla dowolnego rozwiązania $X$ układu $\eqref{jed}$ $X+Y_{0}$ jest rozwiązaniem układu $\eqref{nie}$.}
+\end{enumerate}
+
+\subsection{Wniosek}
+Każde rozwiązanie układu niejednorodnego $\eqref{nie}$ jest sumą rozwiązania szczególnego układu $\eqref{nie}$ i jakiegoś dowolnego rozwiązania układu $\eqref{jed}$.
+$$ W = \{ (x_1, \cdot , x_n) \in \mathbb{R}^n :  A \cdot \begin{bmatrix}
+	x_1\\
+	\vdots\\
+	x_n\\
+\end{bmatrix} = B$$
+$$W = Y_0 + W_0$$
+
+
+
+\end{document}

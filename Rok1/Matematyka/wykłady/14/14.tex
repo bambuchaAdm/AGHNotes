@@ -1,0 +1,160 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{polski}  
+\usepackage{indentfirst} 
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{placeins}
+
+\author{Łukasz Dubiel}
+\title{Matematyka - całkowanie funkcji pierwiastkowych }
+
+\begin{document}
+
+\maketitle
+\section{Wielomiany wielu zmiennych}
+$$ R(u,v) = \frac{P(u,v)}{W(u,v)} $$
+$R(u,v)$ - funkcja wymierna zmiennych $u$ i $v$ \\
+$P(u,v)$ i $W(u,v)$ - wielomiany zmiennych $u$ o $v$.
+
+\subsection{Przykład}
+$$ P(u,v) = uv^3 + u^2v^2 - uv + u$$
+$$ W(u,v) = v - v^2 + uv $$
+$$ R(u,v) = \frac{uv^3 + u^2v^2 - uv + u}{v - v^2 + uv} $$
+
+\section{Całki zawierająca pierwiastki funkcji homograficznej}
+Postać
+$$ \int R\left(x,\sqrt[n]{\frac{\alpha x + \beta}{\gamma x + \delta}}\right) $$
+Do rozwiązania tej całki używamy postawienia
+$$ \sqrt[n]{\frac{\alpha x + \beta}{\gamma x + \delta}} = t $$
+$$ \frac{\alpha x + \beta}{\gamma x + \delta} = t^n $$
+$$ \alpha x + \beta = t^n(\gamma x + \delta )$$
+$$ x(\alpha +t^n \gamma) = t^n \delta - \beta $$
+$$ x = \frac{\delta t^n - \beta}{\gamma t^n  + \alpha} = \varphi(t)$$
+$$ dx = \varphi'(t)dt$$
+Funkcja $\varphi(t)$ jest wymierna więc można ją na pewno całkować. Używając zamiany zmiennych dostajemy
+
+$$ \int R\left(x,\sqrt[n]{\frac{\alpha x + \beta}{\gamma x + \delta}}\right) = \int R \left( \varphi(t),t\right)\varphi'(t)dt $$
+Gdzie całka po prawej stronie jest na pewno wymierna wiec możemy ją scałkować.
+\subsection{Przykład 1}
+$$ \int \frac{\sqrt[3]{x-1}}{x}dx$$
+Tak więc stosujemy postawienie $$ \sqrt[3]{x-1} = t$$
+$$ x-1 = t^3 $$
+$$ x = t^3 + 1$$
+$$ dx = 3t^2dt$$
+Używając go na naszej całce dostajemy
+$$ \int \frac{t}{t^3-1} 3t^2dt = 3 \int \frac{t^3}{t^3+1}dt = 3\int \frac{t^3 + 1 -1}{t^3+1} = 3\int dt - 3\int  \frac{dt}{t^3+1}$$
+Piesza całka jest trywialna, zajmijmy się drugą. Mianownik po faktoryzacji ma postać \\ $(t+1)(t^2-t+1)$ tak więc
+$$ \int \frac{dt}{t^3+1} = A \int \frac{dt}{t+1} + \alpha \int \frac{2t -1}{t^2 -t +1} + \beta \int \frac{dt}{t^2-t+1} $$
+Teraz pasowałoby obliczyć współczynniki (ale możemy użyć leniwego wartościowania, a nie są nam teraz potrzebne ). 
+$$ \frac{A(t^2 -t +1) + \alpha (2t -1) (t+1) + \beta(t+1)}{t^3+1} =\frac{1}{t^3+1} \xrightarrow{\hbox{ćw.}} \begin{cases} A = \frac{1}{3} \\ \alpha = \frac{1}{6} \\ \beta = \frac{1}{2} \end{cases}$$
+Mając już współczynniki ( a nie musimy ich mieć, jeszcze, bo są potrzebne do finalnego rozwiązania, a całki są ważniejsze), możemy wyznaczyć resztę całek. Pierwsza z nich.
+$$ \int \frac{dt}{t+1} = \ln{|t+1|} + C = \ln{|\sqrt[3]{x-1}|} + C $$
+Druga
+$$ \int \frac{2t -1}{t^2 -t +1} dt = \ln{ |t^2 -t +1|} + C = \ln{| (x-1)^{\frac{2}{3}} + \sqrt[3]{x-1} + 1|} + C$$
+\newpage
+Trzecia
+$$ \int \frac{dt}{t^2 - t + 1} = \int \frac{dt}{\left(t - \frac{1}{2}\right)^2 + \frac{3}{4}} = \frac{4}{3} \int \frac{dt}{\left(\frac{t-\frac{1}{2}}{\sqrt{\frac{3}{4}}}\right)^2 + 1}$$
+Stosujemy postawienie $n = \frac{t-\frac{1}{2}}{\sqrt{\frac{3}{4}}} \Rightarrow dn = \frac{1}{\sqrt{\frac{3}{4}}} dt$.
+$$ \frac{4}{3} \int \frac{\sqrt{\frac{3}{4}}dn}{n^2+1} = \sqrt{\frac{4}{3}} \arctan{n} + C = \sqrt{\frac{4}{3}} \arctan{\left(\frac{\sqrt[3]{x-1}-\frac{1}{2}}{\sqrt{\frac{4}{3}}}\right)} $$
+I teraz uzyskane całki postawiamy do wyniku z uwzględnieniem współczynników.
+\section{Całki zawierające pierwiastki z trójmianów kwadratowych}
+Postać
+$$ \int R(x,\sqrt{ax^2 + bx + c})dx  \quad a \not=0$$
+\subsection{Podejście naiwne}
+Używamy postawienia $$ \sqrt{ax^2 + bx + c} = t $$
+I tutaj trafiamy na problem bo $$ x = \frac{-b \pm \sqrt{b^2 - 4a(c-t^2)}}{2a} = \varphi(t)$$ nie jest wymierne
+jak również $\varphi'(t)$ nie jest wymierne. Do chrzanu.
+Ale ratuje nas pan Euler dając nam do ręki potężną broń do walki z całkami jaką są jego trzy postawienia.
+\subsection{$ a > 0$ czyli pierwsze podstawienie Eulera}
+Postawienie brzmi
+$$ \sqrt{ax^2 + bx + c} = t - \sqrt{a}x $$
+Podnosimy do kwadratu
+$$ ax^2 + bx + c = t^2 -\sqrt{a}xt + ax^2 $$
+Redukujemy wyrazy podobne oraz porządkujemy i wyznaczamy $x$ z równania.
+$$ x = \frac{t^2 -c}{\sqrt{a}t + b} = \varphi(t)$$
+I świetnie bo $\varphi(t)$ oraz $\varphi'(t)$ są wymierne. Czyli.
+$$\int R(x,\sqrt{ax^2 + bx + c})dx = \int R(\varphi(t), t - \sqrt{a}\varphi(t))\varphi'(t)dt$$
+\newpage
+\subsubsection{Przykład - ważny}
+$$ \int \frac{dx}{\sqrt{x^2-k}} , \quad k \in \mathbb{R} $$
+$a = 1$, wiec możemy zastosować pierwsze podstawienie Eulera
+$$ \sqrt{x^2+k} = t - x$$
+$$ x^2 + k = t^2 -2tx + x^2 $$
+$$ x = \frac{t^2 - k}{2t}$$
+$$ dx = \frac{4+t^2}{2t^2}$$
+To teraz aplikujemy do naszej całeczki.
+$$\int \frac{dx}{\sqrt{x^2-k}} = \int \frac{\frac{4+t^2}{2t^2}}{t-\frac{t^2-k}{2t}} dt = \int \frac{dt}{t} = \ln{|t|} + C = \ln{|x + \sqrt{x^2+k} |} + C $$
+\subsection{ $ c > 0 $  czyli drugie postawienie Eulera}
+$$ \sqrt{ax^2 + bx + c} = xt + \sqrt{c} $$
+Tak jak poprzednio podnosimy do kwadratu.
+$$ ax^2 + bx + c = x^2t^ + 2\sqrt{c}xt + c$$
+$$ (a - t^2)x^2 = (2t\sqrt{t} - b)x $$
+$$ x = \frac{2t\sqrt{c} -b}{a -t^2}  = \varphi(t)$$
+Tak jak poprzednio $\varphi(t)$ i $\varphi'(t)$ jest wymierne więc możemy całkować do woli.
+\subsection{$a<0$ czyli trzecie postawienie Eulera}
+$a < 0 \Longrightarrow \Delta \geq 0$ by umożliwić wykonywalność działania, tak więc.
+$$ ax^2 + bx + c = a(x - x_1)(x - x_2)$$
+Tak więc postawiamy wyrażanie
+$$ \sqrt{ax^2 + bx + c} = t(x - x_1)$$
+Podnosimy do kwadratu ( w wyrażeniu po prawej stronie równie dobrze mogłoby być $x_2$, zależy co jest lepsze)
+$$ a(x - x_1)(x - x_2) = t^2(x-x_1)^2 $$
+$$ a(x -x_2) = t^2(x-x_1)$$
+$$ x = \frac{ax_2 - t^2x_1}{a - t^2} = \varphi(t)$$
+Tak jak poprzednio $ \varphi(t)$ jak i $\varphi'(t)$ jest wymierne więc wolna droga do całkowania.
+
+\section{Całki ilorazów wielomianu i pierwiastku trójmianu kwadratowego}
+$$ \int \frac{W_n(x)}{\sqrt{ax^2 + bx + c}} dx \quad a\not=0$$
+gdzie $ \deg{W_n} = n $ , oraz $W_n$ jest wielomianem
+\subsection{Uwaga - o naszych obecnych możliwościach}
+Umiemy już całkować funkcje w postaci $$\int \frac{dx}{\sqrt{ax^2 + bx + c}} $$
+
+Algorytm
+\begin{enumerate}
+\item{Sprowadzić trójmian do postaci kanonicznej}
+\item{W zależności od znaku $a$ przez podpowiednie postawienie sprowadzić do całki
+$$ \int \frac{dt}{\sqrt{t^2+k}} \quad a > 0$$
+lub
+$$ \int \frac{dt}{\sqrt{1-t^2}} \quad a < 0$$}
+\end{enumerate} 
+
+\subsubsection{Przykład 1}
+$$ \int \frac{dx}{\sqrt{x^2 -x + 2}} = \int \frac{dx}{\sqrt{\left(x-\frac{1}{2}\right)^2 + \frac{7}{4}}} $$
+Stosując podstawienie $t = x - \frac{1}{2} \Rightarrow dt = dx$ dostajemy
+$$ \int \frac{dt}{\sqrt{t^2+\frac{7}{4}}} = \ln{|t + \sqrt{t^2 + \frac{7}{4}}|} + C= \ln{|x - \frac{1}{2} + \sqrt{x^2 - x + 2}|} + C $$
+Wykorzystaliśmy tutaj ważny przykład z części o postawieniach Eulera. Można to zrobić bez niego używając rzeczonego postawienia.
+\subsubsection{Przykład 2}
+$$ \int \frac{dx}{\sqrt{-x^2 + x + 2}} = \int \frac{dx}{\sqrt{-\left(x-\frac{1}{2}\right)^2 + \frac{9}{4}}} = \int  \frac{dx}{\frac{3}{2} \sqrt{1 -\left(\frac{x-\frac{1}{2}}{\frac{3}{2}}\right)^2}}  = \int  \frac{dx}{\frac{3}{2} \sqrt{1 -\left(\frac{2x - 1}{3}\right)^2}}$$
+Używamy postawienia $ t = \frac{2x-1}{3} \Rightarrow dt = \frac{2}{3}dx$, czyli nasza całka przyjmuje
+$$ \int \frac{dt}{\sqrt{1-t^2}} = \arcsin{t} + C = \arcsin{\frac{2x-1}{3}} + C$$
+
+\subsection{Twierdzenie}
+Dla dwolnego wielomianu $W_n(x)$ stopnia $n$ istnieje wielomian $P_{n-1}(x)$ stopnia $n-1$ oraz liczba $\lambda \in \mathbb{R}$ taka, że
+\begin{equation} \int \frac{W_n(x)}{\sqrt{ax^2 + bx + c}}dx = P_{n-1}(x)\sqrt{ax^2 +bx +c} + \lambda \int \frac{dx}{\sqrt{ax^2+bx+c}} \label{eq:calka_2} \end{equation}
+\subsection{Metoda wspólczyników nieoznaczonych}
+Skoro mamy już poprzednie twierdzenie to możemy sie pokusić o wyznaczenie współczynników wielomianu $P_{n-1}$ oraz $\lambda$, aby to zrobić należy
+\begin{enumerate}
+\item{Różniczkujemy obustronnie równość \eqref{eq:calka_2}}
+\item{Mnożymy obustronnie uzyskaną równość przez $ \sqrt{ax^2 + bx + c}$}
+\item{Porównujemy współczynniki przy odpowiednich potęgach x z obu stron równości}
+\end{enumerate}
+
+To działa :)
+Wykonując pierwszy krok na równości \eqref{eq:calka_2} dostaniemy.
+$$ \frac{W_n(x)}{\sqrt{ax^2 + bx + c}} = \left(P_{n-1}(x)\sqrt{ax^2+bx+c}\right)' + \frac{\lambda}{\sqrt{ax^2+bx+c}} $$
+Po pomnożeni przez  czynnik wspomniany w punkcie drugim mamy
+$$W_n(x) = P_{n-1}'(x)(ax^2 + bx + c) + \frac{1}{2}P_{n-1}(x)(2ax+b) + \lambda $$
+
+Podobnie jak w przypadku całkowania funkcji wymiernych mam do rozwiązania jakiś układ równań.
+
+\subsection{Przykład 1}
+$$ \frac{8x + 6}{\sqrt{2x^2 + 8x}}dx = A \sqrt{2x^2 + 8x} + \lambda \int \frac{dx}{\sqrt{2x^2 + 8x}}dx $$
+\subsection{Przykład 2}
+$$ \int \sqrt{9 - x^2}dx = \int \frac{9 - x^2}{\sqrt{9-x^2}} dx = (Ax + B)\sqrt{9-x^2} + \lambda \int \frac{dx}{\sqrt{9-x^2}}$$
+
+\end{document}

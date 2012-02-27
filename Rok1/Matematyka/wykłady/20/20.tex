@@ -1,0 +1,183 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{polski}  
+\usepackage{indentfirst} 
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{placeins}
+
+\author{Łukasz Dubiel}
+\title{Macierze}
+\date{10 stycznia}
+
+\begin{document}
+
+\maketitle
+\section{Definicja}
+Macieżą o wymiarach $m$ x $n$ nazywamy każde odwzorowanie 
+$$ A:\{1,\ldots,n\} \times \{1,\ldots,n\} \to \mathbb{R}$$
+Wartość tego odwzorowania dla elementów $(i,j)$ oznaczamy $a_{i,j}$ i nazywamy elementami macierzy $A$. Każde takie odwzorowanie utożsamiamy z zapisem :
+$$\begin{bmatrix} 
+a_{1,1} & a_{1,2} & \ldots & a_{1,n} \\
+a_{2,1} & a_{2,2} & \ldots & a_{2,n} \\
+\vdots & \vdots & a_{i,j} & \vdots\\
+a_{m,1} & a_{m,2} & \ldots & a_{m,n} 
+\end{bmatrix}$$
+
+O elementach $a_{i,1},\ldots,a_{i,n}$ mówimy, że tworzą wiersze.\\
+O elementach $a_{1,j},\ldots,a_{m,j}$ mówimy, że tworzą $j$-tą kolumnę \\
+Piszemy $A \in M_{m \times n}$ - zbiór macierzy $m \times n$
+\section{Rodzaje macierzy}
+\begin{enumerate}
+\item{Macierz zerowa Niech $A = [a_{ij}]_{m \times n}$ $$ \forall\ i,j \quad  a_{ij} = 0 $$}
+\item{Macierzą kwadratową\\
+Macierzą kwadratową nazywamy taką macierz $ A = [a_ij]_{m \times n} $, że $m = n$. Mówimy, że $A$ jest stopnia $n$. O elementach $a_{11},a_{22},\ldots,a_{nn}$ mówimy, że towrzą przekątną główną.}
+\item{Macierz trójkątna \\
+Macierzą trójkątną górną (dolna) nazywamy macierz kwadratową w której wszystkie elementy powyżej (poniżej) przekątnej głównej są zerami.}
+\item{Macierzą diagonalną nazywamy macierz kwadratową, która jednocześnie jest trójkątną górną i dolną.}
+\item{Macierzą jednostkową nazywamy macierz diagonalną gdzie $$ \forall\ i \quad a_{ii} = 0 $$ oznaczamy również $ I = 0 $}
+\end{enumerate}
+
+
+\subsection{Uwaga}
+Z definicji wynika, że elementu są symetyczne względem przekątnej są takie same.
+\section{Wyznacznik macierzy kwadratowej}
+\subsection{Wstęp w $\mathbb{R}^2$}
+Mamy wyznacznik $$\begin{bmatrix} a_{1,1} & a_{1,2} \\ a_{2,1} & a_{2,2} \end{bmatrix} = a_{1,1}\cdot a_{2,2} - a_{1,2} \cdot a_{2,1}$$
+Jest to wartość (z dokładnością do znaku) jest równe polu równoległoboku rozpiętego na wektorach $(a_{1,1},a{1,2})$ i $(a_{2,1},a_{2,2})$
+Przykład geometryczny.
+%grafika z strony http://oen.dydaktyka.agh.edu.pl/dydaktyka/matematyka/a_algebra_analiza/algelin2/node215.html , jest w katalogu
+$$ S - (a_{1,2} + a_{2,2})(a_{1,1} + a_{2,1}) - 2\cdot a_{1,2} a_{2,1} - a_{2,1}a_{2,2} - a_{1,1}a_{1,2} = \begin{Vmatrix}
+	11 & 12\\
+	21 & 22\\
+\end{Vmatrix}$$
+\subsection{Wstęp w $\mathbb{R}^3$}
+%rysunek rółnoległościanu na trzech wektorach
+\subsection{Wstęp w $\mathbb{R}^n$}
+Mamy wektory $v_1,v_2,\ldots,v_n$ - wektory liniowo niezależne rozpinająca $n$-wymiarowy równoległościan $\Omega$ wtedy 
+$$ |\Omega| = \begin{Vmatrix}
+	\hbox{współrzędne } v_1 \\
+	\hbox{współrzędne } v_2 \\
+	\vdots \\
+	\hbox{współrzędne } v_n \\
+\end{Vmatrix}$$
+\subsection{Definicja}
+Wyznacznikiem macieży kwadratowej $$ A = \begin{bmatrix}
+	11 & 12 & 13\\
+	21 & 22 & 23\\
+	31 & 32 & 33\\
+\end{bmatrix}$$
+którego wyznacznik oznaczamy $ \det{A} $ lub $$\begin{vmatrix}
+	11 & 12 & 13\\
+	21 & 22 & 23\\
+	31 & 32 & 33\\
+\end{vmatrix}$$
+nazywamy liczbę określoną następująco :
+\begin{enumerate}
+\item{dla $n=1$ $\det{A} = a_{1,1}$}
+\item{dla $n \geq 2$ $$ \det{A} = \begin{vmatrix}
+	11 & 12 & 13\\
+	21 & 22 & 23\\
+	31 & 32 & 33\\
+\end{vmatrix} = \sum_{k=1}^{n}{(-1)^{k+1} a_{1,k} \det{A_{1,k}}}$$
+Gdzie $A_{i,j}$ - to macierz powstała po wykreśleniu $i$-tego wiersza oraz $j$-tej kolumny.}
+\end{enumerate}
+\subsection{Specyficzne przypadki}
+\begin{enumerate}
+\item{n=2}
+\item{n=3}
+\end{enumerate}
+\subsection{Reguła Sarrusa}
+Stosujemy 
+% Powinna być grafika ilutrująca regułę sarrusa.
+\subsection{Jak liczyć wyznacznik}
+\subsection{Minor}
+\subsubsection{Definicja}
+Minorem stopnia $k$ macierzy $A_{m \times n}$ nazywamy wyznacznik dowolnej pod macierzy kwadratowej kwadratowej stopnia $k ( 0 < k <\leq \min{m,n})$, czyli powstałej z $A$ poprzez wykreślenie $(m-k)$ wierszy oraz $(n-k)$ kolumn.
+\subsubsection{Przykład}
+$$\begin{bmatrix}
+	0 & 2 & -3 & 5\\
+	1 & -2 & 4 & -5\\
+	-1 & 3 & -4 & -6\\
+\end{bmatrix}$$
+Minorów stopnia 3 jest 4.
+Minorów stopnia 2 jest ${4 \choose 2} \cdot 3 = 18$
+\subsection{Minor dopowiadający}
+Jeśli $ A \in M_{m \times n}$, to wyznacznik podmacierzy powstałej z $A$ przez wykreślnie $i$-tego wierszy oraz $j$-tej kolumny ( tę podmacierz oznaczamy $A_{i,j}$) nazywamy minorem odpowiadającym elementowi $a_{i,j}$. Oznaczamy jako $M_{i,j} := \det A_{i,j}$.
+\subsection{Twierdzenie o rozwinięciu Laplace'a}
+Jeśli $A \in M_{n \times n}$, to prawdziwe są następujące wzory.
+\begin{enumerate}
+\item{Rozwinięcie względem $i$-tego wiersza}
+$$ \det A = a_{i1} D_{i1} + a_{i2} D_{i2} + \ldots + a_{ib}D_{in}$$
+\item{Rozwinięcie względem $j$-tej kolumny}
+$$ \det A = \sum_{k=1}^m{a_1k D_1k} $$
+\end{enumerate}
+Uwaga: Pierwszy wzór dla $i=1$ to dokładnie definicja wyznacznika.
+\section{Przykład}
+$\begin{vmatrix}
+	1 & 2 & 3 & 4\\
+	-1 & -1 & 0 & 1\\
+	0 & 0 & -1 & 0\\
+	4 & 1 & 0 & 2\\
+\end{vmatrix} = ( -1) (-1)^{3+3} \begin{vmatrix}
+	1 & 2 & 4\\
+	-1 & -1  & 1\\
+	4 & 1  & 2\\
+\end{vmatrix} = -21
+$
+\subsection{Wioski z twierdzenia Laplaca'a}
+Wyznacznik macierzy trójkątnej dolnej (górnej) jest równa iloczynowi elementół na przekątnej głównej.
+\subsubsection{Wniosek z wniosku}
+$$ \det I_{n\times n} = 1$$
+\subsection{Przykłady}
+$\begin{vmatrix}
+	1 & 2 & 3 & 4\\
+	5 & 6 & 7 & 8\\
+	9 & 10 & 11 & 12\\
+	13 & 14 & 15 & 16\\
+\end{vmatrix}$
+albo
+$\begin{vmatrix}
+	-5 & 2 & 3 & 4 & 5\\
+	1 & -4 & 3 & 4 & 5\\
+	1 & 2 & -3 & 4 & 5\\
+	1 & 2 & 3 & -2 & 5\\
+	1 & 2 & 3 & 4 & -1\\
+\end{vmatrix}$
+\subsection{Twierdzenie o wyznaczniku macierzy transponowanej}
+$$ \forall \ A \in M_{n \times n} \quad \det (A^{T}) = \det A$$
+\subsection{Twierdzenia o własnościach wyznacznika macierzy}
+Niech $A \in M_{n \times n},\ A=[a_{ij}]_{n\times n} = [ k_1,k_2,\ldots,k_n]$ - mowa o kolumnach $k_1,k_2,\ldots ,k_n$
+\begin{enumerate}
+\item{$\det [ k_1,\ldots,0,\ldots,k_n] = 0$}
+\item{$\det [ k_1,\ldots,k_j' + k_j'',\ldots,k_n] =
+ [ k_1,\ldots,k_j' +,\ldots,k_n] + \det[ k_1,\ldots, k_j'',\ldots,k_n] $}
+ \item{$\det [k_1,\ldots,\alpha k_j , \ldots , k_n] = \alpha \det[k_1,\ldots,k_j,\ldots, k_n]$}
+ \item{$\det(\alpha A) = \alpha^n \det A \quad \forall \ \alpha \in \mathbb{R}$}
+ \item{$\det [k_1,\ldots,k_s,\ldots,k_t,\ldots,k_n] = - \det [k_1,\ldots,k_t,\ldots,k_s,\ldots,k_n]$}
+ \item{$\det [k_1,\ldots,k_j,\dots,k_j,\ldots,k_n]$}
+ \item{$\det [k_1,\ldots,\alpha_1 k_1 + \ldots + \alpha_n k_n, \ldots, k_n] = 0$}
+ \item{$\det [k_1,\ldots,k_j + \alpha_1 k_1 + \ldots + \alpha_n k_n, \ldots, k_n] = \det [ k_1,\ldots,k_j,\ldots,k_n]$}
+ \end{enumerate}
+ \subsection{Operacje elementarne na wierszach (kolumnach=) macierzy}
+ \begin{enumerate}
+ \item{Zamiana miejscami wieszy (kolumnami) macierzy.}
+ \item{Dodanie do wiesza ( kolumny) kombinacji liniowej innych wiesz(kolumn)}
+ \item{Pomnożenie wiesza przez skalar}
+ \end{enumerate}
+ \subsection{Jedziemy  z trasznymi przykładami}
+$\begin{vmatrix}
+	1 & 2 & 3 & 4\\
+	5 & 6 & 7 & 8\\
+	9 & 10 & 11 & 12\\
+	13 & 14 & 15 & 16\\
+\end{vmatrix}$ odejmujemy pierwszy wiesz od drugiego i trzeci od czawrtego, po czym dostajmy wa wiesze 
+\subsection{Twierdzenie Coucheg'ego}
+$$ \forall\ A,B \in M_{n\times n} = \det(A \cdot B) = \det{(A)} \cdot \det{(B)} $$
+
+\end{document}

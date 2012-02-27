@@ -1,0 +1,17 @@
+#include <avr/io.h>
+inline void 
+funkcja()
+{
+  PORTA |= 0x01;
+  ;
+  ;
+  PORTA &= 0x00;
+  ;
+  ;
+}
+
+int main()
+{
+  funckja();
+  return 0;
+}

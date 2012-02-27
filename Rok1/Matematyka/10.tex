@@ -1,0 +1,62 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{polski}  
+\usepackage{indentfirst} 
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{placeins}
+
+\author{Łukasz Dubiel}
+\title{Matematyka Ćwiczenia - zestaw 9\#1}
+
+\begin{document}
+
+\maketitle
+
+\section{Dygresja}
+$$ \int_0^2 \frac{dx}{x^2} = \frac{-1}{x} |_0^2 $$
+I nie w ten sposób
+$$ \lim_{a \to 0^+}{\int_a^2 \frac{1}{x^2}dx} = \lim_{a \to 0^+}{\frac{1}{x}|_a^2 = \infty} $$
+Bo widać z prostego podstawienia
+\section{Zadanie 1 - przykład 1}
+$$ \int_1^3 \frac{dx}{\sqrt{(x-1)(3-x)}} = \lim_{\epsilon \to 0} \int_{1+\epsilon}^{3-\epsilon} \frac{dx}{\sqrt{-x^2 + 4x -3 }} = \lim_{\epsilon \to 0} \int_{1+\epsilon}^{3-\epsilon} \frac{dx}{\sqrt{-x^2 + 4x - 4 + 1 }} $$
+$$ \lim_{\epsilon \to 0} \int_{1+\epsilon}^{3-\epsilon} \frac{dx}{\sqrt{1 - (x-2)^2}}  $$
+Dygresja
+Teraz policzmy sobie całkę nieoznaczoną po użyciu postawienia $ t = x -2 $
+$$ \int \frac{dx}{\sqrt{1-t^2}} = \arcsin{t} = \arcsin{x-2} + C $$
+Powrót
+$$ \lim_{\epsilon \to 0} \int_{1+\epsilon}^{3-\epsilon} \frac{dx}{\sqrt{1 - (x-2)^2}}  = \lim_{\epsilon \to 0}{\arcsin{x-2}|_{1+\epsilon}^{3-\epsilon} } = \lim_{\epsilon \to 0}{\arcsin{1-\epsilon} - \arcsin{-1+\epsilon}}$$
+
+\section{Zadanie 1 - przykład 3}
+$$ \int_1^{\infty} \frac{dx}{\sqrt{x}} = \lim_{a \to \infty}{ \int_1^a \frac{dx}{\sqrt{x}} }$$
+
+Używamy podstawienia $ x = t^2, \quad dx = 2tdt $
+$$2 \int dt = 2t = 2\sqrt{x} $$
+Wracając
+$$ \lim_{a \to \infty}{ \frac{dx}{\sqrt{x} |_1^a}} = 
+\lim_{a \to \infty}{ 2\sqrt{a} - 2 = \infty}$$
+
+\section{Zadanie 1 - przykład 4}
+$$ \int_{-\infty}^{-1} \frac{dx}{x\sqrt{x^2-1}} $$
+Na obu granicach całkowania mamy problem. Dlatego trzeba to rozbić na fragmenty.
+$$ \int_{-\infty}^{c} \frac{dx}{x\sqrt{x^2-1}} + \int_{c}^{-1} \frac{dx}{x\sqrt{x^2-1}} = \lim_{a \to -\infty}{\int_{a}^{c} \frac{dx}{x\sqrt{x^2-1}}} + \lim_{b \to -1^-}{\int_{c}^{b} \frac{dx}{x\sqrt{x^2-1}}}$$
+Teraz liczymy sobie całkę nieoznaczoną
+$$ \int \frac{dx}{x\sqrt{x^2-1}} $$
+Wykorzystujemy I postawienie Euluera. 
+$$ \sqrt{x^2-1} = t - x$$
+$$ x^2 -1 = t^2 - 2x + x^2$$
+$$ x = \frac{t^2-1}{2}$$
+$$ dx = \frac{t^2-1}{2t^2} $$
+$$ \sqrt{x^2-1} = t - \frac{t^2-1}{2} = \frac{-t^2 +2t -1}{2} $$
+$$ \int \frac{dx}{x\sqrt{x^2-1}} = \int \frac{\frac{t^2-1}{t^2}dt}{\frac{t^2+1}{2t} \cdot \frac{t^2+1}{2t} } = 2 \int \frac{dt}{t^2+1} = \arctan{t} + c = \arctan{\sqrt{x^2-1}+x} $$
+I teraz rozwiązujemy po części.
+
+
+
+
+\end{document}

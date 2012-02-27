@@ -1,0 +1,70 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{polski}  
+\usepackage{indentfirst} 
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{placeins}
+
+
+\author{Łukasz Dubiel}
+\title{LIRK \\ Lisp AVR with assembly Kernel}
+
+\begin{document}
+
+\maketitle
+
+\section{Wprowadzenie}
+
+Na platformie AVR istnieje już kilka języków mających ugruntowaną pozycję oraz zestaw narzędzi. Kilka głównych z nich to C, Basecom czy Pascal. Większość z nich to języki niezależne od platformy. Jednak mając takie zabawki jakimi są mikrokontrolery z rodziny AVR operacje języki które operują na pełnych słowach czy wielokrotnościach stają się częściowo niewygodne. Dlatego postanowiłem spróbować innego podejścia do problemu.
+
+\subsection{Lisp}
+
+W roku 1958 John McCarty na MIT stworzył język programowania który został nazwany Lispem. Był to drugi, zaraz po FORTRANie język wysokiego poziomu. Przez ten czas Lisp ewoluował jak również pojawiały się różne dialekty ( oczywiście nie kompatybilne z sobą) aż stworzyły całą rodzinę języków. Obecnie gdy używa się słowa Lisp to mówi się o całej rodzinie języków lub o Common Lispie, dialekcie ustandaryzowanym przez ANSI w 1994 z późniejszymi modyfikacjami.
+
+\subsection{Motywacje}
+
+Z racji mojego dużego zainteresowania językami z rodziny Lispów oraz problemów jakie napotyka C w momencie kiedy trzeba operować na pojedynczych bitach a nie słowach zdecydowałem się na stworzenie "dialektu" Lispa na rodzinę AVR. 
+
+Początkowo miało to być ćwiczenie w celu lepszego poznania Common Lispa, lecz potem zdecydowałem się, że to właśnie jego będę wykorzystywał w moich hobbystycznych projektach.
+
+\section{Zamierzenia i cele}
+Lirk nie ma (na razie) ambicji stania się nowym językiem programowania. Ma jedynie udostępniać funkcje które zminimalizuje ilość "nie potrzebnego" kodu w konstrukcjach stricte assemblerowych. W dalszej części referatu przedstawię cele.
+
+\subsection{Definicje oraz wołanie procedur}
+
+Jednym z pierwszych problemów jakie nękały programistów była duplikacja kodu. Były badania wskazujące na to, że  średnia ilość błędów na jednostkę kodu (KLOC czyli tysiąc linii) jest stała i zależy do wielkości projektu [Potrzebne źródło]. Z racji tego, że assembler jest najmniej ekspresywnym językiem (ilość kodu potrzebna do wykonania zamierzonej akcji jest dość pokaźna) jest podatny na duplikacje. 
+
+Na tak małej platformnie jaką jest AVR bardzo dobrze sprawuje się programowanie proceduralne. Na podobnych platformach działało C 30 lat temu. Lekko problematyczne w C jest to iż, każda procedura działa na zasadzie skoku i powrotu ( standard C99 zaczerpnął z C++ słowo kluczowe inline, jednak sprawia on, że funkcja nie zawsze jest rozwijana w miejscu). 
+
+Lirk z zamierzeniu ma oferować dla programisty obie te metody. Procedura może być wywołana przez skok z odłożeniem adresu powrotu na stos, jak i być rozwinięta w miejscu.
+
+funkcję można wywołać bezpośrednio w celu rozwinięciu jej w miejscu.
+
+[listing z rozwinięcie w miejscu]
+
+albo wywołać jak wykonując skok
+
+[listing z wykonaniem w programie]
+
+Oczywiście w tym przypadku kompilator automatycznie zarządza etykietami oraz dodanie odpowiedni fragment kodu z odpowiednimi instrukcjami.
+
+Dodatkowo powinien w planach jest dodanie funkcji, że raz wołana funkcja jest rozwijana w miejscu, bez dodania niepotrzebnych instrukcji i etykiet. 
+
+Oferuje to większą granulację kodu, oraz ułatwia testowanie jednostkowe. Nawet można się pokusić o użucie TDD [potrzebne zródło] jednak wymaga to napisanie odpowiednich narzędzi, które nie byłyby aż tak problematyczne.
+
+\subsection{Tworzenie rozgałęzień sterowania}
+Asembler oferuje kilkanaście instrukcji warunkowych. Są one w postaci predykatów. Język predykatowy jest naturalnym sposobem tworzenia warunków w językach funkcyjnych. 
+
+[listing lispa ,C oraz assembly]
+
+Utrzymywanie bardzo rozgałaziąnego kodu w assemblu wymaga bardzo dużego skupienia oraz bardzo rozległego "mental" modelu w głowie programistu. W przypadku asm'a dużo więcej jest w głowie programisty niż jest napisane.
+Lirk ma na celu lekkie odzielenie oraz osłabienie wymagań składniowych oraz większe zgrupowania akcji powiązanych z sobą. 
+
+
+\end{document}

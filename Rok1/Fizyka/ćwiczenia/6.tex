@@ -1,0 +1,111 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{polski}  
+\usepackage{indentfirst} 
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{placeins}
+
+\author{Łukasz Dubiel}
+\title{Fizyka ćwiczenia - moment bezwładności}
+\begin{document}
+\maketitle
+
+\section{Zadanie 1 - rozwiązanie dynamiczne}
+Oznaczenia\\
+$m_1$ - masa pierwszeg \\
+$m_2$ - masa drugiego \\
+$Q_1$ - ciężar pierwszego \\
+$Q_2$ - ciężar drugiego \\
+$N_1$ - siła reakcji liny\\
+$N_2$ - siła reakcji liny\\
+$N_{1s}$ - siła reakcji styczna \\
+$N_{2s}$ - siła reakcji styczna \\
+$m_1$ = 1kg\\
+$m_2$ = 0.8kg\\
+$m$ = 0.2kg''
+
+$$ F_{w1} = Q_1 - N_1$$
+$$ F_{w2} = N_2 - Q_2$$
+$$\begin{cases}m_1a = Q_1 - N_1\\
+m_2a = N_1 - Q_1\end{cases}$$
+Teraz uwzględniamy obrót koła
+$$\epsilon = \frac{a}{R}$$
+jak również
+$$\epsilon = \frac{M}{I}$$
+Uwzględniając fakt
+$$ M = r(N_1 - N_2) $$
+Łącząc trzy poprzednie równania
+$$ \frac{r(N_1 - N_2)}{\frac{1}{2}mr^2} = \frac{a}{r}$$
+Upraszczając dostajemy
+$$ N_1 - N_2 = \frac{1}{2}Ma $$
+Łącząc te trzy równiania dostajemy układ
+$$\begin{cases}m_1a = Q_1 - N_1 \label{jeden}\\
+m_2a = N_1 - Q_1 \label{dwa}\\
+N_1 - N_2 = \frac{1}{2}Ma \label{trzy}\end{cases}$$
+Rozwiązać układ równań
+
+\section{Zadanie 1 - rozwiązanie przy pomocy ZZE}
+Gdy układ się przesunieto
+$$ E_p = M_1gh - M_2gh = \frac{M_1v^2}{2} +\frac{M_2v^2}{2} + \frac{I\omega^2}{2}$$
+Uwzględniając że 
+$$ \omega = \frac{v}{r}$$
+dostajemy
+$$ gh(M_1 - M_2) = \frac{M_1v^2}{2} +\frac{M_2v^2}{2} + \frac{Iv^2}{2r^2}$$
+$$ gh(M_2 - M_2) = \frac{M_1v^2}{2} +\frac{M_2v^2}{2} + \frac{\frac{1}{2}mr^2v^2}{2r^2}$$
+$$ gh(M_2 - M_2) = \frac{M_1v^2}{2} +\frac{M_2v^2}{2} + \frac{mv^2}{4}$$
+$$ gh(M_2 - M_2) = \frac{v^2}{2}\left(M_1 + M_2 + \frac{m}{2}\right)$$
+Uwzględniając 
+$$ v = at $$
+$$ h = \frac{at^2}{2} $$
+$$ \frac{at^2}{2}g(M_1 - M_2) = \frac{1}{2}a^2 t^2 \left( M_1 + M_2 + \frac{m}{2}\right)$$
+Wyznając a z tego wzoru
+$$ a = \frac{g(M_1 - M_2)}{M_1 + M_2 + m} $$
+i po postawieniu dostajemy
+$$ a = 0,105g $$
+
+\newpage
+\section{Zadanie 3}
+$$ \vec{\tau} = -D\vec{\varphi} \label{sila}$$
+oraz
+$$  \vec{\epsilon} = \frac{\tau}{I} \label{przyspieszenie}$$
+$$ \vec{\epsilon} = \frac{d^2\varphi}{dt^2} \label{pochodna}$$
+I teraz podstawiając \eqref{pochodna} do \eqref{przyspieszenie} oraz \eqref{sila} do \eqref{przyspieszenie} dostajemy
+$$ \frac{d^2\varphi}{dt^2} + \frac{D\vec{\varphi}}{I} = 0$$
+Rozwiązując to zwyczajne równanie różniczkowe
+$$ \varphi = A\cos{k t} $$
+$$ \frac{d^2(A\cos{k t})}{dt^2} + \frac{DA\cos{k t}}{I} = 0$$
+$$ -Ak^2\cos{kt} + \frac{DA\cos{kt}}{I} = 0 $$
+Dzielimy przez $A\cos{kt}$ dostajemy
+$$ -k^2 + \frac{D}{I} = 0$$
+$$ k = \pm\sqrt{\frac{D}{I}} $$
+Podstawiając 
+$$ \varphi = \varphi_0 \cos{\sqrt{\frac{D}{I}} t} $$
+Czyli nasz okres wynosi
+$$ T =\frac{2\pi}{\sqrt{\frac{D}{I}}} $$
+$$ T = 2\pi\sqrt{\frac{I}{D}} $$
+$D$ jest to moment siły , gdyż $\phi$ jest bezwymiarowe
+Czyli $D ~ r$, gdzie r jest miejscem przyczepu sprężyny
+
+\newpage
+\section{Zadanie 4}
+Praca to
+$$ W = \int F \circ dx $$
+$$ W = \int_0^X -kx \cos{0} dx $$
+$$ W = - k \frac{x^2}{2}|_0^X = -k\frac{X^2}{2} $$
+$$ x(t) = x_0\cos{\sqrt{\frac{k}{m}} t} $$
+$$ E_p(t) = -k\frac{x_0 \cos{\sqrt{\frac{m}{k}}t}}{2} $$
+
+Teraz energię kinetyczną
+$$ E_k = m\frac{v^2}{2} $$
+
+Pokazać że E
+
+Zadanie - energia potencjalna na x
+
+\end{document}

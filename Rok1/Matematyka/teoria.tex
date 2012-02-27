@@ -1,0 +1,356 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{polski}  
+\usepackage{indentfirst} 
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{placeins}
+
+\author{Łukasz Dubiel \\ Maciej Urban}
+\title{Matematyka\\teoria}
+\date{31 stycznia 2012}
+
+\begin{document}
+\maketitle
+\section{Twierdzenie o istnieniu odwzorowania odwrotnego}
+Jeśli $f : X \to Y$ jest bijekcją to istnieje odwzorowanie $g = f^{-1} : Y \to X$. Które definiujemy następująco -- jest to odwzorowania spełniające dwa warunki 
+\begin{enumerate}
+\item{$$\forall x \in X \quad (f^{-1} \circ f)(x) = x$$}
+\item{$$\forall y \in Y \quad (f \circ f^{-1})(y) = y$$}
+\end{enumerate}
+\section{Twierdznia o stupniu wielomianu}
+\subsection{O równości wielomianów}
+Niech $W(x) = \sum_{i = 0}^n a_i x^i$, $Q(x) = \sum_{i = 0}^m b_ix^i\quad  \forall i a_i \in \mathbb{R} \quad \forall_j b_j \in \mathbb{R}$ wtedy
+$$ W(x) = Q(x) \iff \deg{W(x)} = \deg{W(x)} \wedge a_i = b_i \quad \forall i \in {1..n}$$ 
+\subsection{O dzieleniu wielomianów}
+Niech, $W(x),Q(x)$ - wielomiany
+
+Jeśli $\deg{W} \geq \deg{Q}$ to istnieją wielomiany $P(x)$ i $R(x)$ takie, że $\deg{R} < \deg{Q}$ oraz 
+$$ W(x) = P(x)Q(x) + R(x)$$ lub równoważnie
+$$ \frac{W(x)}{Q(x)} = P(x) + \frac{R(x)}{Q(x)}$$
+
+\section{Twierdzenie Bezouta}
+Niech $W(x)$ oraz $\deg{W} \geq 1$. Liczba $a \in \mathbb{R}$ jest pierwiastkiem wielomianu $W$ czyli $W(a) = $ wtedy i tylko wtedy, gdy istnieje wielomian $P(x)$ taki, że $$ W(x) = (x-a)P(x)$$
+
+\section{Twierdzenie o pierwiastkach wymiernych}
+Niech $W(x) = \sum_{i = 0}^n a_i x^i$ oraz $\forall i \quad a_i \in \mathbb{Z}, q_n \not = 0 , \quad x \in \mathbb{R} $
+
+Jeżeli liczba $a \in \mathbb{R}$ jest pierwiastkiem wielomianu $W(x)$ to 
+$$ a = \frac{p}{q} , \quad p | a_0 \quad q | a_n$$
+
+\section{Definicja granicy funkcji wg Cauch'ego}
+Ciąg $(a_n) \quad n \in \mathbb{N}$ ma granicę $ g \in \mathbb{R}$ co zapisujemy
+$$ \lim_{n \to \infty} a_n = g$$ wtedy i tylko wtedy, gdy
+$$ \forall \epsilon > 0\ \exists n_0 \in \mathbb{N}\ \forall n \geq n_0 \quad | a_n - g| < \epsilon $$
+
+\subsection{Warunek konieczny zbieżności ciągu}
+Jeśli ciąg jest zbieżny to jest ograniczony.
+\subsection{Warunek wystarczający zbieżności ciągu}
+Jeśli ciąg jest ograniczony i monotoniczny to jest zbieżny.
+
+\subsection{Twierdzenie o trzech ciągach}
+Jeśli $(a_n),(b_n),(c_n)$ ciągi liczbowe, takie, że $$ \exists n_0 \in \mathbb{N}\ \forall n \geq n_0 \quad a_n \leq < b_n \leq c_n$$
+oraz $$ \lim_{n \to \infty}{a_n} = \lim_{n \to \infty}{c_n} = \gamma \in \mathbb{R} \cup \{ \pm \infty \}$$ to $$ \lim_{n \to \infty}{{c_n} = \gamma}$$
+
+\section{Kryterium de'Alemberta}
+Jeśli $$ \lim_{n \to \infty}{\left|\frac{a_{n+1}}{a_n}\right|} < 1$$ to $$ \lim_{n \to \infty}{a_n} = 0 $$
+
+\section{Restrykcja}
+Restrykcją funkcji nazywamy funkcję o dziedzinie zawężonej do zadanego przedziału. Co oznaczamy $$ f | X$$
+czyli dziedzina funkcji $f$ została zawężona do zbioru $X$.
+
+\section{Otoczenie punktu}
+Otoczeniem punktu $x_0 \in \mathbb{R}$ o promieniu $ r >0$ nazywamu zbiór $$u(x_0,r) = \{x \in \mathbb{R} :  |x - x_0| < r\} = (x_0 - r, x_0 + r)$$
+\section{Sąsiedztwo}
+Sąsiedztwem punktu $x_0 \in \mathbb{R}$ o promieniu $ r > 0$ nazywamy zbiór
+$$ s(x_0,r) = \{ x \in \mathbb{R} :  0 < | x - x_0 | < r \} = u(x_0,r) \backslash \{x_0\}$$
+
+Sąsiedztwem $+\infty$ nazywamy każdy przedział, w postaci $(c,\infty) \quad c \in \mathbb{R}$
+
+Sąsiedztwem $-\infty$ nazywamy każdy przedział, w postaci $(-\infty,c) \quad c \in \mathbb{R}$
+
+\section{Punkt skupienia}
+Punkt $x_0 \in \mathbb{R}$ nazywamy punktem skupienia zbioru $X \subset \mathbb{R}$ wtedy i tylko wtedy, gdy 
+$$ \forall r > 0\ \exists x \in X : x \in s(x_0,r)$$
+
+Nieskończoność jest punktem skupienia zbioru $X \subset \mathbb{R}$ wtedy i tylko wtedy, gdy $$ \forall c \in \mathbb{R} \ \exists x \in X\ : x \in (c,\infty)$$
+
+Minus nieskończoność jest punktem skupienia zbioru $X \subset \mathbb{R}$ wtedy i tylko wtedy, gdy $$ \forall c \in \mathbb{R} \ \exists x \in X\ : x \in (-\infty,c)$$
+
+\section{Twierdzenie o punkcie skupienia}
+Punkt $x_0 \in \mathbb{R} \cup \{ \pm \infty \}$ jest punktem skupienia zbioru $X \subset \mathbb{R}$ wtedy i tylko wtedy, gdy $$ \exists (x_n)_{n \in \mathbb{N}^+} \subset X \backslash\{x_0\} \quad x_n \xrightarrow{n \to \infty}x_0$$
+Gdzie $(x_n)_{n \in \mathbb{N}^+}$ jest ciągiem o wyrazach zawierających się w zbiorze $X$ bez $x_0$
+
+\section{Punkt izolowany}
+Punkt $ x_0 \in \mathbb{R}$ jest punktem izolowanym zbioru $ X \subset \mathbb{R}$, wtedy i tylko wtedy, $x_0 \in X$ oraz $x_0$ nie jest punktem skupienia $X$
+
+\section{Definicja granicy funkcji (Heinego)}
+Niech $x_0 \in \mathbb{R} \cup \{ \pm \infty \}$, $x_0$ - punkt skupienia $\mathbb{D}_f$, $\gamma \in \mathbb{R} \cup \{ \pm \infty \}$.
+
+$\gamma$ jest granicą funkcji $f$ w punkcie $x_0$, jeżeli dla dowolnego ciągu argumentów o wyrazach z $ \mathbb{D} \backslash x_0$ zbieżnego do $x_0$ dopowiadający mu ciąg wartości zmierza do $\gamma$
+$$ \forall\ (x_n) \subset \mathbb{D}_f \backslash \{x_0\} \quad x_n \xrightarrow{x \to \infty} x_0 \implies f(x_n) \xrightarrow{x \to \infty} \gamma$$
+\subsection{Uwaga}
+Jeśli $\gamma \in \mathbb{R}$ to granicę nazywamy właściwą, a jeśli $\gamma \in \{ \pm \infty \}$ to granicę nazywamy niewłaściwą. 
+
+\section{Granice jednostronne}
+Niech $f$-funkcja rzeczywista.
+\subsection{Granica lewostronna}
+Niech $x_0$ - punkt skupienia zbioru $\mathbb{D}_{x_0^-}  \cup \{ \pm \infty \}$ i $\mathbb{D}_f$
+
+Jeżeli funkcja $f|\mathbb{D}_{x_0^-}$ ma w $x_0$ granicę $\gamma \in \mathbb{R} \cup \{ \pm \infty \}$ to tę granicę nazywamy, granicą lewostronną funkcji $f$ w $x_0$ oznaczamy $$ \lim_{x \to x_0^-}{f(x)}$$ czyli $$\lim_{x \to x_0^-}{f(x)} = \gamma \iff \forall (x_n) \subset \mathbb{D}_{x_0^-}\ x_n \xrightarrow{n \to \infty} x_0 \implies f(x_n) \xrightarrow{x \to \infty} \gamma$$
+\subsection{Granica prawostronna}
+niech $x_0$ - punkt skupienia zbioru $\mathbb{D}_{x_0^+}  \cup \{ \pm \infty \}$ i $\mathbb{D}_f$
+
+Jeżeli funkcja $f|\mathbb{D}_{x_0^+}$ ma w $x_0$ granicę $\gamma \in \mathbb{R} \cup \{ \pm \infty \}$ to tę granicę nazywamy, granicą lewostronną funkcji $f$ w $x_0$ oznaczamy $$ \lim_{x \to x_0^+}{f(x)}$$ czyli $$\lim_{x \to x_0^+}{f(x)} = \gamma \iff \forall (x_n) \subset \mathbb{D}_{x_0^+}\ x_n \xrightarrow{n \to \infty} x_0 \implies f(x_n) \xrightarrow{x \to \infty} \gamma$$
+
+\section{Twierdzenie o granicy funkcji obustronnej}
+Niech $f$ i $x_0$ jak wyżej. 
+
+Jesli $x_0$ jest punktem skupienia $\mathbb{D}_{{x_0}_-}$ i $\mathbb{D}_{x_0^+}$
+to $$ \lim_{x \to x_0}{f(x)} = \gamma \iff \lim_{x \to x_0^-}{f(x)} = \lim_{x \to x_0^+}{f(x)} = \gamma \quad \gamma \in \mathbb{R} \cup \{\pm \infty\}$$
+
+\section{Definicja ciągłości}
+Funkcja rzeczywista $f$ jest ciągła w $x_0 \in \mathbb{D}_f$, albo $x_0$ jest punktem izolowanym, albo $x_0$ jest punktem skupienia dziedziny, $$ \lim_{x \to x_0}{f(x)} = f(x_0) $$
+
+\section{Twierdzenie o ciągłości}
+Jeżeli $f$ jest określona w pewnym otoczeniu $u(x_0,r), \ r >0$ to $$f \hbox{ ciągła w }x_0\iff \forall (x_n) \subset u(x_o,r)\quad x_n \xrightarrow{n \to \infty} x_0 \implies f(x_n) \xrightarrow{n \to \infty} f(x_0)$$
+lub alternatywnie
+$$f \hbox{ jest ciągła w }x_0 \iff \lim_{x \to x_0}{f(x)} = f(x_0) $$
+
+\section{Ciągłość w zbiorze}
+Funkcja jest ciągła w zbiorze $X \subset \mathbb{R}$ wtedy i tylko wtedy, gdy dla $$ \forall x_0 \in X {f \hbox{ jest ciągła w }x_0}$$ co zapisujemy
+$$ f \in \mathcal{C}(X) - \hbox{ciągła w zbiorze X}$$
+$$ f \in \mathcal{C}{x_0} - \hbox{ciągła w zbiorze }x_0$$
+
+\subsection{Uwaga}
+Mówimy, że funkcja jest ciągła wtedy i tylko wtedy, gdy jest ciągła w swojej dziedzinie.
+
+\section{Ciągłość jednostronna}
+\subsection{Lewostronna}
+Funkcja jest lewostronnie ciągła w $x_0 \in \mathbb{R}$ jeśli jest określona w pewnym lewostronnym otoczeniu punktu $x_0$ czyli w zbiorze $<x_0 - r,x_0>$ dla pewnego $r >0$ oraz ma granicę lewostronną w $x_0$ i $$\lim_{x \to x_0^-} f(x) = f(x_0)$$
+\subsection{Prawostronna}
+Funkcja jest prawostronnie ciągła w $x_0 \in \mathbb{R}$ jeśli jest określona w pewnym prawostronnym otoczeniu punktu $x_0$ czyli w zbiorze $<x_0,x_0 + r>$ dla pewnego $r >0$ oraz ma granicę prawostronną w $x_0$ i $$\lim_{x \to x_0^+} f(x) = f(x_0)$$
+\section{O ciągłości funkcji elementarnych}
+Wszystkie funkcje elementarne są ciągłe w swoich dziedzinach
+
+\section{Twierdzenie o wprowadzeniu granicy do argumentu funkcji ciągłych}
+Niech $x_0 \in \mathbb{R} \cup \{ \pm \infty \}$ i $\gamma \in \mathbb{R}$.
+ Jeśli granica $\lim_{x \to x_0}{f(x)} = \gamma$ oraz $h \in \mathcal{C}(\gamma)$ to $$ \lim_{x \to x_0}{h(f(x))} = h(\gamma)$$
+
+\subsection{Wniosek waży}
+$$ a^b = e^{b \ln{a}}$$
+
+\section{Weirstrassa}
+Funkcja ciągła na $<a,b> , a,b \in \mathbb{R} a < b$ osiąga swoje kresy, tzn. 
+$$ \exists X^* \in <a,b> : f(X^*) = \sup{f(<a,b>)}$$
+$$ \exists X_* \in <a,b> : f(X_*) = \sup{f(<a,b>)}$$
+\subsection{Uwaga}
+Nie da się osłabić, żadnego założenia.
+
+\section{Twierdzenie Darboux}
+Funkcja ciągła na przedziale $\mathcal{I} \subset \mathbb{R}$ ma własność Darboux tzn. przyjmuje wszystkie wartości pośrednie, czyli jeśli
+$f(x_1) = m_1 , f(x_2) = m_2 \wedge m_1 < m_2$ to $$ \forall y \in (m_1,m_2) \exists x \in \mathcal{I} : f(x) = y \quad x_1,x_2 \in \mathcal{I}$$ 
+
+\section{Pochodna funkcji w punkcji}
+Jeśli $f$ jest określona w pewnym otoczeniu punktu $x_0 \in \mathbb{R}$, to pochodną funkcji $f$ w punkcie $x_0$ nazywamy liczbę rzeczywistą równą $$
+\lim_{x \to x_0}{\frac{f(x) - f(x_0)}{x - x_0}} $$
+i jest to granica ilorazu różnicowego.
+Zapis $$ f'(x_0) =
+\lim_{x \to x_0}{\frac{f(x) - f(x_0)}{x - x_0}}  =
+\frac{df}{dx}|_{x-x_0} =
+\lim_{\Delta x \to 0}{\frac{f(x + \Delta x) - f(x)}{\Delta x}}$$
+\section{Różniczka}
+Niech $x_0 \in \mathbb{D}_f$ taki, że $\exists f'(x_0)$. Różniczką funkcji $f$ w punkcie $x_0$ nazywamy funkcję liniową $d_{x_0}f$ określoną następującą $$ d_{x_0} : \mathbb{R} \ni x \to f'(x_0)x \in \mathbb{R}$$
+\section{Różniczkowalność}
+Funkcję $f$ nazywamy różniczkowalną w punkcie $x_0 \in \mathbb{R}$, co zapisujemy $ f \in \mathcal{D}(x_0)$ wtedy i tylko wtedy,
+$$ \exists f'(x_0)$$ 
+\section{Różniczkowalność na zbiorze}
+Funckja $f$ jest różniczkowalna na zbiorze $X \subset \mathbb{D}_f$ co zapisujemy $$ f \in \mathcal{D}(X) \iff \forall x \in X \quad f \in \mathcal{D}(x)$$
+\section{Pochodne jednostronne}
+\subsection{Lewostronna}
+Jeśli $f$ jest określona w pewnym lewostronnym otoczeniu punktu $x_0 \in \mathbb{R}$ czyli w przedziale $(x_0 -r , x_o>,\quad r > 0$ to pochodną lewostronną funkcji $f$ w punkcie $x_0$ nazywamy granicę $$ \lim_{x \to x_0^-}{\frac{f(x) - f(x_0}{x - x_0}}$$ i oznaczamy $$ f'(x_0^-)$$
+\subsection{Prawostronna }
+Jeśli $f$ jest określona w pewnym prawostronnym otoczeniu punktu $x_0 \in \mathbb{R}$ czyli w przedziale $<x_0,x_0+r),\quad r > 0$ to pochodną prawostronną funkcji $f$ w punkcie $x_0$ nazywamy granicę $$ \lim_{x \to x_0^+}{\frac{f(x) - f(x_0}{x - x_0}}$$ i oznaczamy $$ f'(x_0^+)$$
+
+\section{O pochodnej obustronnej}
+Jeśli w $x_o \in \mathbb{R}$ istnieją $f'(x_0^+),f'(x_0^-)$ i są sobie równe to $f \in \mathcal{D}(x_0)$ oraz $$ f'(x_0) = f'(x_0^+) = f'(x_0^-) $$
+\section{Wzór Peano}
+Jeśli $f \in \mathcal{D}(x_0)$ to $f(x_0 + h) = f(x_0) + f'(x_0)h + r(h)$, gdzie $$ \lim_{h \to 0}{\frac{r(h)}{h}} = 0$$
+oraz $r(h)$ - to reszta Peano, oraz $f'(x_0)h$ - Różniczka
+
+\section{O ciągłości funkcji różniczkowalnej}
+$$ f \in \mathcal{D}(x_0) \implies f \in \mathcal{C} $$
+\subsection{Twierdzenie odwrotne nie jest prawdziwe}
+Przykładem może być $f(x) = |x|$ , gdzie $ f \in \mathcal{C}(\mathbb{R})$, ale $ f \in \mathcal{D}(\mathbb{R} \backslash \{ 0 \})$
+
+\section{Odwzorowanie pochodne}
+Odzwzorowaniem pochodnym (pochodną) funkcji $f : \mathbb{D}_f \to R, \mathbb{D}_f \subset \mathbb{R}$ nazywamy funkcję $f' : X \ni x \to f'(x) \in \mathbb{R}$, gdzie $ X \subset \mathbb{D}_f$ jest maksymalnym w sensie inkluzji zbiorem punktów, dla których istnieje pochodna, gdzie $f \in \mathcal{D}(x)$ (oznaczenie $ X = \mathbb{D}_{f'}$)
+
+\section{Reguła de'Hospitala}
+Jeśli dziedzina funkcji $\frac{f}{g}$ oraz $\frac{f'}{g'}$ zawierają pewne sąsiedztwo $ x_0 \in \mathbb{R} 
+\cup \{ \pm \infty \},=$, oraz $\lim_{x \to x_0}{f(x)} = \lim_{x \to x_0}{g(x)} \in \{ 0 ,\pm \infty \}$ oraz $$ \lim_{x \to x_0}{\frac{f'(x)}{g'(x)}} = \gamma $$ to $$\lim_{x \to x_0}{\frac{f(x)}{g(x)}} = \gamma $$
+
+\section{Asymptoty}
+\subsection{Lewostronna}
+Niech funkcja $f$ rzczywista,, że $\mathbb{D}$ zawiera pewne sąsiedztwo lewostronne $x_0 \to \mathbb{R}$
+
+Wtedy prostą $x = x_0$ nazywamy asymptotą pionową lewostronną wtedy i tylko wtedy, gdy
+$$|\lim_{x \to x_0^{-}}{f(x)}| = \infty$$
+\subsection{Prawostronna}
+Niech funkcja $f$ rzczywista,, że $\mathbb{D}$ zawiera pewne sąsiedztwo prawostronne $x_0 \to \mathbb{R}$
+
+Wtedy prostą $x = x_0$ nazywamy asymptotą pionową prawostronną wtedy i tylko wtedy, gdy
+$$|\lim_{x \to x_0^{+}}{f(x)}| = \infty$$
+\subsection{Obustronna}
+Jeśli w $x_0$ jest asymptota prawo i lewostronna.
+\subsection{Ukośna}
+Niech $f$ funkcja rzeczywista, taka że $(a,\infty) \subset \mathbb{D}_f$ dla pewnego $a \in \mathbb{R}$. Wtedy prosta o równaniu $y = mx + k$ jest asymptotą ukośną w $+\infty$ jeśli $$ \lim_{x \to \infty}{f(x) - mx -k} = 0$$
+\subsection{Twierdzenie o współczynnikach asymptoty}
+Jeśli prosta $y =mx +k$ jest asymptotą ukośną dla $f$ w $+\infty$ to $$ m = \lim_{x \to \infty}{\frac{f(x)}{x}}$$ natomiast $$ k = \lim_{x \to \infty}{f(x) - mx}$$
+
+\section{Najważniejsze twierdzenia rachunku różniczkowego}
+\subsection{Twierdzeine Rolle'a}
+Jeżeli $f \in \mathcal{C}(<a,b>),\ f \in \mathcal{d}((a,b)), f(a) = f(b)$ wtedy
+$$ \exists c\in (a,b): \quad f'(c) = 0$$
+\subsection{Twierdznie Lagranage}
+Jeżeli $f \in \mathcal{C}(<a,b>),\ f \in \mathcal{d}((a,b))$ wtedy
+$$ \exists c \in (a,b): \quad f(b) - f(a) = f'(c)(b -a)$$
+
+\section{Pochodna wyższych rzędów}
+Niech $f$ okreśona w pewnym otoczeniu punktu $x_0 \in \mathbb{R}$. N-tą pochodną z funkcji $f$ w punkcie $x_0$ nazywamy liczbę $$f^{(n)}(x_0) = (f^{(n-1)})'(x_0)$$ gdzie $f^{(0)}(x_0) = f(x_0)$
+
+\section{Odwzorowanie pochodne n-tego stopnia}
+Odwzorowanie $f^{(n)} : X \ni x \to f^{(n)}(x) \in \mathbb{R}$ nazywamy $n$-tą pochodną funkcji $f$ gdzie,
+$ X \subset \mathbb{D}_f$ jest maksymalnym w sensie inkluzji zbiorem punktów dziedziny $f$ dla których istnieje $n$-ta pochodna w punkcie.
+
+\section{Funkcje klasy $\mathcal{C}^n$}
+Funkcja jest klasy $\mathcal{C}^n$ na przedziale $(a,b)$ jeśli $f$ ma pochodne do rzędu $n$ włącznie, na $(a,b)$ oraz $n$-ta pochodna jest funkcją ciągłą na $(a,b)$. Zapis
+$$ f \in \mathcal{C}^n?((a,b))$$
+\section{Funkcje gładkie}
+Funkcje jest klasy $\mathcal{C}^\infty((a,b))$,co zapisujemy $$ f \in \mathcal{C}^\infty((a,b))$$ jeśli ma pochodne rzędu $n$ ciągłe na $(a,b) \forall n \in \mathbb{N}$
+
+\section{Wzór Taylora}
+\subsection{Reszta w postaci Peano}
+Niech $\mathcal{I} \subset \mathbb{R}$ przedział otwarty $x_0,x_0+h \in \mathcal{I}$ jeśli $f$ jest klasy $\mathcal{C}^\infty(\mathcal{I})$ to $$f(x_0 + h) = f(x_0) + \sum_{i = 1}^{n}{\frac{f^{(i)}}{i!} h^i} + R_n(h)$$ gdzie
+$$ \lim_{n \to \infty}{\frac{R_n(h)}{h^n}} = 0$$
+\subsection{Reszta w postaci Lagranga}
+Niech $\mathcal{I} \subset \mathbb{R}$ przedział otwarty $x_0,x_0+h \in \mathcal{I}$ jeśli $f$ jest klasy $\mathcal{C}^{n+1}(\mathcal{I})$ to
+$$f(x_0 + h) = f(x_0) + \sum_{i = 1}^{n}{\frac{f^{(i)}}{i!} h^i} + \frac{f^{(n+1)}(x_0 + \theta h)}{(n+1)!}h^{n+1} \quad \theta \in (0,1)$$
+
+\section{Ekstrema Lokalne}
+\subsection{Minimum}
+Niech $f$ funkcja rzeczystista, taka, że $U(x_0,r) \subset \mathbb{D}_f$ dla pewnego $r >0$ mówimy, że $f$ ma w $x_0$ minimum lokalne (silne), wtedy i tylko wtedy, $$ \exists 0 < r_1 < r$$ takie że 
+$$ \forall x \in S(x_0,r_1)  f(x) \geq f(x_0) (f(x) > f(x_0))$$
+\subsection{Maksimum}
+Mówimy, że $f$ ma w $x_0$ maksimum lokalne (silne) wtedy, i tylko wtedy, gdy $$ \exists 0 < r_1 < r$$ takie, że , $$ \forall x \in \S(x_0,r_1) f(x) \leq f(x_0) (f(x) < f(x_0)) $$
+
+\subsection{Warunek konieczny istnienia ekstremum, tw Fermata}
+Niech $f \in \mathcal{D}(x_0)$ 
+
+Jesli $f$ ma ekstremum lokalne w $x_0$ to $$ f'(x_0) = 0$$
+
+\subsection{Warunek wystarczający istnienia ekstremum}
+Niech $f$ funkcja rzeczywista taka, że $ u(x_0,r) \subset \mathbb{D}_f$. Dla pewnego $r > 0, x_0 \in \mathbb{R}$ oraz $ f \in \mathcal{C}(x_0)$ a także $f \in \mathcal{D}(s(x_0,r_1))$ dla $0 < r_1 < r$i
+
+W zależności od kolejności znaków to jest odpowiednie ekstremum. 
+
+\subsection{Drugi warunek istnienia ekremum lokalnego}
+\subsubsection{Wersja ogólna}
+Niech $ f \in \mathcal{C}^{n+1}(\mathcal{I}, \mathcal{I} \subset \mathbb{R}$ - przedział otwarty, $x_0 \in \mathcal{I}, \quad 2 \nmid n $ 
+$$ f^{(k)}(x_0) = 0 \quad \forall k \in \{1..n\}$$
+\begin{enumerate}
+\item{Jeśli $f^{(n+1)}(x_0) > 0$ to $f$ ma minimum lokalne w $x_0$}
+\item{Jeśli $f^{(n+1)}(x_0) < 0$ to $f$ ma maksimum lokalne w $x_0$}
+\end{enumerate}
+\section{Wypukłość zbioru}
+Zbiór $A \subset \mathbb{R}^2$ nazywamy wypukłym wtedy i tylko wtedy, gdy $$ \forall\ x_1,x_2 \in A \quad \overline{x_1x_2} \subset A$$
+\section{Wypukłość funkcji}
+Funkcja $f \in \mathcal{C}$ jest wypukła w $ X \subset \mathbb{D}_f$ wtedy i tylko wtedy, gdy jej nadwykres jest wzbiorek wypukłym $$ N_f := \{ (x,y) \in \mathbb{R}^2, y \geq f(x), x \in X\}$$
+\section{Wkęsłość}
+Wtedy i tylko wtedy, gdy $-f$ jest wypukła w w $X$.
+\section{Warunki wypukłości i wklęsłości}
+\begin{enumerate}
+\item{$f''(x) > 0\quad \forall x \in \mathcal{I} \implies$ f jest wypukła $\mathcal{I}$}
+\item{$f''(x) < 0\quad \forall x \in \mathcal{I} \implies$ f jest wklęsła $\mathcal{I}$}
+ \end{enumerate}
+ 
+ \section{Punkt przegięcia}
+ Punkt $x_0 \in \mathbb{D}_f$ nazywamy punktem przegięcia, jeśli $f$ zmienia się w tym punkcie z wypukłej na wklęsłej lub na odwrót. 
+ \subsection{Warunek konieczny istnienia punktu przegięcia}
+Niech $f$ - funkcja określona w pewnym otoczeniu punktu $x_0 \in \mathbb{R}$, taka że $f \in \mathcal{C}^2(U)$.
+$$ x_0 \hbox{ jest punktem przegięcia} \implies f''(x)=0$$
+\subsection{Warunek wystarczający istnienia punktu przegięcia}
+Niech $f$ funkcja oreślona w pewnym otoczeniu $U$ w punktu $x_0$ , $ f \in \mathcal{C}(U) $ oraz $f \in \mathcal{C}^2(S)$, gdzie $S$ sąsiedztwo $x_0,  \quad S \subset U$, 
+
+Jeśli $f''(x)$ zmienia znak w $x_0$ to $f$ ma w $x_0$ punkt przegięcia.
+\section{Badanie zmienności funkcji}
+\begin{enumerate}
+\item{Wyuznaczenie dziedzniny, sprawdzenie postawowych własności}
+\item{Wyznaczenie granic na krańcach dziedziny, oraz wyznaczenie asymptot}
+\item{Wyznaczenie pierwszej pochdonej i sformułowanie warunków}
+\item{Wyznaczenie drugiej pochodnej i sformułowanie warunków}
+\item{Szkic wykresu}
+\end{enumerate}
+
+\section{Pierwotna}
+Funkcja $F$ jest pierwotną funkcji $f$ na przedziale $\mathcal{I} \subset \mathbb{R}$ - otwarty, wtedy i tylko wtedy $$ F'(x) = f(x) \quad \forall\ x \in \mathcal{I}$$
+\section{Definicja całki nieoznaczonej}
+Zbiór wszystkich funkcji pierwotnych funkcji $f$ ustalonym przedziale nazywamy całką nieoznaczoną funkcji $f$ i oznaczamy $$ \int f(x)dx$$
+
+\section{Twierdzenie o liniowości całki}
+$$ \int ( \alpha f(x)) dx = \alpha \int f(x) dx $$
+$$ \int ( f(x) + g(x)) dx = \int f(x) + \int g(x) $$
+
+\section{Całkowanie przez części}
+Jeśli funkcja $ u,v \in \mathcal{C}^1(\mathcal{I}), \mathcal{I} \subset \mathbb{R}$ - przedział otwarty, to $$ \int u(x)v'(x)dx = u(x)v(x) - \int u'(x)v(x)dx $$
+
+\section{Całkowanie przez postawianie}
+Niech $\mathcal{I,J} \subset \mathbb{R}$ przedziały otwarte, takie że, $\varphi : \mathcal{J} \to \mathcal{I} $ jest bijekcją.
+
+Jeśli $\varphi \in \mathcal{C}^1(\mathcal{J})$ to 
+$$ \int f(\varphi(x))\varphi'(x)dx = \int f(t)dt $$
+t - to $\varphi(x)$
+
+\section{Całka oznaczona Riemmana}
+\subsection{Kontrukcja}
+Rozważmy podziałm $P_n$ przedziału $<a,b>$ na $n$ cześci, punktami $a < x_1 < x_2 < \ldots <x_n < b$
+$ \Delta x_1 := x_i - x_{i-1}$ - czyli długość tego przedziały. 
+$$ \hbox{diam }{P_n} = \max \{ \Delta x_i : i = 1,\ldots,n \} $$ gdzie diam to średnia podziału.
+
+W $i$-tym przedzie wybieramy punkt pośredni $ \xi_i $
+
+Definiujemy sumę całkową Riemmana. $$ \sigma = \sum_{i= 1}^n{f(\xi_i)\Delta x_i}$$
+
+\subsection{Normalny ciąg podziałów}
+Ciąg podziałów $(P_n)_n\ n \in \mathbb{N}^+$ przedziału $<a,b>$ nazywamy normalnym wtedy i tylko wtedy,gdy $$ \lim_{n \to \infty}{\hbox{diam} P_n} = 0$$
+\subsection{Definicja całki oznaczonej Riemman'a}
+Jeśli dla ciągu podziałów $(P_n)_{n \in \mathbb{N}^+}$ przedziału $<a,b>$ ciąg sum całkowych $ (\sigma)_{n \in \mathbb{N}^+}$ ma granicę właściwą niezależną od ciągu podziałów i wyboru punków pośrednich $\xi_i$, to granicę nazywamy całką oznaczonym (Riemmana) funkcji $f$ na przedziale $<a,b>$ i oznaczamy 
+$$ \int_a^b f(x)dx $$
+
+\subsection{Funkcje całkowalne}
+Jeśli funkcja $f : <a,b> \to \mathbb{R}$ jest całkowalna (w sensie Reimana) wtedy, gdy istnieje całka
+$$ \int_a^b f(x)dx $$
+Co zapisujemy 
+$$f \in \mathcal{R}(<a,b>)$$ 
+
+\section{Warunek konieczny całkowalności}
+Jeśli $f \in \mathcal{R}(<a,b>)$ to funkcja f -jest ograniczona na $<a,b>$ 
+\section{Warunek wystarczający całkowalności}
+Jeśli $f \in \mathcal{C}(<a,b>)$ to $f \in \mathcal{R}(<a,b>)$
+\section{Twierdzenie o równości całek}
+Jeśli $f \in \mathcal{R}(<a,b>)$ oraz $g$
+oreślona $<a,b>$ różniąca się od f tylko w skońconej liczbie punktów, $$ \int_a^b g(x)dx = \int_a^b f(x)dx $$
+
+\section{Twierdzenie}
+Jeśli $g,f \in \mathcal{R}(<a,b>)$ i $\alpha \in \mathbb{R}$ to
+\begin{enumerate}
+\item{$f + g \in \mathcal{R}(<a,b>)$ oraz $$ \int_a^b (f+g)(x)dx = \int_a^b f(x)dx + \int_a^b g(x)dx$$ Czyli jest addytywność}
+\item{$\alpha f \in \mathbb{R}$ oraz $$ \int (\alpha f)(x)dx = \alpha \int f(x)dx $$ jest to jednorodność.}
+\end{enumerate}
+
+\end{document}

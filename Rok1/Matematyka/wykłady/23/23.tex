@@ -1,0 +1,222 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{polski}  
+\usepackage{indentfirst} 
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{placeins}
+
+\author{Łukasz Dubiel}
+\title{Matematyka \\ Odwzorowania liniowe }
+
+\begin{document}
+
+\maketitle
+
+\section{Definicja}
+Odwzorowania $f: \mathbb{R}^n \to \mathbb{R}^m$ nazywamy liniowym wtedy i tylko wtedy, gdy \begin{enumerate}
+\item{$$\forall\ u,v \in \mathbb{R}^n \quad f(u + v) = f(u) + f(v)$$}
+\item{$$\forall u \in \mathbb{R}^n \forall \alpha \in \mathbb{R} \quad f(\alpha u) = \alpha f(u)$$}
+\end{enumerate}
+$\mathbb{R}^n$ nazywamy dziedziną $f$, $\mathbb{R}^m$ przeciwdziedziną funkcji $f$.
+\subsection{Wniosek}
+Odwzorowanie liniowe $f: \mathbb{R}^n \to \mathbb{R}^m$ ma następujące własności
+\begin{enumerate}
+\item{$$f(\overline{0_{\mathbb{R}^n}}) = \overline{0}_{\mathbb{R}^m}$$}
+\item{$$\forall u \in \mathbb{R}^n \quad f(-u) = -f(u)$$}
+\end{enumerate}
+\subsection{Dowód}
+\begin{enumerate}
+\item{$$ f(\overline{0}_{\mathbb{R}^n}) = f( 0 \cdot u ) = 0 f(u) = \overline{0}_{\mathbb{R}^m}$$}
+\item{$$f(-u) + f(u) = f( -u + u ) = f(\overline{0}_{\mathbb{R}^n}) = \overline{0}_{\mathbb{R}^m}$$}
+\end{enumerate}
+
+\subsection{Przykład, funkcja liniowa z szkoły}
+$$f : \mathbb{R} \to \mathbb{R} $$
+$$ f(x) = ax + b$$
+$$ f(0) = a \cdot 0 + b = b $$
+jeśli f, odwzorowanie liniowe to $b = 0$
+$$ f(x) = ax$$
+\begin{enumerate}
+\item{$$f(x_1 + x_2) = a(x_1 + x_2) = ax_1 + ax_2 = f(x_1) + f(x_2)$$}
+\item{$$f(\alpha x) = a \alpha x = \alpha a x = \alpha f(x)$$}
+\end{enumerate}
+\subsection{Przykłady}
+\begin{enumerate}
+\item{obrót płaszczyzny wokół punkut $(0,0)$ jest odwzorowaniem liniowym $$ \mathbb{R}^2 \to \mathbb{R}^2 $$}
+\item{symetrie płaszczyzny względem prostych przechodzących przez $(0,0)$ są liniowymi przekształceniami $$ \mathbb{R}^2 \to \mathbb{R}^2 $$}
+\end{enumerate}
+
+\subsection{Przykład}
+$$f:  \mathbb{R}^3 \ni (x,y,z) \to (2x + y - z, x - 3z) \in \mathbb{R}^2$$
+
+\begin{enumerate}
+\item{$$ u = (x_1,y_1,z_1), v = ( x_2,y_2,z_3)$$ $$ f(u + v) = f(x_1 + x_2 , y_1 + y_2 , z_1 + z_2 ) = (2(x_1 + x_2) - y + y+2 - (z_1 + z_2), x_1 + x_2 - 3(z_1 + z_2)) = (2x_1 + y_1 - z_1 , x_1 - 3z_1) + (2x_2 + y_2 -z+2, x_2 + 3z_2) = f(u) + f(v)$$}
+\item{$$ u = (x , y, z) , \quad \alpha \in \mathbb{R} $$ $$f(\alpha u) = f(\alpha x , \alpha y, \alpha z) = (2\alpha x+ \alpha y - \alpha z, \alpha x - 3 \alpha z) = \alpha f(u)$$}
+\end{enumerate}
+
+\subsection{Przykład}
+
+$$ f: \mathbb{R}^3 \ni (x,y,z) \to (2x +  y - z , x - 3z + 1) \in \mathbb{R}^2$$
+Liniowe nie jest
+
+\subsection{Przykład}
+$$f:\mathbb{R}^2 \ni (x,y) \to ( x^2 , xy , -x - y) \in \mathbb{R}^3$$
+Też nie jest liniowe
+
+\section{Twierdzenie, warunek konieczny i wystarczający na liniowe odwozrowania}
+$$f : \mathbb{R}^n \to \mathbb{R}^m \hbox{ jest liniowe } \iff \forall\ u,v \in \mathbb{R}^n\ \forall\ \alpha, \beta \in \mathbb{R} \quad f(\alpha u + \beta v) = \alpha f(u) + \beta f(v)$$
+
+\section{Uogulniowny WKW na liniowe przekształcenia}
+$$f : \mathbb{R}^n \to \mathbb{R}^m \hbox{ jest liniowe } \iff \forall\ u,v \in \mathbb{R}^n\ \forall\ \alpha, \beta \in \mathbb{R} \quad f(\alpha_1 u_1 + \ldots + \alpha_n u_n) = \alpha_1 f(u_1)+ \ldots + \alpha_n f(u_n)$$
+
+\subsection{Wniosek}
+Aby zbadać, odwzorowanie linowe $f : \mathbb{R}^n \to \mathbb{R}^m$ w sposób jednoznaczny możemy podać, jego współrzędne dla n wektó¶w z jakieś bazy $\mathbb{R}^n$
+\subsubsection{Uzasadnienie}
+Niech $B = (u_1,\ldots,u_n)$ - reper bazowy w $\mathbb{R}^n$ 
+$$v_1 := f(u_1)\quad v_2 := f(u_2) , \ldots , v_n := f(u_n) $$
+Niech $$ u \in \mathbb{R}^n $$ - dowolny 
+$$ \exists \alpha_1, \alpha_2 ,\ldots , \alpha_n  \in \mathbb{R} : u = \alpha_1 u_1 + \alpha_2 u_2 + \ldots + \alpha_n u_n \Longrightarrow [\alpha_1,\alpha_2, \ldots , \alpha_n]_B $$
+$$ f(u) = f(\alpha_1 u_1 + \alpha_2 + u_2 + \ldots + \alpha_n u_n) = \alpha_1 f(u_n)$$
+
+\section{Interpretacje geometryczne}
+\subsection{$\mathbb{R} \to \mathbb{R}$}
+Przejście z prostej na prostą.
+\subsection{$\mathbb{R}^2 \to \mathbb{R}$}
+$(x,y) \to z =  \alpha a + \beta b $ to obrazem jest płaszczyzna przechodzącą przez $(0,0)$.
+
+\section{Jądro i obraz odwzorowania liniowego}
+\subsection{Definicja}
+Jądrem odwzorowania linioweg $f : \mathbb{R}^n \to \mathbb{R}^m$ nazywamy zbiór $$ \ker f :=  \{ u \in \mathbb{R}^n : f(u) = 0_{\mathbb{R}^n}\} = f^{-1}(\overline{0}_{\mathbb{R}^m})$$
+Obrazem odwzorowania liniowego $f : \mathbb{R}^n \to \mathbb{R}^m$ nazywamy zbiór $$ im(f) := \{ v \in \mathbb{R}^m : \exists\ u \in \mathbb{R}^n \quad f(u) = v \} = f(\mathbb{R}^n)$$
+czyli zbiór wartości.
+
+\section{Twierdzenie o jądrze i obrazie}
+Jeśli $f : \mathbb{R}^n \to \mathbb{R}^m$ - liniowe, to:
+\begin{enumerate}
+\item{$\ker{f}$ jest podprzestrzenią wektorową w $\mathbb{R}^n = \mathbb{D}_{f}$}
+\item{$im$ jest podprzestrzenią w  $\mathbb{R}^m = \mathbb{D}_{f}$}
+\end{enumerate}
+\subsection{Wniosek}
+Jeśli $f:\mathbb{R}^n \to \mathbb{R}^m$ - linowe to
+$$\dim{\ker{f}} \leq n$$ oraz $$ \dim{im\ f} \leq m$$
+\section{Twierdzenie o generatorach obrazu}
+Nich $f: \mathbb{R}^n \to \mathbb{R}^m$- linowe $B = (u_1,\ldots, u_2)$- baza w $\mathbb{R}^n$ to wtedy
+$$ im\ f = \lim{\{f(u_1),f(u_2),\ldots,f(u_n)}$$
+\subsection{Dowód} 
+%$\\(\subset)$ oczywiste
+%$\\(\subset)$ to $v \in im\ f \Righarrow u \in \mathbb{R}^m$
+\subsection{Wniosek}
+Jeśli $f:\mathbb{R}^n \to \mathbb{R}^m$ - liniowe, to $$\dim{ \Im{f}} \leq n$$
+\section{Definicja rzędu odwzorowania}
+Rzędem nazywamy odwzorowania liniwego $f:\mathbb{R}^n \to \mathbb{R}^m$ nazywamy liczbę $r(f) : \dim{ \Im{f}}$
+
+\subsection{Przykład}
+$f: \mathbb{R}^3 \to \mathbb{R}^2, \quad f(0,0,1) = (-1,3) \quad f(0,1,1) = (0,-3) \quad f(1,1,1) = (2,-2)$
+
+Znajdź $\ker{f}, \Im{f}$ ich bazy i wymiary.
+To zaczynamy po kolei.
+$f(x,y,z) = (0,0)$ to faktycznie chodzi nam $f(x,y,z)$
+Jeżeli znamy dla jakieś bazy powiedzmy znamy takie wartości $f(1,0,0)\ f(0,1,0)\ f(0,0,1)$ -są znane $\Rightarrow f(x,y,z) = f(x(1,0,0) + y(0,1,0) + z(0,0,1)) = xf(1,0,0) + yf(0,1,0) + zf(0,0,1)$
+
+$f(0,1,0) = f((0,1,1) - (0,0,1)) = f(0,1,1) - f(0,0,1) = (0,-3) - (-1,-3) = (1,0)$
+
+$f(1,0,0) = f((1,1,1) -(0,1,1)) = f(1,1,1) - f(0,1,1) = (-1,3) - (0,3) = (-1,6)$
+Czyli
+$$f(x,y,z) = x(2,1) + y(1,0) + z(-1,-3) = (2x+y-z,x-3z)$$
+$$\ker{f} = \{(x,y,z) \in \mathbb{R}^3 : f(x,y,z) = (2x+y-z,x-3z) = (0,0)$$
+Co jest równoznaczne z rozwiązaniem układu równań.
+$$\begin{cases}
+2x + y - z = 0 \\
+x -3z = 0
+\end{cases}$$
+$$\ker{f} = \hbox{lin}{(3,-5,1)}, \quad \dim{\ker{f}} = 1$$
+
+Teraz obraz
+$im{f} = \{(2x + y -z, x - 3z) : x,y,z \in \mathbb{R}\} = \{x(2,1) + y(1,0) + z(-1,-3) : x,y,z \in \mathbb{R}\}= \hbox{lin}{(2,1),(1,0),(-1,-3)}$
+Ale one są liniowo zależne bo mamy $\mathbb{R}^n$ i $n=2$ więc nie mogą być trzy, więc obrazem jest 
+$\hbox{lim}\{(2,1),(1,0)\}$
+
+\section{Twierdzenie o związku wymiarów jądra i obrazu}
+Niech $f : \mathbb{R}^n \to \mathbb{R}^m$ - liniowe
+Wtedy $$\dim{\ker} + \dim{\hbox{im}{f}} = m \dim{\mathbb{D}_f}$$
+\section{Przykład reaktywacja}
+$\dim{\ker{f}}= 1$ z twierdzenia wynika $\dim{\hbox{im}{f}} = 3 -1 = 2$
+
+\section{Definicje}
+Odwzorowanie $f: \mathbb{R}^n \to \mathbb{R}^m$ nazywamy
+\subsection{Monomorfizmem}
+wtedy i tylko wtedy gdy $f$ jest liniowe i iniektywne.
+\subsection{Epimorficzne}
+wtedy i tylko wtedy, gdy $f$ jest liniowe i suriektywne.
+\subsection{Izomorfizmem}
+wtedy i tylko wtedy, gdy $f$ jest liniowe i bijektywne.
+\subsection{Endomorfizm}
+wtedy i tylko wtedy, gdy $f$ jest liniowe i $m = n $.
+\subsection{Automorfizm}
+wtedy i tylko wtedy, gdy $f$ jest endomorfizmem i bijektywne.
+
+\subsection{WkW na epimorfizm}
+$f: \mathbb{R}^n \to \mathbb{R}^m$ - epimorfizm $\iff r(f) = m$
+
+\subsection{WkW na monomorfizm}
+$f: \mathbb{R}^n \to \mathbb{R}^m$ - monomorfizm $\iff \ker{f} = \{\overline{0}_{\mathbb{R}^n}\} \iff r(f) = n = \dim{\mathbb{D}_f}$
+\subsubsection{Uzasadnienie}
+$$f(u_1) = f(u_2) \Longrightarrow u_1 = u_2$$
+$$f(u_1) -f(u_2) = \overline{0}_{\mathbb{R}}^m$$
+$$f(u_1 - u_2) = \overline{0}_{\mathbb{R}^m}$$
+\subsection{Wnioski}
+$f: \mathbb{R}^n \to \mathbb{R}^m$ - izomorfizm $\iff n = m $, z zatem izomorfizm to to samo co automorfizm.
+\subsection{Uwaga}
+Ogólnie odwzorowania liniowe definiuje się między dowolnymi przestrzeniami wektorowymi, u nas tylko między $\mathbb{R}^n$ i $\mathbb{R}^m$ .
+
+\section{Działania na odwzorowaniach liniowych}
+\subsection{Twierdzenie}
+Niech $f,g : \mathbb{R}^n \to \mathbb{R}^m,\quad \alpha \in \mathbb{R}$ . Wtedy
+\begin{enumerate}
+\item{$f+g : \mathbb{R}^n \to \mathbb{R}^m$}
+\item{$\alpha f : \mathbb{R}^n \to \mathbb{R}^m$}
+\end{enumerate}
+\subsection{Twierdzenie o liniowości złożenia}
+Jesłi $f: \mathbb{R}^n \to \mathbb{R}^m$ jest liniowe oraz $ g: \mathbb{R}^m \to \mathbb{R}^k$ jest liniowe, to $ g \circ f : \mathbb{R}^n \to \mathbb{R}^k$ też jest liniowe.
+\subsection{Twierdzenie o liniowości odwzorowania odwrotnego}
+Niech $f: \mathbb{R}^n \to \mathbb{R}^m$ jest automorfizmem.
+Wtedy $f^{-1} : \mathbb{R}^n \to \mathbb{R^n}$ - automorfizm
+wtedy 
+$$ f\circ f^{-1} = f^{-1} \circ f = \hbox{id}_{\mathbb{R}^n} \quad \hbox{id}_{\mathbb{R}^n} : \mathbb{R}^n \ni u \to u \in \mathbb{R}^n$$
+
+\subsection{Definicja funkcjonału}
+Odwzorowanie $f:\mathbb{R}^n \to \mathbb{R}$ które jest liniowe nazywa jest formą liniową lub funkcjonałem liniowym.
+
+\section{Macierz odwzorowania liniowego}
+Niech $f:\mathbb{R}^n \to \mathbb{R}^m$ - liniowe $B_1 = (u_1,\ldots,u_n)$ -baza w $\mathbb{R}^n, \quad B_{2} = (v_1,\ldots,v_m)$-baza $\mathbb{R}^m$. Wtedy macierzą odwzorowania $f$ w bazach $B_1,B_2$ nazywamy macierz $M_f(B_1,B_2) \in M_{m \times n}$ Wtedy $j$-ta kolumna to kolumna wzpółrzędnych wektora $f(u_j)$ względem bazy $B_{2}$
+$$ M_f (B_1,B_2) = \begin{matrix}
+	a_1 & a_2 & 13\\
+	21 & 22 & 23\\
+	31 & 32 & 33\\
+	a_n1 & 42 & 43\\
+\end{matrix}$$
+$$ f(u_1) = [a_11,a_21,\ldots,a_n1]_{B_{2}}$$
+$$ f(u_2) = [a_12,a_22,\ldots,a_n2]_{B_{2}}$$
+
+\section{Twierdzenie}
+Niech $f: \mathbb{R}^n \to \mathbb{R}^m$ - liniowe , $B_1 = (u_1,u_2,\ldots,u_n)$ - baza w $\mathbb R_n, B_2 = (v_1,v_2,\ldots,v_n)$ -naza w $\mathbb{R}^n$ Niech $u \in \mathbb{R}^n \quad u = [x_1,x_2,\ldots,x_n]_{B_1} \, v \in \mathbb{R}^m, v = [y_1,y_2,\ldots,y_m]_{B_2}$
+%Wtedy istnieje dokładnie jedna macierz $A \in M_{m \times n}$ (co więcej $A = M_j(B_1,B_2)$) taka, że $$ f(u) = v  \iff A \cdot \begin{matrix
+%	11\\
+%	21\\
+%	31\\
+%\end{matrix}
+% = \begin{matrix}
+%	11\\
+%	21\\
+%	31\\
+%\end{matrix}$$
+
+\subsection{Uwaga:}
+
+\end{document}

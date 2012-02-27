@@ -1,0 +1,127 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{polski}  
+\usepackage{indentfirst} 
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{placeins} 
+
+\title{Matematyka - wykład 10}
+%\author{Lech Adamus}
+\begin{document}
+\maketitle
+\section{Ekstrema funkcji}
+\subsection{Definicja}
+Niech $f$-funckja rzeczywista, że $u(x_0,r) \subset  \mathbb{D}_f$ dla pewneg $r > 0$.\\
+Mówimy, że $f$ ma w $x_0$ minimum lokalne (silne), wtedy i tylko wtedy, gdy istnieje $0<r_1<r$ , takie że
+dla wszystkich $$\forall x \in S(x_0,r_1) \ f(x) \geq f(x_0) \quad ( f(x) > f(x_0))$$.
+
+Niech $f$-funckja rzeczywista, że $u(x_0,r) \subset  \mathbb{D}_f$ dla pewneg $r > 0$.\\
+Mówimy, że $f$ ma w $x_0$ maksimum lokalne (silne), wtedy i tylko wtedy, gdy istnieje $0<r_1<r$ , takie że
+$$\forall x \in S(x_0,r_1) \ f(x) \leq f(x_0) ( f(x) < f(x_0)$$.
+
+Mówimy, że ff ma ekstremum lokalne w $x \in \mathbb{R}$, wtedy i tylko wtedy, gdy ma tam minimum lub maksimum.
+\subsection{Twierdzenia Fermata (WK istnienia ekstremum lokalnego)}
+Niech $f \in \mathbb{D}(x_0)$
+
+Jeśli $f$ ma ekstremum w $x_0$, to $f'(x) = 0$
+
+\bigskip
+Uwaga 1: Twierdzenie odwrotne nie jest prawdziwe.
+
+Uwaga 2: Funkcja ciągła może zatem mieć ekstremum lokalne w punktach których zeruje się pochodna, lub w których pochodna nie istnieje. Punkty te ( podejrzane o ekstremum ) nazywamy stacjonarnymi.
+
+\subsection{ Pierwszy warunek wystarczający istnienia ekstremum }
+Niech $f$-funkcja rzeczywista taka, żę $u(x_0,r) \subset \mathbb{D}_f$ dla pewnego $r>0 , x \in \mathbb{R}$, oraz $f \in C(x_0)$, a także $f \in (s(x_0,r_1))$ dla pewnego $0<r_1<r$.
+
+1) Jeśli $f'(x) < 0$ [dla każdego $x \in (x_0 - r_1 , x_0)$] oraz $f'(x) > 0$ [dla każdego $x \in (x_0,x_0+r_1)$] to $f$ ma minimum lokalne w $x_0$
+
+2) Jeśli $f'(x) > 0$ [dla każdego $x \in (x_0 - r_1 , x_0)$ ] oraz $f'(x) < 0$ [dla każdego $x \in (x_0,x_0+r_1)$] to $f$ ma maksimum lokalne w $x_0$
+
+\subsection{ Drugi warunek wystarczający istnienia ekstremum}
+Niech $f \in C^{n+1}(I)$, i $ I\subset \mathbb{R} $ - przedział otwarty, $ x_0 \in I $ oraz $ f^{(n)}(x_0) = 0 $ [dla każdego $k \in {1..n}$ ] oraz $2|n$.
+
+1)Jeśli $f^{(n+1)}(x_c) > 0$ to f ma minimum lokalne w $x_0$
+
+2)Jeśli $f^{(n+1)}(x_c) < 0$ to f ma maksimum lokalne w $x_0$
+
+\newpage
+\subsubsection{Szkic dowodu}
+Z wzoru Taylora
+$$f(x_0 + h) = f(x_0) + $$ [Duże zero] + $$\frac{f^{(n+1)}(x + \theta h)}{(x+1)!}h^{n+1}$$
+
+Znak $(f^{(n+1)}(x_0 + \theta h)$ decyduje o znaku $f(x_0 +h) - f(x)$
+
+\subsection{ Drugi warunek wystarczający istnienia ekstremum - wersja szczególna}
+
+Niech $f \in C^2{I}, I \subset \mathbb{R}$ -przedział otwarty, $x_0 \ in I$ oraz $f'(x_0) = 0$
+
+1)Jeśli $f''(x_0) > 0$ , to $f$ ma minimum lokalne w $x_0$
+
+2)Jeśli $f''(x_0) < 0$ , to $f$ ma maksimum lokalne w $x_0$
+
+Uwaga 1: W praktyce, przy wyznaczaniu ekstremów lokalnych funkcji:
+\begin{enumerate}
+\item{Wyznaczamy punkty stacjonarne}
+\item{Dla każdego nich sprawdzamy WW}
+\end{enumerate}
+
+\subsubsection{Przykład 1}
+Wyznacz ekstrema lokalne
+$$f(x) = \sqrt[3]{6x^2 - x^3}, \ \ \mathbb{D}_f = \mathbb{R}$$
+$$f'(x) = \frac{1}{3}(6x^2 -x^3)^{-\frac{2}{3}}(12x -3x^2) = \frac{4x-x^2}{\sqrt[3]{6x^2 - x^3}}, \mathbb{D}'_f = \mathbb{R} \backslash \{0,6\} $$
+
+$ f'(x) = 0 $ <=> $(4x-x^2) = 0$  dostajemy $x=4\ v\ x=0$
+
+Mamy trzy punkty stacjonarne $\{ 0,4,6 \}$. Pochodna zmienia znak w punktach $0$ i $4$, ale nie zmienia w $6$.
+Zatem w zero mamy minimum lokalne równe 0, w 4 mamy maksimum równe $2\sqrt{2}$
+
+\subsubsection{Przykład 2}
+$$f(x) = \cos{x} - \frac{1}{3}\cos{2x}, \ \ x \in <0,\frac{\pi}{2}>$$
+$$f'(x) = -\sin{x} - \frac{2}{3}\sin{2x} = -\sin{x} + \frac{2}{3}2\sin{x}\cos{x} = \sin{x}\left(\frac{4}{3}\cos{x} -1\right) = 0$$
+$$ x = 0 \not\in \mathbb{D}_f \vee x = \arccos{\frac{3}{4}}$$
+Korzystamy z 2WW
+$$f''(x) = -cos(x) + \frac{4}{3}\cos{2x} = \frac{2}{3}\cos^2{x} - \cos{x} - \frac{3}{4}$$
+$$f''(\arccos{\frac{3}{4}}) = -\frac{7}{12} < 0$$
+funkcja ma max lokalne w punkcie $\arccos{\frac{3}{4}}$
+
+\subsection{Ekstremum globalne}
+Problem:
+$ X \subset \mathbb{R} $\\
+$ f:X \to \mathbb{R}$ - ciągła \\
+Chcemy znaleźć wartość największą i najmniejszą $f$ na $X$.
+
+Z twierdzenia Wererstrassa jeśli $X = <a,b>$, to problem powyższy ma rozwiązanie.
+
+\subsubsection{Algorymt}
+\begin{enumerate}
+\item{Znaleźć wszystkie punkty stacjonarne}
+\item{Obliczyć wartości w punktach stacjonarnych oraz na brzegach przedziałów}
+\item{Porównać wartości i wybrać największą i najmniejszą }
+
+\section{Zadania optymalizacyjne}
+\subsection{Przykład}
+W kulę o promieniu $R > 0$ wpisać walec o największej objętości.
+
+Oznaczmy $H$ - wysokość walca , $r$ - promień walca
+Z twierdzenia Pitagorasa mamy
+$$ R^2 = r^2 + \left(\frac{H}{2}\right)^2 $$
+$$ H = \sqrt{4R^2 - 4r^2}$$
+$$ V = \pi r^2 H$$
+$$ V(r) = \pi r^2 \sqrt{4R^2 - 4r^2} $$
+Szukamy maksimum globalnego dla V dla przedziału $(0,R)$
+$$ V'(x) = 2\pi r \sqrt{4R^2 - 4r^2} + \pi r^2  \frac{-4r}{\sqrt{4R^2 - 4r^2}} = \frac{4\pi r ( 2R^2 - 3r^2)}{\sqrt{4R^2 - 4r^2}} $$
+$V(r)$ - różniczkowalna w $(0,R)$
+$$V'(r) = 0 $$
+Rozwiązania to $r = 0 \vee 2R^2 = 3R^2$ czyli tylko $r=\sqrt{\frac{2}{3}}R$ jest punktem stacjonarnym.
+Mianownik jest dodatni więc znak pochodnej zmienia się jak funkcja kwadratowa.
+
+$V(r)$ osiąga maksiumum dla $r = \sqrt{\frac{2}{3}}R$
+,punkt r jest globalny bo jest tylko jeden punkt stacjonarny.
+\end{enumerate}
+\end{document}

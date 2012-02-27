@@ -1,0 +1,57 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{polski}  
+\usepackage{indentfirst} 
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{placeins}
+
+\author{Łukasz Dubiel}
+\title{Elementy Logiki}
+
+\begin{document}
+
+\maketitle
+
+\section{Funktory logiczne}
+\subsection{Zdania logiczne}
+$$p,q$$
+\subsection{Zaprzeczenie}
+$$ \neg p $$
+\subsection{Koniunkcja}
+$$ p \vee q $$
+\subsection{Alternatywa}
+$$ p \wedge q$$
+\subsection{Implikacja}
+$$ p \implies q $$
+gdzie $p$ to założenia, $q$ to teza. Oraz $q$ jest warunkiem koniecznym dla $p$ oraz $p$ jest warunkiem wystarczającym dla $q$.
+$$ \neg(p \implies q) \equiv p \wedge \neg q$$
+\subsection{Zasada Kontrapozycji}
+$$ p \implies q \iff (\neg q \implies \neg p )$$
+\subsection{Rownoważność}
+$$ p \iff q$$
+Czytamy jako $p$ wtedy i tylko wtedy (wtw), gdy $g$
+
+$$ p \iff q \equiv (p \implies q) \wedge (q \implies p)$$
+\section{Prawa de'Morgana}
+$$\neg(p \wedge q) \equiv \neg p \vee \neg q$$
+$$\neg(p \vee q) \equiv \neg p \wedge \neg q$$
+\section{Kwantyfikatory}
+$$ \forall \quad \hbox{Kwantyfikator duży "dla każdego"} $$
+$$ \exists \quad \hbox{Kwantyfikator mały "istnieje taki"}$$
+%$$ \forall  \quad \hobx{Kwantyfikator "dla prawie wszystkich"} $$
+%$$ \exists \quad \hobx{Kwantyfikator "istnieje dokładnie jeden taki"}$$
+\subsection{Przeczenie kwantyfikatorów}
+$$ \neg( \forall_x \quad \Phi(x)) \iff \exists \neg \Phi(x) $$
+$$ \neg( \exists_x \quad \Phi(x)) \iff \forall \neg \Phi(x) $$
+\subsection{Kolejność kwantyfikatorów}
+Kolejność kwantyfikatorów ma znaczenie, i nie można zamieniać jej w dowolny sposób
+$$ \exists_y \forall_x\ \Phi(x,y) \implies \forall_x \exists_y\ \Phi(x,y) $$
+Układ po lewej oznacza, że istnieje jeden taki "uniwersalny" $y$ dla wszystkich $x$-ów. Drugi oznacza, że dla każdego $x$'a możemy znaleźć takiego $y$ z którym będzie mu dobrze. Ale tych $y$-ków może być dużo i różnych. Dlatego zapis po lewej stronie jest mocniejszy.
+
+\end{document}

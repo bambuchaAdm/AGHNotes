@@ -1,0 +1,72 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{polski}  
+\usepackage{indentfirst} 
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{placeins}
+
+\author{Łukasz Dubiel}
+\title{Rachunek zbiorów}
+
+\begin{document}
+\maketitle
+
+\section{Oznaczenia}
+$$ A, B, C \hbox{ - zbiory }$$
+$$ a, b, c \hbox{ - elementy zbioru}$$
+
+\section{Relacje}
+\subsection{Należenia}
+$$ x \in A $$
+Czytaj x należy do A.
+\subsection{Inkluzja (zawieranie się)}
+$$ A \subset B $$
+czyli $$ A \subset B \iff \forall_x\ \ x \in A \implies x \in B$$
+
+\subsection{Równość}
+\section{Działania}
+$$ A = B \iff A \subset B \wedge B \subset A $$
+\subsection{Suma}
+$$ A \cup B = \{ x : x \in A \vee x \in B\}$$
+\subsection{Iloczyn}
+$$ A \cap B = \{ x : x \in A \wedge x \in B\}$$
+Zwany w niektórych kręgach również przecięciem.
+\subsection{Różnica}
+$$ A \backslash B = \{ x : x \in A \wedge x \not \in B \}$$
+\subsection{Iloczyn kartezjański}
+$$ A \times B = \{ (x,y) : x \in A \wedge x \in B \} $$
+\subsubsection{Uwaga 1}
+W iloczynie kartezjański para jest parą uporządkowaną. Dlatego nie jest przemienny czyli
+$$ A \times B  \not = B \times A $$
+\subsubsection{Uwaga 2}
+Jeżeli $A = \o$ lub $B = \o$ to $$ A \times B = \o$$
+\subsubsection{Uogólnienie}
+Niech $A_1,\ldots,A_n \not = \o$ wtedy
+$$ A_1 \times A_2 \times \ldots \times A_n = \left\{ (x_1,x_2,\ldots,x_n): x_i \in A_i \quad \forall i \right\} $$ 
+
+\section{Zbiory liczbowe}
+\subsection{Przedziały liczbowe w $\mathbb{R}$}
+$$ (a,b) = \{ x : a < x < b \} = \{ x : x > a \wedge x < b \} $$
+$$ <a,b> = \{ x : a \leq x \leq b \} $$
+
+\section{Supermum i infinum}
+\subsection{Definicja}
+Zbiór $A \subset B, A \not = \o$ nazywamy ograniczonym z góry wtedy i tylko wtedy, gdy $$ \exists\ M \in \mathbb{R} \forall\ x \in A \quad x \leq M$$, każde takie $M$ nazywamy majorantem zbioru $A$.
+
+Zbiór $A \subset B, A \not = \o$ nazywamy ograniczonym z dołu wtedy i tylko wtedy, gdy $$ \exists\ m \in \mathbb{R}\ \forall x \in A \quad x \geq m$$
+
+Mówimy, że zbiór $A \subset \mathbb{R}, A \not = \o$ jest ograniczony jeśli jest ograniczony z góry i z dołu. 
+
+\subsection{Supremum}
+Supremum zbioru $A$ ( kres górny ) to najmniejsza z majorant zbioru i oznaczamy 
+$$ \sup A$$
+\subsection{Infinum}
+Infinum zbioru $A \subset \mathbb{R}$ (kres dolny) to największa z minorant, zbioru $A$ oznaczane $$ \inf A$$
+
+\end{document}

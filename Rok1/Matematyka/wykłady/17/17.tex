@@ -1,0 +1,64 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{polski}  
+\usepackage{indentfirst} 
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{placeins}
+
+\author{Łukasz Dubiel}
+\title{Matematyka - funkcje hiperboliczne}
+\begin{document}
+
+\maketitle
+\section{Definicja - sinus hiperboliczny}
+To funkcja określona wzorem następującym 
+$$\sinh{x} = \frac{e^x-e^{-x}}{2}$$
+Dziedzina - $ \mathbb{R}$
+\section{Definicja - cosinus hiperboliczny}
+To funkcja określona wzorem następującym 
+$$\cosh{x} = \frac{e^x+e^{-x}}{2}$$
+Dziedzina - $ \mathbb{R}$
+\section{Definicja - tangens hiperboliczny}
+To funkcja określona wzorem następującym 
+$$\tanh{x} = \frac{sh{x}}{ch{x}}$$
+Dziedzina - $ \mathbb{R}$
+\section{Definicja - kotangens hiperboliczny}
+To funkcja określona wzorem następującym 
+$$\ctgh{x} = \frac{ch{x}}{sh{x}}$$
+Dziedziny - $\mathbb{R} \backslash \{0\}$
+
+\section{Pochodne}
+$$(\sinh {x} )' = \cosh{x}$$
+$$(\cosh {x} )' = \sinh{x}$$
+$$(\tanh {x} )' = \frac{1}{\cosh^2{x}}$$
+$$(\ctgh {x} )' = \frac{1}{\sinh^2{x}}$$
+\section{Pierwotne}
+$$ \int \sinh{x} dx = \cosh{x}  + c$$
+$$ \int \cosh{x} dx = \sinh{x} + c$$
+$$ \int \tanh{x} dx = \int \frac{e^x - e^{-x}}{e^x + e^{-x}} dx = \ln{ | e^x + e^{-x} | } + c$$
+$$ \int \ctgh{x} dx = \int \frac{e^x + e^{-x}}{e^x - e^{-x}} dx = \ln{ | e^x - e^{-x} | } + c$$
+
+\section{Własności}
+$$\cosh^2{x} - \sinh^2{x} = 1$$
+$$\cosh^2{x} + \sinh^2{x} = \cosh{2x} $$
+$$2\sinh{x}\cosh{x} = \sinh{2x}$$
+
+\section{Funkcje odwrotne}
+$$(\sinh{x})^{-1} = ar\sinh{x} : \mathbb{R} \to \mathbb{R} $$
+$$ arsh{x} = \ln{ x+ \sqrt{x^2 +1}}$$
+$$(\sinh{x})^{-1} = ar\sinh{x} : <1,\infty) \to = <0,\infty> $$
+$$ arch{x} = \ln{1 + \sqrt{x^2 + 1}}$$
+$$(\tanh{x})^{-1} = ar\tanh{x} : (-1,1) \to \mathbb{R}$$
+%$$ ar\tanh{x} = \frac{1}{2} \ln{\frac{1+x}{1-x}}$$
+$$(ctx x)^{-1} = arcth : \mathbb{R} \backslash <-1,1> \to \mathbb{R} \backslash {0}$$
+$$ ar\ctgh{x} \frac{1}{2} \ln{\frac{1+x}{1-x}}$$
+
+
+
+\end{document}

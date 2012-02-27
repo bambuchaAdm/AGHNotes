@@ -1,0 +1,101 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{polski}  
+\usepackage{indentfirst} 
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{placeins} 
+
+\title{Matematyka - ćwiczenia}
+\author{Łukasz Dubiel}
+\begin{document}
+\maketitle
+
+\section{Zbiór 4 - Zadanie 3}
+Zbadaj ciągłość i różniczkowalność funkcji
+\subsection{b}
+\begin{displaymath}g(x) =
+\begin{cases}
+\frac{x(x-1)}{2} , x < 1 \\
+\sqrt{x} - 1 , x \geq 1 \\
+\end{cases}
+\end{displaymath}
+Funkcja dana jest nam przez części. Obie części są funckjami elementarnymi tak więc są ciągłe i różniczkowalne.
+Problemem może okazać się punkt $1$. Tak trzeba policzyć granice obustronne w $1$.
+$$\lim_{x \to 1^-}{\frac{x(x-1)}{2}} = 0 $$
+$$\lim_{x \to 1^+}{\sqrt{x} - 1} = 0$$
+Tak więc wiemy że istnieje granica tej funkcji w $1$
+Pozostaje policzyć czy $$ g(1) = \lim_{x \to 1}{g(x)} $$
+$$g(x) = 0 $$
+Tak więc funkcja jest ciągła w całej swojej dziedzinie.
+
+No to pora na sprawdzenie różniczkowalności w $x_0 = 1$, gdyż w funkcja jest elementarna więc jest różniczkowalna.
+$$\lim_{x \to x_0}{\frac{g(x) - g(x_0)}{x - x_0}} $$
+No nie widać od razu, więc trzeba przez części.
+$$\lim_{x \to 1^-}{\frac{\frac{x(x-1)}{2}}{x-1}} = \frac{1}{2}$$
+Teraz druga strona
+$$\lim_{x \to 1^+}{\frac{\sqrt{x}-1}{x - 1}} = \lim_{ x \to 1^+}{\frac{1}{\sqrt{x}+1}} = \frac{1}{2} $$
+$$g'(x) = \frac{1}{2}$$
+
+\newpage
+\section{Zestaw 4 - zadnie 4}
+Wyznacz parametry $ p , q \in \mathbb{R} $ by funkcja była różniczkowalna i ciągła.
+\subsection{a}
+$$f(x) =
+\begin{cases}
+\sin{x}, x < 0 \\
+px^2 + qx , x \geq 0\\
+\end{cases}$$
+$$\lim_{x \to 0^-}{\sin{x}} = 0$$
+$$\lim_{x \to 0^+}{px^2 + qx} = \lim_{x \to 0^+}{x(px + q)} = 0 $$
+Tak więc dla dowolnych $p$,$q$ granica w $0$ istnieje.Wartość $f(0) = 0 $ tak więc funkcja jest ciągła niezależnie od $p$,$q$.
+
+Przejdźmy do różniczkowalności. Nie widać czy granica istnieje od razu, tak więc musimy przejść na strony.
+$$\lim_{x \to 0^-}{\frac{f(x) - f(x_0)}{x-x_0}} = \lim_{x \to 0^-}{\frac{\sin{x}}{x}} = 1   $$
+$$\lim_{x \to 0^+}{\frac{px^2 + qx - 0}{x-0}} = \lim_{x \to 0^+}{\frac{x(px + q)}{x}} = \lim_{x \to 0^+}{px+q} = q$$
+Tak więc $q = 1$ by funckja mogła być różniczkowalna.
+
+\subsection{b}
+$$f(x) =
+\begin{cases}
+pe^x + q, x \leq 0 \\
+2 - x , x > 0 \\
+\end{cases}
+$$
+Badamy ciągłość funkcji.
+$$\lim_{x \to 0^-}{pe^x+q} = p + q$$
+$$\lim_{x \to 0^+}{2-x} = 2$$
+Czyli $$ p + q = 2 $$
+
+Oczywiście dobieramy się do różniczkowalności.
+$$\lim_{x \to 0^-}{\frac{p(e^x-1)}{x}} = p$$
+Wykorzystujemy granice elementarną ( patrz pięc rozdział 3 )
+i teraz drugą granicę
+$$\lim_{x \to 0^-}{\frac{2-x-(p+q)}{x}} = 1$$
+
+\newpage
+\section{Zestaw 5 - zadanie 1}
+\subsection{a}
+$$\lim_{x \to 0}{\frac{x-\sin{x}}{x-\tan{x}}}$$
+Licząc granicę wprost uzyskujemy symbol nieoznaczony 
+$$\lim_{x \to 0}{\frac{x-\sin{x}}{x-\tan{x}}} = \left[\frac{0}{0}\right]$$
+Korzystając z reguły a'Hospitala, dostajemy.
+$$\lim_{x \to 0}{\frac{1-\cos{x}}{1-\cos^2{x}}}$$
+$$\lim_{x \to 0}{\frac{1-\cos{x}}{\frac{cos^2-1}{\cos^2}}}$$
+$$\lim_{x \to 0}{\frac{(1-\cos{x})\cos^2{x}}{(\cos{x}-1)(\cos{x}+1)}} = \lim_{x \to 0}{\frac{-\cos^2{x}}{\cos{x}+1}} = \frac{1}{2} $$
+
+\subsection{b}
+$$\lim_{ x \to -\infty}{\frac{x^2}{e^{x^2}}} $$
+Licząc wprost dostaniemy $[\frac{\infty}{\infty}]$ , więc możemy użyć reguły d'Hospitala.
+$$\lim_{ x \to -\infty}{\frac{2x}{2x e^{x^2}}} = \lim_{ x \to -\infty}{\frac{1}{ e^{x^2}}} = 0$$
+
+\subsection{c}
+$$\lim_{x \to \infty}{x(e^{\frac{1}{x} - 1})}$$
+
+
+\end{document}

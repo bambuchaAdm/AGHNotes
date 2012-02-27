@@ -1,0 +1,67 @@
+\documentclass{article}
+%\usepackage[utf8]{inputenc}
+%\usepackage{polski}
+
+
+\title{Technologia informatyczna}
+\author{Łukasz Dubiel}
+
+\begin{document}
+
+\maketitle
+\section{Zapis ułamków}
+Zapis stałoprzecinkowy \\
+Na podstawie tego systemu działają wszystkie procesory sygnalowe
+
+\bigskip
+Zapis zmiennoprzecinkowy \\
+Używa zapisu znormalizowanego, IEEE-P754.
+Definiuje kilka dodatkowych układków bitów nie będących znormalizowanymi liczbami np. NaN, 0 itp \\
+Definiuje się kilka długości liczby \\
+\begin{tabular}{|cccccccc|}
+\hline
+	Długość & Znak & Długość wykładnika & Zakres & Długość mantysy & Dokładność \\
+	32 & 23 & 24 & 25 & 26 & 27 \\
+	32 & 33 & 34 & 35 & 36 & 37 \\
+	42 & 43 & 44 & 45 & 46 & 47 \\
+\hline
+\end{tabular}\\
+Znaki specjalne\\
+\begin{tabular}{|ccc|}
+\hline
+	11 & 12 & 13\\
+	21 & 22 & 23\\
+	31 & 32 & 33\\
+\hline
+\end{tabular}\\
+Kosztowne obliczeniowo\\
+Minusy
+Nie można bezpośrednio porównywać ( należy prowadzić epsilon)
+
+\section{LittleEndian vs BigEndian}
+\subsection{Little-Endian}
+Jako początek leci do pamięci najmniej znaczący bit ( najmłodszy bit ).
+
+Intel, AMD
+\subsection{Big-Endian}
+Na początku dane lecą od najbardziej znaczącego bitu.
+
+\newpage
+\section{Dane wektorowe}
+Ogrom danych, niskiej jakości ( np dziwięk wielokanalowy (16 bitów)).
+
+Procesor obsługuje wiele danych na takakt poprzez umożliwiwanie operacji na dużych słów (128 bitów, x86, SSE)
+
+Operacje na raz kilka paczek.
+\section{Zapis danych logicznych}
+Do jeden informacji - bit \\
+Kompilator ma to w dupie ( jak chce to może sobie zapisać nie na jednym ale na dwóch )
+
+
+
+
+
+
+
+
+\end{document}

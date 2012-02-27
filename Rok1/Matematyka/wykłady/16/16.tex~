@@ -1,0 +1,338 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{polski}  
+\usepackage{indentfirst} 
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{placeins}
+
+\author{Łukasz Dubiel}
+\title{Matematyka - wykład}
+
+\begin{document}
+
+\maketitle
+
+\section{Twierdzenie całkowaniu całki oznaczonej przez części}
+Jeśli $\phi \in C(<a,b>) , f \in C( \phi (<\alpha,\beta>)), a:= \phi(\alpha), b:=\phi(\beta)$ to 
+$$\int_a^b f(x)dx = \int_\alpha^\beta f(\phi(t))\phi'(t)dt$$
+\subsection{Przykład}
+$$\int_{-1}^{1} \sqrt{1-x^2}dx $$
+Podstawienie $ t = \arcsin{x} , x = \sin{t} , dx = \cos{x}dx $ 
+$$\int_{\frac{\pi}{2}}^{\frac{\pi}{2}} \sqrt{1-\sin^2{t}}\cos{t}dt = \int_{\frac{\pi}{2}}^{\frac{\pi}{2}} |\cos{x}|\cos{t}dt = \int_{\frac{\pi}{2}}^{\frac{\pi}{2}}\cos^2{t}dt = ... = \frac{1}{4}\sin{\pi} + \frac{\pi}{4} $$
+
+\section{Całki niewłaściwe}
+\subsection{Uwaga!}
+$\int_a^b f(x)dx$ jest całką oznaczoną w sensie remainna wtedy i tylko wtedy, gdy
+\begin{enumerate}
+\item{<a,b> - przedział domknięty}
+\item{f(x) - ograniczona na <a,b>}
+\end{enumerate}
+\subsection{Definicja}
+Jesli istnieje granica $$\lim_{\beta \to b^-}{\int_a^{\beta} f(x)dx}$$ oraz $b = \infty$ lub $f$ nie jest ograniczona w lewostronnym sąsiedzctwie punktu $b$, to granicę tę nazywamy całką niewłaściwąz funkcji $f$ od $a $ do $b$ i zonaczamy $\int_a^b f(x)dx$.
+
+Mówimy wówczas, że górna granica całkowania czyli $b$ jest punktem osobliwym całki nieoznaczonej.
+
+Zatem
+$$\int_a^b f(x) = \lim_{\beta \to b^-}{\int_a^{\beta} f(x)dx}$$
+$$\int_a^{\infty}f(x)dx = \lim_{\beta \to \infty}{\int_a^{\beta}f(x)dx}$$
+\subsection{Przykład pozytywny}
+$$\int_1^{\infty} \frac{dx}{x^2} = \lim_{\beta \to \infty}{\int_a^{\beta}{\frac{dx}{x^2}}} = \lim_{\beta \to \infty}\left[\frac{-1}{x}\right]_1^{\beta} = \lim_{\beta \to \infty}{\frac{-1}{b} + 1} = 1 $$
+\subsection{Przykład negatywny}
+$$\int_1^{\infty} \frac{dx}{x^2} = \lim_{\beta \to \infty}{\int_a^{\beta}{\frac{dx}{x^2}}} = \lim_{\beta \to \infty}\left[\frac{-1}{x}\right]_1^{\beta} = \lim_{\beta \to \infty}{\frac{-1}{b} + 1} = 1 $$
+
+\subsection{Definicja dualna}
+Jesli istnieje granica $$\lim_{\alpha \to a^+}{\int_\alpha^{b} f(x)dx}$$ oraz $a = \infty$ lub $f$ nie jest ograniczona w prawostronnym sąsiedzctwie punktu $a$, to granicę tę nazywamy całką niewłaściwą funkcji $f$ od $a $ do $b$ i zonaczamy $\int_a^b f(x)dx$.
+\subsection{Definicja}
+Jeżeli określone w powyższych definicjach są właściwe [wpis z całkami] są właściwe to całki nazywamy zbieżnymi, w przeciwnym wypadku rozbieżnymi.
+\subsection{Problem}
+$$\int_{\infty}^{\infty}{\frac{1}{1+x^2}}$$
+Ale z wykresu czujemy, że obszar jest skończony
+\subsection{Definicja}
+Jeżeli obydwie granice całkowania są punktami osobliwymi całki to $$\int_a^b f(x)dx = \int_a^c f(x)dx + \int_c^b f(x)dx$$ dla dowolnego $ c \in <a,b> $
+\subsection{Rozwiązanie problemu}
+%$$\int_{-\infty}^{\infty}{\frac{1}{1+x^2}dx} = \int_{-\infty}^{0}  {\frac{1}{1+x^2}dx} + \int_0^{\infty} {\frac{1}{1+x^2}dx} = \lim_{\alpha \to -\infty}{\int_{\alpha}^0 {\frac{1}{1+x^2}dx}} + \lim_{\beta \to \infty}{\int_0^{\beta}{\frac{1}{1+x^2}dx}}  = \lim_{\alpha \to -\infty}{\left[\arctan{x}\right]_{\alpha}^{0}} + \lim_{\beta \to \infty}{\int_0^{\beta}{\left[\arctan{x}\right]_{0}^{\beta}} = \pi$$
+\subsection{Przykład z egzaminu}
+$$\int_1^5 \frac{dx}{\sqrt{(5-x)(x-1)}} = \int_1^3 \frac{dx}{\sqrt{(5-x)(x-1)}} + \int_3^5 \frac{dx}{\sqrt{(5-x)(x-1)}}$$
+$$\lim_{\alpha \to 1}{\int_\alpha^3 \frac{dx}{\sqrt{(5-x)(x-1)}}} + \lim_{\beta \to 5}{\int_3^\beta \frac{dx}{\sqrt{(5-x)(x-1)}}}$$
+Przechodzimy do postaci kanonicznej
+$$ \int \frac{dx}{\sqrt{-(x-3)^2 + 3}} =\frac{1}{2} \int \frac{dx}{\sqrt{1 - \left(\frac{x-3}{2}\right)^2}} $$
+Cwiczenie
+\subsection{Przykład-ważny}
+Dla $k \not = 1 $
+$$\int_1^{\infty}\frac{dx}{x^k} = \lim_{\beta \to \infty}{\int_1^{\beta}\frac{dx}{x^k}}= \lim_{\beta \to \infty}{ \left[ \frac{1}{1-k} \frac{1}{x^{k-1}} \right]_1^{\beta}}$$
+I teraz jako ćwiczenie udowodnić przejście do 
+\begin{enumerate}
+\item{$\frac{1}{k-1} , \quad k > 1$ - całka oznaczone}
+\item{$\infty , k < 1$ - całka rozbieżna}
+\end{enumerate}
+k = 1
+$$\int_1^{\infty} \frac{dx}{x} = \infty$$
+
+I teraz całka
+$$\int_0^1 \frac{dx}{x^k}$$
+
+\section{Bezwzględna zbieżność całki niewłaściwej}
+\subsection{Definicja}
+Całka niewłaściwa $ \int_a^b f(x)dx $ jest bezwzględnie zbieżna, wtedy i tylko wtedy gdy $\int_a^b |f(x)|dx $jest zbieżna
+\subsection{Twierdzenie o warunkach}
+Jeśli całka niewłaściwa jest bezwzględna zbieżna, to jest zbieżna, czyli 
+$$ \int_a^b |f(x)|dx < \infty \Rightarrow \int_a^b f(x)dx < \infty $$
+Ale  są całki, że $$ \int_a^b f(x)dx < \infty$$ natomiast $$\int_a^b |(f)x|dx = \infty$$
+Mówimy wówczas, że całka jest zbieżna warunkowo !
+\subsubsection{Przykład}
+$$\int_0^{\infty} \frac{\sin{x}}{x}dx $$
+zbieżna
+$$\int_0^{\infty} |\frac{\sin{x}}{x}| dx $$
+Czyli $ \int_0^{\infty}{\frac{\sin{x}}{x}}$ jest warunkowo zbieżna
+\subsection{Kryterium zbieżności lewostronnej}
+Jeśli
+$$|f(x)| \geq g(x) \forall x \in (a,b) \quad \vee \quad \int_a^b g(x)dx \not= \infty $$ 
+to $$\int_a^b |f(x)|dx  \not = \infty$$
+\subsubsection{Przykład}
+Czy całka 
+$$\int_0^\infty \frac{\sin{x}}{1+x^2}dx $$
+jest zbieżna ( użycie kryterium , $g(x) = \frac{1}{1+x^2}$)
+\section{Zastosowanie całki oznaczonej}
+\subsection{Obliczanie pola powieszchni obszarów płaskich}
+Jeseśmy wstanie to zrobić, gdy nasza powieszchnia jest ograniczona przez jakieś funkcje.
+\subsubsection{Twierdzienie}
+Niech $f,g \in C(<a,b>)$
+
+Jeśli $g(x) \geq f(x) \forall x \in <a,b> \vee D = \{(x,y) : a \leq x \leq b, f(x) \leq y \leq g(x)\} $
+to
+$$|D| = \int_a^b (g(x)-f(x))dx $$
+\subsubsection{Szkic dowodu}
+\begin{enumerate}
+\item{Pierwsza $\forall x \in <a,b> f(x) \geq 0$}
+Dowód rysunkowy
+\item{Drugi $\not \forall x \in <a,b> f(x) \geq 0$}
+Translacja o wektor tak by było dobrze
+\end{enumerate}
+\subsection{Przykład}
+Oblicz pole ograniczone krzywymi $ y = x^2 , y = x+2$
+
+Rozwiązujemy równanie $ x^2 = x+2 $ czyli $ x\in {-1,2}$
+$$|D| = \int_{-1}^{2} (x+2 -x^2)dx $$
+Cwiczenie
+
+\subsection{Przykład z egzaminu}
+Oblicz pole ogranioczone przez krzywe $x^2 + y^2 \leq 6px $ oraz $ y^2 = 2px $
+Wyznaczamy przecięcia tych krzywych
+\begin{displaymath}
+\begin{cases}
+x^2 + y^2 = 6px \\
+y^2 = 2px 
+\end{cases}
+\end{displaymath}
+Co da w końcu 
+$$ x = 0 \quad \vee \quad x = 4p $$
+No to teraz pole
+$$ |D| = 2( |D_1| + |D_2| )$$
+I teraz odpowiednie całki
+$$ |D_1| = \int_0^{4p} \sqrt{2px}dx = ...$$
+I jako ćwiczenie
+$$ |D_2| = \int_{4p}^{6p} \sqrt{6px - x^2} dx = ...$$
+
+\section{Współrzędne biegunowe}
+Punkt na płaszczyźnie można jednoznacznie określić punkt przez odległość do środka współrzędnych i kąt do osi OX.
+
+\subsection{Definicja}
+Współrzędne biegunowe punktu $(x,y)$ to liczby $ r \in (0, \infty) , \quad \phi \in <0,2 \pi>$ takie że
+
+\begin{displaymath}
+\begin{cases}
+x = r \cos{\phi} \\
+y = r \sin{\phi}
+\end{cases}
+\end{displaymath}
+
+Możemy zatem określić bijekcje 
+$$ \Phi : (0,\infty) \times <0,2\pi> \ni (r,\phi) \to ( r \cos{\phi} , r \sin{\phi}) \in \mathbb{R}^2 \backslash {(0,0)}$$
+oraz dodatkowo 
+$$(r = 0 , \phi = 0) \to (x = 0 , y = 0)$$
+
+\subsection{Problem}
+$$ D := \{ (r,\phi) : \phi \in <\phi_1,\phi_2> , r \in <0,r(\phi)> \} $$
+
+Tutaj taki rysuneczek 
+\bigskip
+
+Teraz po przekształceniu krzywej na układ biegunowy dostajemy jakiś inny rysunek
+
+Potem dostajemy
+
+$$ |D| = \frac{1}{2} \int_{\phi_1}^{\phi_2} r^2(\phi)d\phi$$
+
+\subsection{Przykład}
+$$x^2 + y^2 \leq 4$$
+Koło po transformacie na biegunowe dostajemy prostokąt i całka wygląda ładnie
+
+\subsection{Ważny przykład}
+$$(x^2 + y^2)^2 = x^2 - y^2 $$
+Oblicz obszar ograniczony tą krzywą.
+Transformujemy na współrzędne biegunowe
+$$ (r^2 \cos^2{\phi} + r^2 \cos^2{\phi})^2 = r^2 \cos^2{\phi} + r^2 \cos^2{\phi} $$
+Twierdzenie Pitagorasa ( jedynka trygonometryczna oraz redukcja i skrócenie )
+$$ r^2 = \cos{2\phi}$$
+
+Dziedziną tego wyrażenia jest $$ \phi \in <0,\frac{\pi}{4}>  \cup ...$$
+ i teraz widomo że istnieje tylko w tych fragmentach
+ oraz wdzimy lemniskatę bernuliego.
+
+Dzielimy na trzy cześci
+$$ |D| = 4 |D_1| = 4\frac{1}{2}\int_0^{\frac{\pi}{4}} \cos{2\phi}d\phi = 2 \left[ \frac{1}{2}\sin{2\phi} \right]_0^{\frac{\pi}{4}} = 2 \cdot \frac{1}{2} \cdot = 1$$
+
+\subsection{Dlasze przykłady}
+Oblicz cześć wspólną krzywych
+$$ (x^2 + y^2)^2 = 8(x^2 - y^2) $$
+$$ x^2 + y^2 =4$$
+
+Po narysowaniu 
+
+Potrzebujemy przecięcia $\phi = \frac{\pi}{6}$
+$$ |D| = 4 |D_1| $$
+%$$ |D_1| = \frac{1}{2}( \int_0^{\frac{\pi}{6}}4d\phi}+ \int_{\frac{\pi}{6}}^{\frac{\pi}{4}} 8\cos{2\phi}d\phi$$
+
+\section{Krzywe}
+\subsection{Definicja}
+Zbiór $ K \subset \mathbb{R}^n$ nazywamy krzywą, wtedy i tylko wtedy, gdy istnieje ciągłe suriiekcja $
+\gamma : <\alpha,\beta> \to K$ , wówczas $\gamma(\alpha)$ - początek krzywej $ \gamma(\beta)$ - koniec krzywej.
+
+Odwzorowanie $\gamma$ nazywamy parametryzacją krzywej $K$ i zapisujemy często $$ y = 
+\begin{cases}
+x_1 = x_1(t)\\
+x_2 = x_2(t)\\
+\vdots	\\
+x_n = x_n(t)\\
+\end{cases}
+t \in <\alpha,\beta>$$
+Czyli 
+$$ \gamma(t) = (x_1(t),x_2(t),x_3(t), \ldots , x_n(t)) \quad t \in <\alpha,\beta> $$
+
+\subsection{Przykład 1}
+n = 2 , okrąg
+$$ x^2 + y^2 = R^2 $$
+Parametryzacją ten krzywej jest
+$$
+\begin{cases}
+x(t) = R \cos{t} \\
+y(t) = R \cos{t} \\
+\end{cases}
+\\
+t \in <0,2\pi>
+$$
+
+lub równoważnie
+$$\gamma <0,2\pi> \ni t \to (R \cos{t}, R \sin{t}) \in \mathbb{R}^2$$
+
+\subsection{Przykład 2}
+n = 2
+Wykres funkcji ciągłej $f : <a,b> \to \mathbb{R}$
+Okazuje się że parametryzacją krzywej jest 
+$$
+\begin{cases}
+x(t) = t \\
+y(t) = f(t) \\
+\end{cases}
+\\
+t \in <a,b>$$
+albo
+$$ \gamma : <a,b> \ni t \to (t,f(t)) \in \mathbb{R}$$
+\subsection{Uwaga}
+Parametryzacja krzywej k wyznacza jej orientację, czyli skierowanie.
+\subsection{Definicja łuku}
+Krzywą $K$ nazywamy łukiem, jeśli k ma parametryzację $\gamma : <\alpha,\beta> \to K$ , która jest bijekcją. Czyli $K$ nie ma punktów wspólnych.
+\subsection{Definicja łuku gładkiego}
+Łukiem gładkim nazywamy taki łuk $K$, że jego parametryzacja $ \gamma <\alpha,\beta> \to K \subset \mathbb{R}^n$ jest klasy $C^1$. Czyli jeśli dla 
+$$ y = 
+\begin{cases}
+x_1 = x_1(t)\\
+x_2 = x_2(t)\\
+\vdots	\\
+x_n = x_n(t)\\
+\end{cases}
+t \in <\alpha,\beta>$$
+to $$ \forall i \in{1,\ldots,n} \quad x_i(t) \in C^1(<\alpha,\beta>)$$
+ponadto 
+$$ \sum_{i=1}^n (x_i)^2 > 0 \quad \forall t\in <\alpha,\beta>$$
+\subsection{Definicja łuku odcinkowego gładkiego}
+Krzywą nazwyamy łukiem odcinkowo gładkim, jeśli da się krzywą podzielić na skończoną ilość łuków gładkich
+\subsection{TW}
+Niech $K$ - łuk gładki w $\mathbb{R}^2$ zadany parametryzacją 
+$ y = 
+\begin{cases}
+x = x(t)\\
+y = y(t)\\
+\end{cases}
+t \in <\alpha,\beta>$ przy czym $
+\begin{cases}
+x'(x) \geq 0\\
+y(x) \geq 0, \quad \forall t \in <\alpha,\beta>
+\end{cases}$
+To jeśli $$D = \{ (x,y) : x(\alpha)\leq x \leq x(\beta), 0\leq y \leq y(t) \}$$
+to 
+$$ |D| = \int_{\alpha}^{\beta} y(t) \cdot x'(t) dt $$
+\subsection{Przykład - koło}
+Obliczymy 3 sposoby pole półkola
+\begin{enumerate}
+\item{Na pałę}
+$$|D| = \int_{-1}^1 \sqrt{1-x^2}dx = \frac{\pi}{2}$$
+\item{Współrzędne biegunowe}
+$$|D| = \frac{1}{2}\int_0^\pi 1 d\phi = \frac{1}{2} \left[\phi \right]_0^\pi = \frac{\pi}{2}$$
+\end{enumerate}
+\subsection{Długość krzywej}
+\subsubsection{Twierdzenie o długości krzywej}
+Jeśli $K$ jest krzywą odcikowo gładką zadaną przez parametryzację $ \gamma : <\alpha,\beta> \to K \subset \mathbb{R}^n $ to długość krzywej $K$ wyraża się wzorem
+$$ |K| = \int_\alpha^\beta \sqrt{ \sum_{i=1}^{n}(x_i'(t))^2}dt $$
+gdy $n=2$
+$$ y = \begin{cases} x = x(t) \\ y = y(t) \end{cases}
+t \in <\alpha,\beta> $$
+$$ |K| = \int_\alpha^\beta \sqrt{(x'(t))^2 + (y'(x))^2}dt $$
+\subsubsection{Specjalny przypadek - krzywa $K$ jest wykresem funkcji}
+$$ y  = \begin{cases} x = x \\ y = f(x) \end{cases} x \in <a,b> $$
+$$ | K | = \int_a^b \sqrt{1+(f'(x))^2}dx $$
+
+Przykład
+$$\int_0^1 \sqrt{1 +4x^2}dx = cw. = \frac{\sqrt{5}}{2} + \frac{\ln{2+\sqrt{5}}}{2}$$
+\subsubsection{Krzywa $K$ jest zadana w współrzędnych biegunowej}
+$$ r = r(\phi) \in C^1(<\alpha,\beta>) $$ wtedy
+$$ \gamma = \begin{cases} x(\phi)  = r(\phi) \cos{\phi} \\ y(\phi) = r(\phi) \cos{\phi} \end{cases} $$
+Zatem
+$$ |K| = \int_\alpha^\beta \sqrt{(r'(x))^2 + r^2(x)} $$
+
+Przykład : Spirala Archimedesa dla kątów $<0,\theta>$
+$r(\phi) = a \phi , \quad a > 0 , \phi \in \mathbb{R}^+$
+$$\int_0^\theta \sqrt{a^2 + a^2\phi^2}\ d\phi = a \int_0^\theta \sqrt{1 + \phi^2} \ d\phi  = cw$$
+
+\subsection{Objętość i pole powierzchni bocznej bryły obrotowej}
+Rysunek
+$$ |V| = \pi \int_a^b f^2(x) dx $$
+$$ |S| = 2\pi \int_a^b f(X)\sqrt{1+ (f'(x))^2}\ dx$$
+
+\section{Przykład}
+Oblicz objętość i pole powierzchni bryły powstałej przez obrót dokoła osi OX koła :
+$$ x^2 + ( y - 2)^2 \leq 1 $$
+
+Objętość liczymy jako różnicę objętości bryły powstałej przez odjęcie małej od dużej.
+
+Powierzchnia to suma powierzchni górnego i dolnego.
+
+Równanie górnego półokręgu 
+$$(y-2)^2 = 1 - x^2$$
+$$ y - 2 = \pm \sqrt{1-x^2}$$
+$$ y = 2 + \sqrt{1-x^2}$$
+$$ |V| = \pi \int_{-1}^1 ( 2 + \sqrt{1-x^2})^2 dx - \pi \int_{-1}^1 ( 2  - \sqrt{1-x^2} )^2 dx $$
+Złożyć pod całkę i ćwiczenie 
+$$ |S| = 2\pi \int_{-1}^1 ( 2 + \sqrt{1-x^2}) \sqrt{1 + (2+ \sqrt{1-x^2})')^2} \ dx + 2\pi \int_{-1}^1 ( 2 + \sqrt{1+x^2}) \sqrt{1 + (2+ \sqrt{1+x^2})')^2} \ dx$$
+To również jako ćwiczenie
+
+
+
+
+\end{document}

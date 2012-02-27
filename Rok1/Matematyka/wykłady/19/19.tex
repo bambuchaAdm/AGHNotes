@@ -1,0 +1,156 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{polski}  
+\usepackage{indentfirst} 
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{placeins}
+
+\author{Łukasz Dubiel}
+\title{Matematyka \\ Algebra liniowa}
+\date{3 stycznia 2012}
+
+\begin{document}
+\maketitle
+
+\section{Nowe spojrzenie na $\mathbb{R}^n$}
+$\mathbb{R}^n$ jako przestrzeń wektorowa. \\
+Dowolny punkt $(x_1,x_2, \ldots , x_n) \in \mathbb{R}^n$ traktujemy jako wektor o współrzędnych kartezjańskich $(x_1,x_2, \ldots , x_n) $ zaczepiony w punkcie $(0,0,\ldots,0)$
+
+[Tutaj ma być rysunek z wektorem (2,3) oraz wersory] 
+
+Wyróżnimy sobie dwa wektory szczególne, będą to wersowy.
+Przy ich pomocy możemy zbudować każdy inny wektor. Ale o tym za chwile.
+\section{Działanani na wektorach w $\mathbb{R}^n$}
+\subsection{Suma}
+Sumą wektorów $u = (x_1,\ldots,x_n) \in \mathbb{R}^n$ oraz $v = (y_1,\ldots, y_n) \in \mathbb{R}^n$ nazwiemy wektor $ \mathbb{R}^n \ni w = u + v$ taki że $$ w = (x_1 + y_1 , \ldots , x_n + y_n)$$
+
+\subsection{Własności dodawania wektorów}
+\begin{enumerate}
+\item{Łączność}
+$$ \forall u,v,w \in \mathbb{R}^n \quad (u+v)+w = u + ( v + w) $$
+\item{Przemienność}
+$$ \forall u,v \in \mathbb{R}^n \quad u+v = v + u $$
+\item{istnieje element neutralny dodawania}
+Jest to wektor zerowy $$ \overline{0} = (0,\ldots,0) \in \mathbb{R}^n$$
+$$ \forall u \in \mathbb{R}^n \quad \overline{0} + u = u + \overline{0} = u $$
+\item{Istnieją wektor przeciwny}
+$$ \forall u \in \mathbb{R}^n \quad \exists v \in \mathbb{R}^n \quad u + v = \overline{0}$$
+\end{enumerate}
+
+\subsection{Dygresja}
+Jeżeli jakieś działanie posiada cechy 1,3,4 to jest już grupą, a jeżeli dodatkowo cechę druga to jest grupą przeminą lub abelową
+\section{Mnożenie przez skalar}
+\subsection{Definicja}
+Iloczynem wektora $ u = (x_1,\ldots, x_n) \in \mathbb{R}^n$ przez liczbę rzeczywistą (skalar) $ \alpha \in \mathbb{R}$ nazywamy wektor $$ \mathbb{R}^n \ni v = \alpha u$$ taki że 
+$$ v = (\alpha x_1 , \ldots , \alpha x_n )$$
+\subsection{Własności}
+\begin{enumerate}
+\item{$$ \forall \alpha \in \mathbb{R} \quad (0,\ldots , 0) = \alpha (0, \ldots, 0)$$}
+\item{$$ \forall u \in \mathbb{R}^n \quad 0 u = u 0 = \overline{0} $$}
+\item{$$\forall \alpha \in \mathbb{R} \quad \forall u \in \mathbb{R}^n \quad -(\alpha u) = (-\alpha)u = \alpha \cdot (-u) $$}
+\item{$$\forall \alpha in \mathbb{R} \quad \forall u \in \mathbb{R}^n \quad \alpha u = \overline{0} \Longrightarrow \alpha = 0 \vee u = \overline{0} $$}
+\item{$$ \forall \alpha \not = 0 \quad \forall u,v \in \mathbb{R}^n \quad \alpha u = \alpha v \Longrightarrow u = v$$}
+\item{$$ \forall  \alpha, \beta \in \mathbb{R} \quad \forall u \in \mathbb{R}^n, u \not = 0 \quad \alpha u = \beta u \Longrightarrow \alpha = \beta $$}
+\item{$$ \forall \alpha , \beta \in \mathbb{R} \quad \forall u \in \mathbb{R}^n \quad (\alpha \beta)u = \alpha(\beta u)$$}
+
+\end{enumerate}
+
+\subsection{Prawa rozdzielności}
+\begin{enumerate}
+\item{$$ \forall \alpha \in \mathbb{R} \quad \forall u , v \in \mathbb{R}^n \quad \alpha(u + v) = \alpha u + \alpha v$$}
+\item{$$ \forall \alpha, \beta \in \mathbb{R} \quad \forall u \in \mathbb{R}^n \quad (\alpha + \beta)u = \alpha u + \beta u$$}
+\end{enumerate}
+
+\section{Liniowa niezależność wektorów w $R^n$}
+
+\subsection{Kombinajca liniowa - definicja}
+Kombinacją liniowa wektorów $k_1, \ldots, k_n \in \mathbb{R}^n$ o współczynnikach $ \alpha_1,\alpha_2,\ldots,\alpha_n \in \mathbb{R}$ nazywamy wektor
+$$\mathbb{R}^n \ni v = \alpha_1 u_1  + \alpha_2 u_2 + \ldots  + \alpha_k u_k = \sum_{i=1}^k{\alpha_i u_i} $$
+\subsection{Wektory liniowo niezależne - definicja}
+Mówimy, że wektory $u_1,\ldots,u_2 \in \mathbb{R}^n$ są liniowo niezależne, jeśli prawdziwa jest implikacja
+$$ \forall \alpha_1,\ldots,\alpha_n \in \mathbb{R} \quad \sum_{i=1}^n \alpha_i u_i = \overline{0} \Longrightarrow \alpha_1 = \alpha_2 = \ldots = \alpha_n = 0$$
+W przeciwnym wypadku mówimy, że te wektory $u_1,\ldots,u_n$ są liniowo zależne, czyli
+$$ \exists \alpha_1,\ldots,\alpha_n \in \mathbb{R} \quad 
+\sum_{i=1}^n \alpha_i u_i = \overline{0} \vee ( \exists i \in [1..k] \alpha_i = 0)$$
+\subsection{Twierdzenie - WKW na liniow zależne}
+Wektory $u_1,\ldots,u_2 \in \mathbb{R}^n$ są liniowo niezależne $\Longrightarrow$ żadnego z nich nie da się z zbudować z pozostałych.
+\subsection{Przykłady 1}
+$$(1,0) \hbox{ i } (0,1)$$
+$$\alpha_1 (1,0) + \alpha_2 (0,1) = (0,0)$$
+$$(\alpha_1,\alpha_2) = (0,0)$$
+$$ \alpha_1 = 0, \alpha_2 = 0$$
+Więc są liniowo niezależne.
+\subsection{Przykład 2}
+$$(0,1,1) , (1,0,0) , (-1,0,2)$$
+[miejsce na kompinację liniową]
+$$(\alpha_2 - \alpha_3,\alpha_1,\alpha_1 + 2\alpha_3) = (0,0,0) \Longrightarrow \begin{cases}\alpha_2 - \alpha_3 = 0 \\ \alpha_1 = 0 \\ \alpha_1 + 2 \alpha_3 = 0 \end{cases} \Longrightarrow \begin{cases}\alpha_1 = 0 \\ \alpha_2 = 0 \\ \alpha_3 = 0 \end{cases}$$
+Współczynniki są równe zero, wiec wektory są niezależne
+\subsection{Przykład 3}
+$$(0,1,1),(1,1,0),(2,-1,-3)$$
+
+\subsection{Własności liniowej niezależności}
+\begin{enumerate}
+\item{Wektor zerowy jest liniowo zależny z każdym innym wektorem.}
+\item{$u\in \mathbb{R}^n$ - liniowo niezależny $\iff u \not = \overline{0}$}
+\item{Dowolny podzbiór zbioru wektorów niezależnych jest zbiorek wektorów zależnych.}
+\item{$u_1,\ldots,u_n \in \mathbb{R}^n$ są liniowo zależne $\Longrightarrow \forall v \in \mathbb{R}^n u_1,\ldots,u_n,v$ też jest jest liniowo zależne.}
+\end{enumerate}
+\section{Baza przestrzeni $\mathbb{R}^n$}
+Mówimy, że wektor $ v \in \mathbb{R}^n$ jest generowany przez $u_1,u_2,\ldots,u_k \in \mathbb{R}$ wtedy i tylko wtedy gdy $$\exists \alpha_1,\ldots,\alpha_k \in \mathbb{R} v = \alpha_1 u_1 + \ldots + \alpha_k u_k$$
+\section{Definicja}
+Zbiór skońćzony $B \subset \mathbb{R}^n$ nazywamy bazą $\mathbb{R}^n$ wtedy i tylko wtedy gdy,
+\begin{enumerate}
+\item{$B$ jest zbiorek wektorów liniowo niezależnych}
+\item{każdy wektor z $\mathbb{R}^n$ jest generowany przez wektory z $B$}
+\end{enumerate}
+\subsection{Przykłady}
+\begin{enumerate}
+\item{$\mathbb{R}^2$}
+Bazą jest $(1,0)$ i $(0,1)$
+\item{$\mathbb{R}^n$}
+Najprostszą bazą jest tzw. wędrującą jedynką.
+Jest to zbiór wszystkich permutacji
+$(1,\ldots,0) \in \mathbb{R}^n$
+\item{$\mathbb{R}^n$}
+Czy bazą jest $$(0,1,1), (1,0,0) , (-1,0,2)$$
+\end{enumerate}
+\section{Twierdzenie o równoliczności baz}
+Dowolne dwie bazy w $\mathbb{R}^n$ ( przy ustalonym n) mają tyle samo elementów. 
+\subsection{Uwaga 1}
+Przestrzeń $\mathbb{R}^n$ ma nieskończenie wiele baz ale wszystkie mają dokładnie n-elementów.
+\subsection{Uwaga 2}
+Mówimy, że przestrzeń $\mathbb{R}^n$ jest $n$ wymiarowa, gdyż ilość elementów w bazie jest równa n.
+\section{Wymiar przestrzeni wektorowej}
+\subsection{Definicja}
+Liczbę wektorów w dowolnej bazie danej podprzestrzeni wektorowej $\{ \overline{0} \} = V \subset \mathbb{R}^n$ nazywamy wymiarem tej podprzestrzeni i oznaczamy $\dim{V}$
+$$ \dim{\overline{0}} := 0$$
+\subsection{Przykład}
+\begin{enumerate}
+\item{$\dim{\mathbb{R}^n} = n$}
+\item{$V = \{ (x,y,z) \in \mathbb{R}^3 : x = y \}$ \\
+Bazą $V$ jest $\{(1,1,0),(0,0,1)\}$ więc $\dim{V} = 2$}
+\end{enumerate}
+\section{Twierdzenie o wymiarze podprzestrzeni}
+Niech $V,U$ - podprzestrzenie wektorowe w $\mathbb{R}^n$, takie że $ V \subset U \subset \mathbb{R}^n$. Wtedy:
+\begin{enumerate}
+\item{$$\dim{V} \leq \dim{U} \leq n$$}
+\item{$$\dim{V} = \dim{U} \iff U = V$$}
+\end{enumerate}
+\subsection{Wniosek}
+Podprzestrzenie wektorowe w $\mathbb{R}^n$ są 1-wymiarowe, a w $\mathbb{R}^3$ są 1 i 2 wymiarowe.
+\section{Twierdzenie}
+Niech $V \subset \mathbb{R}^n$ - podprzestrzeń wektorowa taka, że $\dim{V}=k$. Wtedy
+\begin{enumerate}
+\item{Każdy układ $k$ wektorów liniowo niezależnych w $V$ generuje $V$}
+\item{Każdy układ $k$ generatorów $V$ jest zbiorem wektorów liniowo niezależnych}
+\end{enumerate}
+
+\subsection{Wniosek}
+
+\end{document}

@@ -1,0 +1,99 @@
+\documentclass[16pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{enumerate}
+
+\author{Łukasz Dubiel}
+\title{Plan rozwoju DnDP}
+\begin{document}
+\maketitle
+\newpage
+\section{Wstęp}
+
+Obecnie DnD Project ( w skrucie DnDP, chodź nazwa zostanie zmieniona)
+jest systemem wspomagającym graczy podczas sesji.
+
+Ma za zadanie przeliczać premie i współczyniki, pozwalając graczom weść głębiej w rozgrywkę.
+
+Docelowo ma się składać z trzech elementów
+\begin{enumerate}
+\item{DnD Client}
+
+Aplikacja dla gracza w świecie. Właśnie tutaj gracz kontroluje swoją postać oraz może odczytywać wszyskie informacje o grze udostępnione przez mistrza gry.
+
+\item{DnD Game Master}
+
+Aplikacja przeznaczona dla mistrza gry z której kontroluje karty graczy. To właśnie tutaj nakładane są premie i kary oraz wszelakie modyfikatory zależne od karprys szczęścia i mistrza gry. 
+
+W dalekiej przyszłości miałby symulować części rozgrywki
+
+\item{DnD Server}
+
+Miesce przechowywania przedmiotów, postaci, stanów gry oraz innych mechanizmów. Podczas szykania przez graczy mistrza gry ma pełnić rolę drogowskazu, oraz pewnego rodzaju VPN'a w razie gdyby oboje byli za NATem.
+\end{enumerate}
+
+
+
+\section{Rozwój}
+
+Obecnie DnDP wymaga uporządkowania, poprzez oczyszczenie z resztek starych rozwiązań oraz użycie bibliotek i narzędzi dedykowanych do danych czyności
+
+Do końca stycznia sądzę, że jestem wstanie wykonać następujące zmiany.
+\begin{enumerate}
+\item{Przepisanie testów}
+
+Użycie mocków w testach umożliwi oddzielenie testów jednostkowych od całości środowiska
+(obecnie na potrzeby testu jest tworzone całe potrzebne środowisko) rozluźni to wiązanie między testami a "testowanymi". 
+
+Jest to jedna z rzeczy które są śmieciami po poprzedniej, złej koncepcji.
+
+
+Planowane narzędzia/biblioteki : JUnit (już jest), EasyMock lub Mockito lub Powermock
+
+Szacowany czas : max 6 godzin przy wszystkich testach
+
+\item{Dokończenie modułów}
+
+System ma się podzielić na moduły. Większa część jest już napisana, jednak brakuje wykończenia. Alternatywą jest przejśćie na którąś implementację OSGI.
+
+Szacowany czas: max 6 godzin
+
+\item{Przpisanie GUI}
+
+Planowane narzędzia/biblioteki: Apache Pivot (całkowita nowość) lub Swing
+
+Szacowany czas : max 20 godzin programowania, 2 godziny GIMPa
+
+\item{Stwirzenie GUI dla przedmiotów}
+
+Obcnie wirtualna karta postaci nie jest pełna. Zawiera graficzny interfejs do większości współczyników lecz nie ekwipunku. Powinno się to zmienić w następnym wydaniu.
+
+Planowane narzędzia/biblioteki: patrz pkt wyżej
+
+Szacowany czas : 10 godzin programowania
+
+\item{Rozpoczęcie używania DI}
+
+Pozwoli na rozluźnienie wiązania pomiędzy poszczególnymi modułami. Pozwoli na prawie transparentną zmiennę wewnętrznych implementacji ( o ile nie zmienią API )
+
+Planowane narzędzia/biblioteki : Google Guice
+
+Szacowany czas: max 4 godziny kodowania ( nie liczę konsultacji z innymi developerami oraz eksperymentów)
+
+\item{Dodanie listy znanych języków dla postaci}
+
+W fantastycznych krainach instnieje wiele rówżnych ras jak również języków. System powinien również uwzględniać ten fakt, a obecnie tego nie robi.
+
+Jest to ticket który dotyczy bezpośrednio rozszerzenia funkcjonalnośći. W obszarze projektu jest ich kilka, każdy o równie niskiej wadze. Wpisuje ten jako ich reprezentanta.
+
+Szacowany czas: max 2 godziny
+
+\end{enumerate}
+
+\section{Wnioski}
+Planowanej pracy jest sporo. Lista nie jest finalna, a wałście jest przepisaniem cześci wiszących ticketów w projekcie. Uważam, że jestem wstanie wykonać cały przedstawiony plan do końca stycznia. Jeżeli całość zostałaby wykonana oznaczałoby to dość duży skok technologiczny porównywalny z przejściem z ant'a na mavena.
+
+
+
+
+\end{document}
