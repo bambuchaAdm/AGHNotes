@@ -1,0 +1,56 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{polski}  
+\usepackage{indentfirst} 
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{placeins}
+
+\author{Łukasz Dubiel}
+\title{Macierz odwzorowania liniowego}
+
+\begin{document}
+
+\maketitle
+
+$\mathcal{V,W}$ - przestrzenie wektorowe $ \mathcal{V} = \mathbb{R}^n$ $\mathcal{W} = \mathbb{R}^m$ 
+
+$ f : \mathcal{V} \to \mathbb{W} $
+
+$ E = ( e_1 , \ldots , e_n ) $ - baza w przestrzeni $\mathcal{V}$
+
+$B = (b_1, \ldots , b_m) $ - baza przestrzeni w $\mathcal{W}$
+
+$$ \mathcal{W} \ni f(e_1) = a_{11} b_1 + \ldots +  a_{m1} b_m  = [a_{11},\ldots, a_{m1} ] $$
+$$ \vdots $$
+$$ \mathcal{W} \ni f(e_n) = a_{1n} b_1 + \ldots +  a_{mn} b_m  = [a_{1n},\ldots, a_{mn} ] $$
+
+$$ A = M_f = M_f(E,B) = \begin{bmatrix}
+	a_{11} & \ldots & a_{1n}\\
+	\vdots &  & \vdots\\
+	a_{m1} & \ldots & a_{mn}\\
+\end{bmatrix}_{m \times n} \quad n = \dim{\mathcal{V}} \quad m = \dim{\mathcal{W}}$$
+
+\section{Twierdzenie o postaci odwzorowania liniowego}
+
+$A = M_f(E,B) \ $
+$ x \in V \ $ 
+
+$ x = [x_1,x_2,\ldots,x_n]_E $
+
+$ \mathcal{W} \ni y = f(x) = [y_1,y_2,\ldots,y_m]_B $
+
+$$ Y = A \cdot X $$
+
+\section{Twierdznie o rzędzie macierzy odwzorowania liniowego}
+
+$$ r(M_f) = r(f) $$ gdzie $r(f) = \dim{\Im{f}}$
+
+\subsection{Wniosek}
+Rząd macierzy $M_f$ nie zależy od wciętych baz
+\end{document}
