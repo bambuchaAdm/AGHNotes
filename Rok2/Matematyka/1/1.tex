@@ -53,4 +53,174 @@ $$ r(M_f) = r(f) $$ gdzie $r(f) = \dim{\Im{f}}$
 
 \subsection{Wniosek}
 Rząd macierzy $M_f$ nie zależy od wciętych baz
+
+\section{Twierdzenia o macierzach działań na odwzorowań liniowych}
+
+$f,g : \mathcal{V} \to \mathcal{W} $ gdzie, $E$-baza przestrzeni $\mathcal{V}$, $B$ - baza przestrzeni $\mathcal{W}$ , $\alpha \in \mathbb{K}$ ( $\mathbb{K} = \mathbb{R} \vee \mathbb{K} = \mathbb{C}$)
+
+\subsection{Suma odwzorowań}
+$$ M_{f+g} = M_f + M_g$$
+\subsection{Iloczyn odwzorowań z skalarem}
+$$ M_{\alpha f} = \alpha M_f $$
+\subsection{Złożenie odwzrowań}
+$ f : \mathcal{V} \to \mathcal{W} $
+
+$ g : \mathcal{W} \to \mathcal{U} $
+
+$$ M_{g \circ f} = M_g \cdot M_f $$
+
+\subsection{Odwzrowanie odwrotne}
+$ f : \mathcal{V}_{B} \to \mathcal{V}_{B'} $
+
+$ \exists f^{-1} : \mathcal{V}_{B'} \to \mathcal{V}_{B} $
+$$ M_{f^{-1}} = (M_f)^{-1} $$
+
+\section{Odwzorowanie identycznościowe}
+\subsection{Definicja} 
+Odwzrorowanie identycznościowe oznaczane $$ Id : \mathcal{V} \to \mathcal{V} $$ takie że 
+$$ \forall v \in \mathcal{V} \quad Id(v) = v $$
+\subsection{Własności}
+\begin{enumerate}
+\item{Liniowość}
+\item{Bijektywność}
+\end{enumerate}
+
+\section{Macierz przejścia}
+
+$B = (b_1,\ldots,b_n)$ - stara baza 
+
+$B' = (b'_1 , \ldots ,b'_n ) $ -nowa baza
+
+\section{Definicja}
+Macierzą przejścia $P$ od bazy $B$ do bazy $B'$ nazywamy macierz odwzorowania, identycznościowego przestrzeni $ \mathcal{V}_{B'}$ w przestrzeń $\mathcal{V}_{B}$.
+
+$$ P = M_{Id}(B',B) $$
+
+$$ Id(b'_1) = b'_1 = [p_{11},\ldots,p_{n1}]_B $$
+$$ \vdots $$
+$$ Id(b_n) = b_n = [p_{n1}, \ldots, p_{nn}]_B $$
+
+$$ P = \begin{bmatrix}
+	p_{11} & \ldots & p_{1n}\\
+	\vdots &  & \vdots \\
+	p_{n1} & \ldots & p_{nn}\\
+\end{bmatrix}$$
+
+\subsection{Uwaga 1}
+
+$$ Id \hbox{ - bijekcja} \Rightarrow  \dim{ \Im{Id}}  = n \implies \det{P} \not = 0 $$
+
+\subsection{Wniosek 1}
+ $$ P \hbox{ - nieosobliwa} $$
+ $$ P^{-1} - \hbox{ macierz odwzorowania Id i bazach } B \hbox{ i } B' \hbox{ czyli macierz przejścia z  bazy } B \hbox{ do } B' $$
+ 
+\subsection{Wniosek 2}
+$B$ - stara baza przestrzeni $\mathcal{V}$ 
+
+$B'$ - nowa baza w $\mathcal{V}$
+
+$ x \in \mathcal{V}$
+
+$x = [x_1,\ldots,x_n]_B$
+
+$x = [x'_1, \ldots, x'_n]_{B'}$
+
+$$ X = \begin{bmatrix}
+	x_1\\
+	\vdots\\
+	x_3\\
+\end{bmatrix} \quad  
+X' = \begin{bmatrix}
+	x'_1\\
+	\vdots\\
+	x'_3\\
+\end{bmatrix} $$
+$$ X = P \cdot X' $$
+$$ X' = P^{-1} \cdot X $$ 
+
+\subsection{Uwaga}
+$Id : \mathcal{V}_B\to \mathcal{V}_B$
+
+$$ P = \begin{bmatrix}
+	1 & \ldots & 0\\
+	\vdots & 1 & \vdots\\
+	0 & \ldots & 1\\
+\end{bmatrix} = \mathbf{I}$$
+
+\section{Twierdzenie o zamianie baz}
+$ f : \mathcal{V} \to \mathcal{W} $
+
+$ E,E' $ - baza w przestrzeni $\mathcal{V}$ 
+
+$ B,B' $ - baza w przestrzeni $\mathcal{W}$
+
+$$ M_f(E',B') = Q^{-1} \cdot M_f(E,B) \cdot P $$
+
+$P$ - macierz przejścia od bazy $E$ do $E'$
+
+$Q$ - macierz przejścia od bazy $B$ do $B'$
+
+\subsection{Dowód}
+$ x \in \mathcal{V} $
+$$ X = P \cdot X' $$
+$$ Y = P \cdot Y' $$
+$$ Y = M_f(E,B) \cdot X $$
+
+$$ Q \cdot Y' = M_f(E,B) \cdot P \cdot X' \quad / Q^{-1} \cdot $$
+$$ Q^{-1} \cdot Q \cdot Y' = Q^{-1} \cdot M_{E',B'} \cdot P \cdot X'$$
+$$ Y'  =  \underbrace{Q^{-1} \cdot M_f(E,B) \cdot P}_{M_f(B',E')} \cdot X'$$
+
+\subsection{Przykład}
+$ f : \mathbb{R}^3 \to \mathbb{R}^2 $
+
+$ E = ((1,0,0),(1,1,0),(1,1,1)) $
+
+$ B = ((1,0),(1,1)) $
+
+$$ M_f(E,B) = \begin{bmatrix}
+	1 & -1 & 2\\
+	0 & -3 & -5\\
+\end{bmatrix}$$
+
+$ E' = ( (0,0,1) , (0,1,0), (1,0,0) ) $
+
+$ B' = ( (0,-1),(-2,-1)) $
+
+$$ P = \begin{bmatrix}
+	0 & -1 & 1\\
+	-1 & 1 & 0\\
+	1 & 0 & 0\\
+\end{bmatrix}$$
+
+$$ Q^{-1} = 
+\begin{bmatrix}
+\frac{1}{2} &  \frac{-1}{2} \\
+\frac{-1}{2} & \frac{-1}{2} \\
+\end{bmatrix} $$
+
+$$ M_f(E',B') =
+\begin{bmatrix}
+\frac{1}{2} &  \frac{-1}{2} \\
+\frac{-1}{2} & \frac{-1}{2} \\
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+	1 & -1 & 2\\
+	0 & -3 & -5\\
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+	0 & -1 & 1\\
+	-1 & 1 & 0\\
+	1 & 0 & 0\\
+\end{bmatrix} $$
+
+\subsection{Wniosek}
+$f$ jest endomorfizmem
+$B,B'$ - bazy przestrzeni V
+
+$$M_f(B',B') = P^{-1} \cdot M_f(B,B) \cdot P $$
+
+
+
 \end{document}
