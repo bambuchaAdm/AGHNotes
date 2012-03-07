@@ -1,0 +1,96 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{polski}  
+\usepackage{indentfirst} 
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{placeins}
+
+\author{Łukasz Dubiel}
+\title{Błędy pomiarowe}
+\begin{document}
+
+\maketitle
+
+\section{Rodzaje błędu}
+\begin{enumerate}
+\item{Błędy grube - czyli pomyłki, należy je eliminować, takie jak błądy przeliczenia jednostek i inne}
+\item{Błędy systematyczne - które można oraniczyć udoskonalając pomiar}
+\item{Błędy przypadkowe - które podlegają prawą statystyki i rachunku prawdopodobieństwo  wynikające z zmiennych losowych przyczynków i nie da się wyeliminować}
+\end{enumerate}
+
+\section{Błędy systematycznej}
+Gdy wartość średnia pomiarów jest przesunięta względem wartości oczekiwanej. Istnieje coś takiego jak minimalny błąd systematyczny jest określany przez błąd przyrządu pomiarowego.
+\section{Błędy przypadkowy}
+Gdy średnia jest bardzo blisko wartości oczekiwnej a jednak. Im większe odchylenie standardowe tym gorszy pomiar.
+
+$$ \Phi(x) = \frac{dP(x)}{dx} $$
+
+Wszystkie wykresy podaje się jako funkcję gęstości prawdopodobieństwa, dzięki temu prawdopodobieństwo możemy wyrazić 
+$$ P(x) = \int_{x}^{x+dx} \Phi(x)dx $$
+
+\section{Źródła błędu systematycznego}
+\begin{enumerate}
+\item{Skale mierników}
+\item{Nieświadomy wpływ czynników zewnętrznych (temperatury,wilgotność) na wielkości mierzone}
+\item{Niewłaściwy sposób odczytu (błąd paralaksy) lub pomiaru}
+\item{Przybliżone charakter wzorów stosowanych do wyznaczenia wielkości złożonej.}
+\end{enumerate}
+\subsection{Poprawki}
+Błędy systematyczne czasami można ograniczyć wprowadzając poprawkę, np.
+$$ F = 6\pi \eta v(1 + 2,4\frac{r}{R}) $$
+
+\subsection{Źródła błędu pomiarowego}
+\begin{enumerate}
+\item{Własności obiektu mierzonego - np. wahania średnicy drutu na całej jego długości}
+\item{Własności przyrządu pomiarowego - np. zależą od przypadkowych drgań budynku, fluktuacja ciśnienia czy temeratury, czy docisku}
+\item{Podłoże fizjologiczne - refelks, subiektywną ocenę maksimum czy równomierność oświetlenia poszczególnych części}
+\end{enumerate}
+
+\section{Typy oceny niepewności}
+\subsection{Typ A}
+Metody wykorzytujące statystyczną analizę serii pomiarów.
+\begin{enumerate}
+\item{Używamy metod statystycznych by je wyeliminować}
+\end{enumerate}
+\subsection{Typ B}
+Operia się na naukowym osądzie eksperymentatora wykorzystującym wszystkie informacje o pomiarze i źródłach jego niepewności.
+\begin{enumerate}
+\item{Stosuje się gdy statystyczna analiza nie jest możliwa}
+\item{Dla błędu systematycznego lub dla jednego wyniku pomiaru}
+\end{enumerate}
+
+\section{Do oceny typu B wykorzystać można}
+\begin{enumerate}
+\item{dane z pomiarów poprzednich}
+\item{Doświadczenie i wiedzę na temat przyrządów i obiektów mierzonych}
+\item{Informacja producenta przyrządów}
+\item{Niepewność przypisane danym zaczerpniętymi z literatury}
+\end{enumerate}
+
+\section{Przykład}
+Pomiar stałej grawitacji metodą wahadła matematycznego.
+
+$$ T = 2 \pi \sqrt{\frac{l}{g}} $$
+Mierzymy wielkości prost $ T, l $ - wartości , $ \Delta T = 1s, \Delta L = 1mm$ - maksymalna niepewność 
+$$ \overline{g} = 9,78 \frac{m}{s^2} $$
+
+$$ \Delta g = \frac{4\pi^2 \Delta L}{(\Delta T)^2} \quad \hbox{Do chrzanu!!!!}$$
+
+$$ df = \frac{df}{dx}dx $$
+
+$$ df = \sum_{i=1}^n \frac{df}{dx_i}dx_i $$
+
+\section{Niepewność maksymalna}
+
+$$ \Delta y = \left|\frac{\delta}{\delta x_1}\right| |\Delta x_1| $$
+
+\section{niepewność standardowa}
+$$ u_c(y) = \sqrt{ \sum_{i=0}^{n} \left[ \frac{dy}{dx_i} u(x_1) \right]^2} $$
+
+\end{document}
