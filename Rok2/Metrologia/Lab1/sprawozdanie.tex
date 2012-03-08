@@ -1,0 +1,127 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{polski}  
+\usepackage{indentfirst} 
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{placeins}
+
+\begin{document}
+
+\begin{tabular}{|l|l|l|}
+\hline
+	Wydział:EAIE Kierunek:EiT & & 
+	\begin{tabular}{l}
+		Rok I (2011/2012\\
+		Grupa 6\\
+		Zespół D\\
+	\end{tabular}
+ \\
+\hline
+	Data wykonania 5 marca 2012 & 
+	\begin{tabular}{l}
+	Laboratorium Metrologi: Cw 1 i 2\\
+	Wprowadzenie do obsługi przyrządów pomiarowych \\
+	oraz analiza błędów i niepewności pomiarowych\\
+\end{tabular}
+  \\
+\hline
+	Zaliczenie & Podpis prowadzącego & Uwagi\\
+\hline
+\end{tabular}
+
+\section{Pomiar bezpośredni napięcia stałego milimetrem cyfrowym}
+\subsection{Schemat}
+
+
+\subsection{Wyniki pomiarów}
+
+\begin{tabular}{|l|l|l|l|l|}
+	\hline 11 & U & $\Delta_{gr}U$ & $u_B(U)$ & $U(U)$ \\
+	\hline 1 & 5,975 & 0,004 & 0,0023 & 0,004\\
+	\hline 1 & 11,999 & 0,006 & 0,004 & 0,007\\
+	\hline
+\end{tabular}
+
+\subsection{Wzory i przykładowe obliczenia}
+Błąd graniczy bezwzględny pomiaru napięcia obliczamy z wzoru $$ \Delta_{gr} = \frac{a \cdot U + b \cdot Z_U}{100} $$
+
+Przy pomiarze napięcia $U_1$ przy zakresie $40V$ współczynniki wynoszą $ a = 0,025 \quad b = 0,006 $ więc błąd graniczny wynosi 
+
+$$ \Delta_{gr}U = \frac{0,025 \cdot 5,975 + 0,006 \cdot 40}{100} = 0,004$$
+
+Niepewność typu B wynosi 
+$$ u_B(U) = \frac{\Delta_{gr}U}{\sqrt{3}} = 0,0023$$
+
+$$ U(U) = k u_B(U) \quad k = \sqrt{3}p \quad p = 0,95 $$
+$$ U(U) = 0,004 $$
+
+\subsection{Wnioski}
+Napięcie dla zakresu $12V$ jest bardziej stabilne niż dla$6$. Napięcie na zaciskach zasilacza podczas gdy był ustawiony na $6V$ jest mniejsze niż powinno być, a różnica jest większa niż błąd graniczny.
+
+\subsection{Wykaz urządzeń}
+Rigol DM3051, Zasilacz laboratoryjny
+
+\section{Pomiar bezpośredni napięcia stałego multimetrem analogowym}
+
+\subsection{Schemat}
+
+\subsection{Wyniki pomiarów}
+
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+	LP & Klasa & $\alpha_m$ & $Z_{U}[V]$ & $\alpha[dz]$ & $c_U[V/dz]$ & $U[V]$ & $\Delta_{gr}[V]$ & $u_b(U)$ & $U(U)$\\
+\hline
+	1 & 1 & 60 & 6 & 59 & 0,1 & 5,9 & 0,06 & $\frac{\sqrt{3}}{50}$ & 0,06\\
+\hline
+	2 & 1 & 60 & 15 & 36 & 0,25 & 9 & 0,15 & $\frac{\sqrt{3}}{20}$ & 0,15\\
+\hline
+	3 & 1 & 60 & 30 & 24 & 0,5 & 12 & 0,3 & $\frac{\sqrt{3}}{10}$ & 0,3 \\
+\hline
+\end{tabular}
+
+\subsection{Wzory i przykładowe obliczenia}
+
+\subsection{Wnioski}
+
+\subsection{Lista przyrządów}
+UM3a, Zasilacz laboratoryjny
+
+\section{Pomiar bezpośredni rezystancji metodą dwuprzepływową} 
+\subsection{Schemat}
+\subsection{Wyniki pomiarów}
+
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+	 Rezystor & $R[k\Omega]$ & $Z_R[k\Omega]$ & $\Delta_{gr}R [\Omega]$ & $U(R)$\\
+\hline
+	R2 & 5,894 & $40$ & 25 & 24\\
+\hline
+	R4 & 36,526 & $40$ & 33 & 31\\
+\hline
+\end{tabular}
+\subsection{Wzory i przykładowe obliczenia}
+Obliczenia wykonywane dla $R2$
+$$\Delta_{gr}R = \frac{a \cdot R + b \cdot Z_R}{100} = 
+	\frac{5,894 *10^3 * 0,025 + 4*10^5*0,006}{100} = 25,674$$
+Niepewność typu $B$ 
+$$ U_B(R) = \frac{\Delta_{gr}R}{\sqrt{3}} = \frac{25,674}{\sqrt{3}} = 14,82 $$
+
+$$ U(R) = \sqrt{3} \cdot p \cdot u_B(R) = 24,39 \quad p = 0,95$$
+
+\section{Wnioski}
+
+\section{Wykaz przyrządów}
+Płytka z rezystorami, Rigol DM3051
+	
+
+
+
+
+
+\end{document}

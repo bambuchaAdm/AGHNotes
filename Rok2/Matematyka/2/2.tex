@@ -1,0 +1,193 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{polski}  
+\usepackage{indentfirst} 
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{placeins}
+
+\author{Łukasz Dubiel}
+\title{Diagonalizacja endomorfizmów}
+
+\begin{document}
+
+\maketitle
+
+\section{Wartość i wektory własne endomorfizmu}
+
+$\mathcal{V}$ - przestrzeń wektorowa nad ciałem $\mathbb{K}$
+$f$ - endomorfizm przestrzeni $V \quad (f : \mathcal{V} \to \mathcal{V}$ - liniowe
+
+$ \lambda \in \mathbb{K} $
+
+Skalar $\lambda$ nazywamy wartości własnej endmofizmu $f$ gdy $$ \exists v \in \mathcal{V}, v \not = \overline{0} \quad f(v) = \lambda v $$
+
+Następnie wektor $v$ spełniający warunek $$ f(v) = \lambda v$$ nazywamy wektorem własnym endomorfizmu odpowiadającym wartości własnej $\lambda$. 
+
+\subsection{Przykład}
+$ V = \mathbb{R}^3 $ \\
+$f$ - symetria względem płaszczyny $OXY$ 
+$$ f(v) = -v \implies \lambda =  -1 \hbox{ wartość własna} $$
+$$ f(v') = v' \Longrightarrow \lambda =  1 \hbox{ wartość własna } $$
+
+\subsection{Uwaga}
+$$ v = \overline{0}  \implies f(v) = \overline{} = \lambda \overline{0} = \lambda v $$
+Co oznacza że własnościami własnymi jest cały zbiór liczb rzeczywistych, jednak nie o to chodzi. 
+
+\section{Widmo endomorfizmu}
+$ \lambda - wartość własna endomorfizmu $
+$$ V_{\lambda} := \left\{ v \in V : f(v) = \lambda v \right\} $$
+Jest to zbiór wszystkich wektorów własnych odddział wartośći własnej $\lambda$ wraz z wektorem zerowym.
+
+\subsection{Twierdzenie} 
+$$ V_\lambda \hbox{ - podprzestrzeń wektorowa przestrzeni } V $$
+\subsubsection{Dowód}
+$ \\
+\forall \alpha, \beta \in \mathbb{K} \\
+\forall v_1,v_2 \in V_\lambda$
+$$ f( \alpha v_1 + \beta v_2 ) = \alpha f(v_1) + \beta f(v_2) = \alpha \lambda v_1 + \beta \lambda v_2 = \lambda (\alpha v_1 + \beta v_2)$$ 
+\subsection{Uwaga}
+$$V_\lambda - \hbox{ podrzestrzeń własna (odpowiadającej wartości własnej) endomorfizmu f }$$
+
+\subsection{Własności}
+\begin{enumerate}
+\item{$\dim{V_\lambda} \geq 1$}
+\item{Każdy wektor własny odpowiada dokładnie jednej wartości własnej
+$$ V_{\lambda_1} \cap V_{\lambda_2} = \overline{0} \quad \lambda_1 \not = \lambda_2 $$}
+\item{$V_\lambda = \ker{f - \lambda Id_V}$}
+\end{enumerate}
+\subsubsection{Dowód 1}
+$$ \exists v\not = 0 : \quad f(v) = \lambda v \implies v \in V_\lambda$$
+
+\subsubsection{Dowód 2}
+Dowód nie wprost 
+Hp. $v$ - wektor własny odpowiadający wartości własnym $\lambda_1 i \lambda_2$, gdzie $\lambda_1 \not = \lambda_2$
+$$
+\begin{cases}
+f(v) = \lambda_1 v \\
+f(v) = \lambda_2 v \\
+\end{cases}
+\implies
+\lambda_1 v = \lambda_2 v
+\implies
+(\lambda_1 - \lambda_2) v = \overline{0}
+\implies
+\lambda_1 - \lambda_2 = 0
+$$
+
+\subsubsection{Dowód 3}
+$$ V_\lambda = \{ v \in V : f(v) = \lambda v \} = \{ v \in V : f(v) - \lambda v = \overline{0} \} = \{ v \in V : (f - \lambda Id)(v) = \overline{0} \} = \ker{(f - \lambda Id)} $$
+
+\newpage
+\section{Twierdzenie o wartościach własnych endomorfizmu}
+$f$ - endomorfizm przestrzeni $V$ 
+$B$ - baza przestrzeni $V$
+$\mathbf{A} = M_f(B,B)$
+$\lambda \in \mathbb{K} $
+
+$$ \lambda - \hbox{ wartość własna endomorfizmu } f \iff \det(\mathbf{A} - \lambda \mathbf{I}) = 0 $$
+
+\subsection{Dowód}
+$$ \lambda - \hbox{ wartość własna } f 
+\iff \exists v \not \overline{0} : f(v) = \lambda v
+\iff \exists v \not = \overline{0} : f(v) - \lambda v = \overline{0}
+\iff \exists v \not = \overline{0} : f( - \lambda Id)(v) = \overline{0} \iff $$
+Co przechodząc na macierze odwzorowań daje 
+$$ (\mathbf{A} - \lambda \mathbf{I}) v = \overline{0}
+\iff r(\mathbf{A} - \lambda \mathbf{I}) < n
+\iff \det(\mathbf{A} - \lambda \mathbf{I}) = 0 $$
+
+\subsection{Wnioski}
+$v$ - wektor własny endomorfizmu $f \iff v $ jest niezerowym rozwiązaniem układu jednorodnego $(\mathbf(A) - \lambda \mathbf{I}) v = \overline{0}$ odpowiedniej wartości własnej $\lambda$
+
+\subsection{ Twierdzenie o niezależności wartośći własnej od wyboru baz }
+Wartości własne nie zależą od wybranych baz odwzorowania
+
+\section{Wielomian charakterystyczny}
+Wielomianem charakterystycznym endomorfizmu $f$ nazywamy wielomian 
+$$ \Delta (\lambda) := \det{(\mathbf{A} - \lambda \mathbf{I})} $$
+gdzie  $\mathbf{A}$ - jest macierzą endomorfizmu $f$ w dowolnej bazie
+
+\section{Równanie charakterystycznym}
+Równaniem charakterystycznym endomorfizmu $f$ nazywamy równanie
+$$ \Delta (\lambda) = 0 $$
+
+\newpage
+\section{Twierdzenie o liniowej niezależności wektorów własnych}
+
+Wektory własne endomorfizmu $f$ odpowiadające różnym wartościom własnym są liniowo niezależne.
+
+\subsection{Dowód}
+ć.w.
+
+\subsection{Wniosek}
+$f$ - endomorfizm przestrzeni $V, \quad \dim{V} = n $
+
+$f$ posiada $n$ różnych (parami) wartości własnych 
+
+z tego wynika $$ \exists n \hbox{ liniowo niezależnych wektorów własnych przestrzeni V } \implies \exists \hbox{Istnieje baza złożona z wektorów bazowych} $$
+
+\section{Endomorfizm diagonalizowalny}
+Endomorfizm $f$ przestrzeni $V$ nazywamy diagonalizowalnym $:\iff \exists$ w przesrzenie $V$ taka baza, że macierz odwzorowania $f$ w tej bazie jest macierzą diagonalną. 
+
+\section{WKW diagonalizowalnośći macierzy endomorfzimu}
+$f$  - endomorfizm przestrzeni $V$
+$$ f \hbox{ jest diagonalizowalny} \iff \exists \hbox { baza przestrzeni } V \hbox{ stworzona z wektorów własnych} $$
+
+\subsection{Dowód $\Rightarrow$}
+$f$ - diagonalizowalny
+$$ \exists B = (b_1,\ldots,b_n) : \quad M_f(B,B) - \hbox{ Jest diagonalna } $$
+
+$f(b_1) = [\alpha_1 , 0 , \ldots, 0]  = \alpha_1 b_1 \Rightarrow \alpha_1 - \hbox{ wartość własna endomorfizmu } f i b \hbox{ wektor własny odpowiadający } \alpha_1$
+
+$ \vdots $
+
+$f(b_n) = [0,0,\ldots,\alpha_n] = \alpha_n b_n$ 
+
+\subsection{Dowód $\Leftarrow$}
+ćw.
+
+\subsection{Wnioski 1}
+$f$ - endomorfizm diagonalizowalny 
+
+$B = (v_1,\ldots,v_n)$ baza przestrzeni $V$ 
+$ v_1,\ldots,v_n$ - wektory własne odpowiadające wartościom własnym $\lambda_1,\ldots,\lambda_n$ 
+
+To 
+$$ M_f(B,B) = \begin{bmatrix}
+	\lambda_1 & 0  & 0\\
+	0 & \ddots & 0 \\
+	0 & 0 & \lambda_n\\
+\end{bmatrix}$$
+
+\subsection{Wniosek 2}
+Endomorfizm $f$ posiada $n$ różnych wartości własnych oraz $\dim{V} = n \implies f$ jest diagonalizowalna.
+
+\section{Twierdzenie o diagonalizowalności} 
+$f$ - endomorfizm $V$
+
+$\dim{V} = n $
+
+$ \lambda_1,\ldots,\lambda_p $ - różne wartości własne endomorfizmu $f, \quad p \leq n$
+
+$k_1,\ldots,k_p$- krotności $\lambda_1,\ldots,\lambda_p$ jako pierwiastków wielomianu charakterystycznego 
+\end{document}
+Wtedy
+\begin{enumerate}
+\item{
+$$ \forall i=1, \ldots , p \quad \dim{V_{\lambda_i}} = k_i $$
+}
+\item{
+$$f - diagonalizowalny \iff \forall i = 1,\ldots , p  \dim{V_{\lambda_i}} = k_i $$
+
+\section{Przykłąd}
+Sprawidzić że endomorfizm jest diagnoalizowalny, wyznaczyć macierz endomorfizmu $\mathbf{D}$ w bazie $\mathbf{B}$ w której macież $\mathbf{D}$ jest diagonalna oraz podać bazę $\mathbf{B}$. 
+
+$f : \mathbb{R}^3 \to \mathbb{R}^3 $
+
+$f(x,y,z) = (x-z,x+2y+z,z,y) $
