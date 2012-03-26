@@ -1,0 +1,57 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{polski}  
+\usepackage{indentfirst} 
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{placeins}
+\usepackage{multicol}
+\usepackage{textcomp}
+
+\author{Łukasz Dubiel}
+
+\begin{document}
+
+\section{Opracowywanie wyników}
+
+L = 43 mH, C = 640 pF
+
+\begin{tabular}{|r|r|r|r|r|r|r|r|r|r|}
+\hline
+	$R_d [\Omega$] & T[dz] & T[s] & $U_i$[V] & $U_{i+2}$[V] & $\beta$ & $R_p[\Omega]$ & $R_c[\Omega]$ & C[pF] \\  
+\hline
+	0 & 4,6 & $9,2 \cdot 10^{-4}$
+	 & 2,2 & 1,4 & 489 & 42 & 42 & 502\\
+	 
+	14 & 4,6 & $9,2 \cdot 10^{-4}$
+	 & 1,2 & 0,6 & 750 & 60,5 & 64,6 & 505\\
+	 
+	28 & 4,6 & $9,2 \cdot 10^{-4}$
+	 & 2,6 & 1 & 1032 & 60,8 & 88,8 & 510\\
+\hline
+\end{tabular}
+
+\begin{multicols}{2}
+
+$$ \beta = \frac{\ln{\frac{U_i}{U_{i+2}}}}{T} $$
+
+$$ R_d = 0 \implies  R_p = 2\beta L$$
+
+$$ \omega = \frac{2\pi}{T} $$
+$$ \omega = \sqrt{\omega_0^2 - \left( \frac{R}{2L} \right)^2} $$
+\end{multicols}
+$$ C = \frac{1}{L( \omega^2 - \beta^2)} $$
+$$ \Delta C = \frac{1}{L}\left(\frac{1}{\omega}\Delta \omega + \frac{1}{\beta}\Delta \beta \right) = \frac{1}{0,043}(\frac{1}{6826}0,1 + \frac{1}{1032}0,1) = 0,0026 = 2,6*10^{-3} C $$
+\bigskip
+Przebieg aperiodyczny rozpoczynał się dla rezystancji o wartości (wyznaczane doświadczalnie)
+$$ R_k = 480 \ \Omega $$
+Teoretycznie rezystancja powinna wynieść
+$$ R_k = 2 \sqrt{\frac{L}{C}} = 2 \sqrt{\frac{43 \cdot 10^{-3}}{640 \cdot 10^{-12}}} = 2\sqrt{6,7 \cdot 10^{6}} =  5,2 \cdot 10^{3} = 5,2\ k\Omega $$
+
+
+\end{document}

@@ -1,3 +1,4 @@
+
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 %\usepackage[T1]{fontenc}
@@ -10,9 +11,11 @@
 \usepackage[pdftex]{graphicx}
 \usepackage{multirow}
 \usepackage{placeins}
+\usepackage{wasysym}
 
 \begin{document}
 
+\begin{center}
 \begin{tabular}{|l|l|l|}
 \hline
 	Wydział:EAIE Kierunek:EiT & & 
@@ -29,25 +32,27 @@
 	Wprowadzenie do obsługi przyrządów pomiarowych \\
 	oraz analiza błędów i niepewności pomiarowych\\
 \end{tabular}
-  \\
+  & \\
 \hline
 	Zaliczenie & Podpis prowadzącego & Uwagi\\
 \hline
 \end{tabular}
+\end{center}
 
 \section{Pomiar bezpośredni napięcia stałego milimetrem cyfrowym}
 \subsection{Schemat}
-
-
+\begin{center}
+\includegraphics[scale=2.5]{1.pdf}
+\end{center}
 \subsection{Wyniki pomiarów}
-
+\begin{center}
 \begin{tabular}{|l|l|l|l|l|}
-	\hline 11 & U & $\Delta_{gr}U$ & $u_B(U)$ & $U(U)$ \\
+	\hline Lp. & U & $\Delta_{gr}U$ & $u_B(U)$ & $U(U)$ \\
 	\hline 1 & 5,975 & 0,004 & 0,0023 & 0,004\\
-	\hline 1 & 11,999 & 0,006 & 0,004 & 0,007\\
+	\hline 2 & 11,999 & 0,006 & 0,004 & 0,007\\
 	\hline
 \end{tabular}
-
+\end{center}
 \subsection{Wzory i przykładowe obliczenia}
 Błąd graniczy bezwzględny pomiaru napięcia obliczamy z wzoru $$ \Delta_{gr} = \frac{a \cdot U + b \cdot Z_U}{100} $$
 
@@ -62,17 +67,20 @@ $$ U(U) = k u_B(U) \quad k = \sqrt{3}p \quad p = 0,95 $$
 $$ U(U) = 0,004 $$
 
 \subsection{Wnioski}
-Napięcie dla zakresu $12V$ jest bardziej stabilne niż dla$6$. Napięcie na zaciskach zasilacza podczas gdy był ustawiony na $6V$ jest mniejsze niż powinno być, a różnica jest większa niż błąd graniczny.
+Napięcie dla zakresu $12V$ jest bardziej stabilne, niż dla $6Vo$. Napięcie na zaciskach zasilacza podczas gdy był ustawiony na $6V$ jest mniejsze, niż powinno być, a różnica jest większa, niż błąd graniczny.
 
 \subsection{Wykaz urządzeń}
 Rigol DM3051, Zasilacz laboratoryjny
 
-\section{Pomiar bezpośredni napięcia stałego multimetrem analogowym}
+\newpage
+\section{Pomiar bezpośredni napięcia stałego multimetrem}
 
 \subsection{Schemat}
-
+\begin{center}
+\includegraphics[]{2.pdf}
+\end{center}
 \subsection{Wyniki pomiarów}
-
+\begin{center}
 \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
 \hline
 	LP & Klasa & $\alpha_m$ & $Z_{U}[V]$ & $\alpha[dz]$ & $c_U[V/dz]$ & $U[V]$ & $\Delta_{gr}[V]$ & $u_b(U)$ & $U(U)$\\
@@ -84,18 +92,27 @@ Rigol DM3051, Zasilacz laboratoryjny
 	3 & 1 & 60 & 30 & 24 & 0,5 & 12 & 0,3 & $\frac{\sqrt{3}}{10}$ & 0,3 \\
 \hline
 \end{tabular}
-
+\end{center}
 \subsection{Wzory i przykładowe obliczenia}
+Obliczania przeprowadzone dla drugiego pomiaru
+$$ \Delta_{gr}U = \frac{K \cdot Z_U}{100} = \frac{1 \cdot 15}{100} = 0,15 V$$
 
+$$ u_b(U) = \frac{\Delta_{gr}U}{\sqrt{3}} = \frac{0.15}{\sqrt{3}} = 0,09 $$
+
+$$ U(U) = k u_b(U) = 0,95 \sqrt{3} u_b(U) = 1,5 $$
 \subsection{Wnioski}
-
+Dla multimetru analogowego dokładność jest mniejsza. Nie dość, że błąd graniczny jest rząd wielkości większy, to pomiar jest obarczony dodatkowymi błędami (np. błąd paralaksy).
 \subsection{Lista przyrządów}
 UM3a, Zasilacz laboratoryjny
 
+\newpage
 \section{Pomiar bezpośredni rezystancji metodą dwuprzepływową} 
 \subsection{Schemat}
+\begin{center}
+\includegraphics[scale=1.4]{3.pdf}
+\end{center}
 \subsection{Wyniki pomiarów}
-
+\begin{center}
 \begin{tabular}{|l|l|l|l|l|}
 \hline
 	 Rezystor & $R[k\Omega]$ & $Z_R[k\Omega]$ & $\Delta_{gr}R [\Omega]$ & $U(R)$\\
@@ -105,6 +122,7 @@ UM3a, Zasilacz laboratoryjny
 	R4 & 36,526 & $40$ & 33 & 31\\
 \hline
 \end{tabular}
+\end{center}
 \subsection{Wzory i przykładowe obliczenia}
 Obliczenia wykonywane dla $R2$
 $$\Delta_{gr}R = \frac{a \cdot R + b \cdot Z_R}{100} = 
@@ -114,14 +132,147 @@ $$ U_B(R) = \frac{\Delta_{gr}R}{\sqrt{3}} = \frac{25,674}{\sqrt{3}} = 14,82 $$
 
 $$ U(R) = \sqrt{3} \cdot p \cdot u_B(R) = 24,39 \quad p = 0,95$$
 
-\section{Wnioski}
-
-\section{Wykaz przyrządów}
+\subsection{Wnioski}
+Pomiar znacznej rezystancji jest dokładny i błąd graniczny stanowi mniej niż 5$\permil$ całkowitego wyniku. 
+\subsection{Wykaz przyrządów}
 Płytka z rezystorami, Rigol DM3051
-	
 
+\section{Pomiar bezpośredni rezystancji metodą czteroprzewodową multimetrem cyforwym}
 
+\subsection{Schemat}
+\begin{center}
+\includegraphics{4.pdf}
+\end{center}
+\subsection{Wyniki pomiarów}
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+	Lp. & $R^{4W}$ & $\Delta_{gr}R^{4W}$ & $U(R^{4W})$ & $R^{2W}$ & $\Delta_{gr}R^{2W}$ & $U(R^{2W})$\\
+\hline
+	 1 & 1,048 & 0,004 & 0,0024 & 1,088 & 0,004 & 0,0024 \\
+\hline
+\end{tabular}
+\end{center}
+\subsection{Przykładowe obliczenia i wzory}
+Błędy graniczne obliczamy z wzorów 
 
+$$\Delta_{gr}R^{4W} = \frac{ a \cdot R + b \cdot Z_r}{100} [\Omega]$$ 
+$$ \Delta_{gr}R^{2R} = \frac{ a \cdot R + b \cdot Z_r}{100} + 0,2 [\Omega]$$
 
+Dla zakresu $200 \Omega$ i użytego multimetru $a = 0,010$ i $b = 0,0020$
 
+$$ \Delta_{gr}R^{4W} = 0,4 $$
+$$ \Delta_{gr}R^{2W} = 0,6 $$
+
+\subsection{Wykaz przyrządów}
+Płytka z rezystorem, Rigol DM3051
+
+\newpage
+\section{Pomiar bezpośredni napięcia skutecznego prądu zmiennego przy pomocy multimetru cyfrowego}
+\subsection{Schemat}
+\begin{center}
+\includegraphics{5.pdf}
+\end{center}
+\subsection{Wyniki pomiarów}
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+	Lp. & $U_{rms}[V]$ & $\Delta_{gr}U_{rms}[V]$ & $ U(U_{rms}) $\\
+\hline
+	1 & 9,719 & 0,006 & 0,004\\
+\hline
+	2 & 3,557 & 0,003 & 0,002\\
+\hline
+	3 & 8,484 & 0,005 & 0,003\\
+\hline
+\end{tabular}
+\end{center}
+\subsection{Przykładowe obliczenia i wzory}
+$$ \Delta_{gr}U = \frac{a \cdot U + b \cdot Z_u}{100} [V] $$
+Obliczenia przeprowadzamy na zakresie $20V$, wtedy $a = 0,04$ i $b = 0,01$. Obliczenia konkretne dla trzeciego pomiaru
+$$ \Delta_{gr}U = \frac{8,484 \cdot 0,04 + 0,01 \cdot 20}{100} \approx 0,005 [V] $$
+
+\subsection{Wnioski}
+Pomiar jest dość dokładny, jednak przyrząd znacznie gorzej radzi sobie z napięciem zmiennym niż stałym.
+\subsection{Wykaz urządzeń}
+Zasilacz laboratoryjny, Rigol DM3051
+\newpage
+\section{Pomiar bezpośredni częstotliwości multimetrem cyfrowym}
+\subsection{Schemat}
+
+\begin{center}
+\includegraphics{6.pdf}
+\end{center}
+
+\subsection{Wyniki pomiarów}
+
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+	Lp. & $f[kHz]$ & $\Delta_{gr}f[Hz]$ & $U(f)[Hz]$\\
+\hline
+	1 & 1,231  & 0,4& 0,4\\
+\hline
+	2 & 2,127 & 0,4 & 0,4\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Wzory i przykładowe obliczenia}
+$$ \Delta_{gr}f = \frac{a \cdot f}{100} [Hz] $$
+Dla zakresu $3 - 5 kHz$ współczynnik $a = 0,02$. 
+Obliczenia przeprowadzone dla drugiego pomiaru
+
+$$ \Delta_{gr}f = \frac{0,02 \cdot 2,127}{100} = 0,0004  kHz$$   
+
+\subsection{Wnioski}
+Błędy graniczne stanowią niecały procent wyniku. Oznacza to, że pomiary częstotliwości są dość dokładne.
+\subsection{Wykaz urządzeń}
+Zasilacz laboratoryjny, Rigol DM3051
+
+\newpage
+\section{Pomiar częstotliwości napięcia zmiennego metodami z wykorzystaniem funkcji statystycznych}
+\subsection{Schemat}
+\begin{center}
+\includegraphics{6.pdf}
+\end{center}
+\subsection{Wyniki pomiarów}
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+	Lp. & n & $f_{min}$ & $f_{ave}$ & $f_{max}$ \\
+\hline
+	1 & 31 & 0,1373 & 0,1373 & 0,1374\\
+\hline
+	2 & 33 & 2,134 & 2,135 & 2,136\\
+\hline
+\end{tabular}
+\end{center}
+\subsection{Wnioski}
+Obliczenie błędów i niepewności w tego typu pomiarach wykracza poza ramy ćwiczenia.
+\subsection{Wykaz urządzeń}
+Zasilacz laboratoryjny, Rigol DM3051
+
+\newpage
+\section{Bezpośredni pomiar pojemności z użyciem metod statystycznych}
+\subsection{Schemat}
+\begin{center}
+\includegraphics[scale=1.3]{8.pdf}
+\end{center}
+\subsection{Wyniki pomiarów}
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+	Lp. & n & $C_{min}[nF]$ & $C_{ave}[nF]$ & $C_{max}[nF]$\\
+\hline
+	1 & 36 & 2,1074 & 2,1131 & 2,1296\\
+\hline
+	2 & 31 & 29,794 & 29,808 & 29,843\\
+\hline
+\end{tabular}
+\end{center}
+\subsection{Wnioski}
+Wyznaczenie błędu oraz niepewności w tego typu pomiarach wykracza poza ramy ćwiczenia.
+\subsection{Wykaz urządzeń}
+Zasilacz laboratoryjny, Rigol DM3051
 \end{document}
