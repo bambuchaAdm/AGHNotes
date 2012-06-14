@@ -1,0 +1,41 @@
+etalon - wzorzec najwyższej jakości, służący do tworzenia innych wzorócw
+
+etalon, etalon miedzynarowdowy, etalon narodowy, wzorce I rzędu, wzorce II rzędu, przyrządy wzorcowe
+
+Klasa niż 005 dokładności czyni za przyrządy wzorcowe
+
+Wzorzec podstawowy
+Wzorzec do porównywania
+Wzorzec odniesienia
+Wzorzec świadek
+
+wymagania
+Niezmienności w czasie
+Łatwa porównywalność
+Łatwa oddtwarzalność
+
+Wartość nominalna - wartość jaką chcemy jaką chcemy wzorca
+Wartość poprawna - taka na jaką chcemy ją zbudować
+
+Jednomiarowe - jeden miar
+Wielomiarowe - wiele różnych miar
+
+ppm - part per milion
+
+Wzorce napiceia
+
+ogniwo Westona - 10^-4
+efekt zennera - słabo
+złącze Josephsona - 10^-7
+
+Efekt termoelektryczn - napięcie na styku 
+
+Wzorce rezystancji - jednomiarowe
+Wykonywane z manganinu ( Cu86, Mn12, Ni2 ) - bardzo duży opór właściwy
+(jest dwadzieścia czetery razy mniejszy)
+mały stopień mnijesyz zmian temperatórowy (400x mniejszy niż miedź)
+siła termoelektyczna jest znikomo mała (prawie jak miedz, miedz)
+stałość rezystancji w czasie
+wytrzymałość mechaniczną ( nie powinno się przegrzewać niż 200 - 300, doparowywanie)
+Oporniki czterozaciskowe ( rezystancja większą >=1k może być dwóprzeowdową )
+

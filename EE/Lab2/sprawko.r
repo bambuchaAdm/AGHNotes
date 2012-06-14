@@ -1,40 +1,26 @@
 
 Ut <- 0.02587 #300K
 
-#prostownicza <- read.csv2("prostownicza.txt",dec=",")
-#prostownicza <- rev(prostownicza)
-#model <- tail(prostownicza,n=50)
-#l <- lm(prostownicza)
-#png("out/prostownicza-linia.png")
-#plot(prostownicza,xlab="U[V]",ylab="I[A]");abline(l)
-#dev.off()
+typ <- "prostownicza"
+plik <- paste(typ,".txt",sep="")
+nout <- paste("out/",typ,"-normal.png",sep="")
+lout <- paste("out/",typ,"-log.png",sep="")
+dane <- read.csv2(plik,dec=",")
 
-
-
-#prostownicza$U <- prostownicza$U / Ut
-#png("out/p)
-#plot(prostownicza,ylog="y")
-#dev.off()
-
-licz <- function(plik)
-{
-charakterystyka <- read.csv2(paste0(plik,".txt"),dec=",")
-#charakterystyka <- rev(charakterystyka)
-model <- tail(charakterystyka,n=30)
-l <- lm(charakterystyka)
-png(paste0("out//",plik,"-linia.png"))
-plot(charakterystyka,xlab="U[V]",ylab="I[A]");abline(l)
+png(nout)
+l <- lm(tail(rev(dane),n=400))
+Vzero <- polyroot(as.vector(l$coefficients))
+print(Vzero)
+plot(dane)
+abline(l)
 dev.off()
 
+d <- subset(dane,I > 0)
+
+d$U = d$U / Ut 
+d$I = log10(d$I)
 
 
-charakterystyka$U <- charakterystyka$U / Ut
-png(paste0("out//",plik,"-log.png"))
-plot(charakterystyka,ylog="y")
-dev.off()
-}
-
-licz("germanowa")
 
 
 

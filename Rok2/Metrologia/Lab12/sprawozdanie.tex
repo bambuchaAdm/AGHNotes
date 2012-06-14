@@ -1,0 +1,130 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{polski}  
+\usepackage{indentfirst} 
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{placeins}
+\usepackage{multirow}
+
+\begin{document}
+
+\begin{tabular}{|p{2.8cm}|cc|l|}
+\hline
+	Wydział:EAIE & Monika Zygmunt & Maciej Janicki & Rok I (2011/2012) \\
+        \cline{4-4}
+        Kierunek:EiT & Jan Kasperski  & Łukasz Dubiel & Grupa 6\\
+        \cline{4-4}
+        & & (bambucha14@gmail.com) & Zespół D\\
+\hline
+	Data wykonania 2 kwietnia 2012&
+        \multicolumn{3}{|p{12cm}|}{Laboratorium Metrologi: Cw 1 i 2
+	Wprowadzenie do obsługi przyrządów pomiarowych 
+	oraz analiza błędów i niepewności pomiarowych} \\
+        
+\hline
+	Zaliczenie & Podpis prowadzącego & & Uwagi\\
+\hline
+\end{tabular}
+\section{Obserwacja i badanie działanie toru przetwarzania A/C-C/A}
+\subsection{Schemat}
+
+\begin{center}
+\includegraphics[scale=0.3]{1.pdf}
+\end{center}
+
+\subsection{Wyniki pomiarów}
+\begin{description}
+\item[Amplituda sygnału wejściowego] $U_{mAC} = 5 V $ 
+\item[Składowa stała sygnału wejściowego] $U_{0AC} = 0 V $
+\item[Amplituda sygnału wyjściowego] $U_{mCA} = 4,32 V $
+\item[Ilość stanów przyjmowanych przez tor przetwarzania] $N = 16 $
+\item[Rozdzielczość przetwornika] $ N_b = 4 $ 
+\item[Częstotliwosć graniczna toru przetwarzania] $ f_{max} = 50kHz $
+\end{description}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+$U_{mAC} [V]$ & $U_{mCA} [V] $ & $N$ \\
+\hline
+ 2 & 2 & 4 \\
+\hline
+ 4 & 3,30 & 6 \\
+\hline
+ 6 & 5,8 & 10 \\
+\hline
+ 8 & 7,84 & 13 \\
+\hline
+ 10 & 9,68 & 16 \\
+\hline
+ 12 & 9,68 & 16 \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Wnioski}
+
+Tor wpływa na propagację sygnału. Częściowo działa jak filtr dolno przepustowy. Można określić tłumienie tego czwórnika. Jest mało odporny na szumy. Problem również stanowi znaczna ilość elementów potrzenych do zwiększenia rozdzielczości przetwornika A/C (rośnie wykładniczo). 
+
+Na częstotliwość graniczną wpływa bardziej przetwornik C/A która jest mniejsza niż częstotliwość maksymalna.
+
+\subsection{Wykaz przyrządów i użytych elementów}
+\begin{itemize}
+\item{Generator Rigol DG1022}
+\item{Oscyloskop Rigol DS1052E}
+\item{Tor przetwarzania AC/CA}
+\end{itemize} 
+
+\newpage
+\section{Obserwacja przebiegów w wybranych punktach przetwornika A/C z dwukrotnym całkowaniem}
+
+\subsection{Schemat}
+
+\begin{center}
+\includegraphics[scale=0.3]{4.pdf}
+\end{center}
+
+\subsection{Przebiegi napięcia całkowania}
+
+\begin{center}
+\includegraphics[scale=0.7]{pod.pdf}
+\end{center}
+
+\subsection{Wyniki pomiarów}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Napięcie wejściowe & Czas pierszego całkowania & Czas drugiego całkowania& Maksymalne napięcie \\
+$U_{I}[V]$ & $T_1[ms]$ & $T_2[ms]$ & $U_{max}[V]$ \\
+\hline
+0,9 & 20 & 10 & 15,4 \\
+\hline
+2,1 & 20 & 20 & 15,6 \\
+\hline
+0,1 & 20 & 5 & 15,6 \\
+\hline
+\end{tabular}
+
+\section{Wnioski}
+Przetworniki z podójnym całkowaniem są odporne na zakłucenia o określonej cześtotliwości
+(oraz kolejne ich harmonicznych).
+Pozowala to na usunięcie zakłuceń z sicie energetycznej.
+Problematyczny staje się długi czas marwy 
+(zdecydowanie większy niż w przypadku przetwonika równoległego bezpośredniego) jednak uzyskuje się znacznie większą dokładność. 
+
+Im mniejsza amplituda sygnału tym sygnał może być próbowany z większą częstotliwością.
+
+\section{Wykaz przyrządów}
+\begin{itemize}
+\item{Generator Rigol DG1022}
+\item{Oscyloskop Rigol DS1052E}
+\item{Całkowy przetwornik }
+\end{itemize} 
+
+
+\end{document}

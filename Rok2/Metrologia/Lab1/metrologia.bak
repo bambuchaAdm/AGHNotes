@@ -1,4 +1,4 @@
-EESchema-LIBRARY Version 2.3  Date: pon, 4 cze 2012, 13:27:51
+EESchema-LIBRARY Version 2.3  Date: pon, 4 cze 2012, 13:25:13
 #encoding utf-8
 #
 # ACCA
@@ -135,6 +135,7 @@ F1 "W" -50 -300 60 H V C CNN
 DRAW
 C 0 0 250 0 0 0 N
 T 0 0 -30 200 0 0 0 W  Normal 0 C C
+X ~ * 0 1000 300 R 50 50 1 1 I
 X ~ ~ -550 0 300 R 50 50 1 1 P I
 X ~ ~ 0 -550 300 U 50 50 1 1 P
 X ~ ~ 0 550 300 D 50 50 1 1 P I

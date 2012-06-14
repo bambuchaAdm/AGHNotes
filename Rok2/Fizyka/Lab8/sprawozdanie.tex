@@ -19,33 +19,88 @@
 
 \section{Opracowywanie wyników}
 
-L = 43 mH, C = 640 pF
-
-\begin{tabular}{|r|r|r|r|r|r|r|r|r|r|}
+Dane zebrane poczas doświadczenia. Doświadczenie przeprowadzone dla L = 43mH, C = 640pF.
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
 \hline
-	$R_d [\Omega$] & T[dz] & T[s] & $U_i$[V] & $U_{i+2}$[V] & $\beta$ & $R_p[\Omega]$ & $R_c[\Omega]$ & C[pF] \\  
+	Lp. & $R_d [\Omega$] & T[dz] & T[s] & $U_i$[V] & $U_{i+2}$[V] \\
 \hline
-	0 & 4,6 & $9,2 \cdot 10^{-4}$
-	 & 2,2 & 1,4 & 489 & 42 & 42 & 502\\
+	1 & 0 & 4,6 & $9,2 \cdot 10^{-4}$
+	 & 2,2 & 1,4 \\
 	 
-	14 & 4,6 & $9,2 \cdot 10^{-4}$
-	 & 1,2 & 0,6 & 750 & 60,5 & 64,6 & 505\\
+	2 & 14 & 4,6 & $9,2 \cdot 10^{-4}$
+	 & 1,2 & 0,6 \\
 	 
-	28 & 4,6 & $9,2 \cdot 10^{-4}$
-	 & 2,6 & 1 & 1032 & 60,8 & 88,8 & 510\\
+	3 & 28 & 4,6 & $9,2 \cdot 10^{-4}$
+	 & 2,6 & 1 \\
 \hline
 \end{tabular}
+\end{center}
+Wyznaczamy współcznynik tłumienia $\beta$.
+\begin{multicols}{2}
+$$ \beta = \frac{ \ln{\frac{U_i}{U_{i+2}}}}{T} $$
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Lp. & $\beta$  \\  
+\hline
+1 & 489 \\
+2 & 750 \\
+3 & 1032 \\
+\hline
+\end{tabular}
+\end{center}
+\end{multicols}
+Wyznaczaomy rezystancję pasożytniczą indukcyjności.
+Do tego użyjemy pomiaru dla wyzerowanej rezystancji dekadowej $R_d = 0$.
+$$ R_p = 2 \beta_1 L == 2 *489 * 43 * 10^{-3} = 42 \Omega $$
+\begin{multicols}{2}
+Teoretyczny wpółcznynnik tłumienia dla wartości.
+$$ \beta_{teo} = \frac{R_c}{2L}  $$
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Lp. & $\beta$ & $\beta_{teo}$  \\  
+\hline
+1 & 489 & 489,13\\
+2 & 750 & 651,1\\
+3 & 1032 & 814 \\
+\hline
+\end{tabular}
+\end{center}
+\end{multicols}
 
 \begin{multicols}{2}
-
-$$ \beta = \frac{\ln{\frac{U_i}{U_{i+2}}}}{T} $$
-
-$$ R_d = 0 \implies  R_p = 2\beta L$$
-
-$$ \omega = \frac{2\pi}{T} $$
-$$ \omega = \sqrt{\omega_0^2 - \left( \frac{R}{2L} \right)^2} $$
+Pulsacja obwodu rezonansoweog wynosi.
+$$ \omega = \frac{2\pi}{T}  $$
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Lp. & $\omega$  \\  
+\hline
+1 & \multirow{3}{*}{6829}\\
+2 & \\
+3 & \\
+\hline
+\end{tabular}
+\end{center}
 \end{multicols}
+Posiadając już pulsację oraz logarytm tłumiania możemy wyznaczyć z wzoru pojemność kondensatoar
 $$ C = \frac{1}{L( \omega^2 - \beta^2)} $$
+
+\begin{center}
+\begin{tabular}{|c|c|}\hline
+Lp. & C[pF] \\  
+\hline
+1 & 502\\
+2 & 505\\
+3 & 510\\
+\hline
+\end{tabular}
+\end{center}
+
+\newpage
+Wyznaczenie niepewności i błędu pomiarowego.
 $$ \Delta C = \frac{1}{L}\left(\frac{1}{\omega}\Delta \omega + \frac{1}{\beta}\Delta \beta \right) = \frac{1}{0,043}(\frac{1}{6826}0,1 + \frac{1}{1032}0,1) = 0,0026 = 2,6*10^{-3} C $$
 \bigskip
 Przebieg aperiodyczny rozpoczynał się dla rezystancji o wartości (wyznaczane doświadczalnie)
