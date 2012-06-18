@@ -13,6 +13,7 @@
 \usepackage{wasysym}
 \usepackage{xspace}
 \usepackage{import}
+\usepackage{multicol}
 
 \begin{document}
 \begin{center}
@@ -29,9 +30,49 @@ Data wykoania & \multicolumn{3}{|l|}{Temat} & Ocena \\
 \end{center}
 
 \section{Pomiary charakterysytk diod w kierunku przewodzenia}
-\VZero
+
 \subsection{Diody prostownicze}
 Zebrane charakterystyki
+\begin{multicols}{2}
+\includegraphics[scale=0.35]{out/prostownicza-normal.png}
+\columnbreak
+\includegraphics[scale=0.35]{out/prostownicza-log.png}
+\end{multicols}
 
-%\includegraphics[scale=0.6]{out/prostownicza-linia.png}
+Ogólne równanie diody
+$$ i_d = I_{gr0}(e^{\frac{u_d - r_di_d}{U_t}} - 1) + I_0(e^{\frac{u_d - r_di_d}{U_t}} -1) $$
+Dla $ U_f > 100mV$ można przująć przybliżenie
+$$ i_D = I_se^\frac{u_d}{nU_t} $$
+
+Napięcie progowe wynosi
+$$ U_k =  0.7144 $$
+
+Fragmenty małych prądów i rekombinacyjny jest bardzo mały w charakterystyce, wynika z tego mocno dyfuzyjny charakter diody.
+W uzyskanej charakterystyce można wyznaczyć trzy obszary. Gdy $\frac{U}{U_t} \in <16,20>$ dioda pracuje w obszarze dominacji prądu dyfuzyjnego. Gdy $\frac{U}{U_t} \in <20,27>$ obszar pracy przechodzi do obszaru prądów unoszenia. Powyżej znajduje się obszar omowy.
+
+Używając metody regresji lniowej na obszarze dyfuzyjnym uzykujemy wynik
+$$ a =  0.2378 \quad b = -8.1374 $$
+
+Charakterystyka pół logartymiczn w obszarze dyfuzujnym odpowiada
+$$ \ln{I_d} = \frac{u_d}{nU_t} + I_0$$
+Co daje równość
+$$ a = \frac{1}{n} \quad b = I_0 $$
+
+Czyli odpowiednie wartośći są równe
+$$ n = 4,20 \quad I_0 = 2924 \mu A $$
+
+Wiadomym jest że $ I_0 < I_{GR0} $ tak więc, dla przyjętnego uproszczonego równia współczynik 
+$$ I_s = I_0 $$
+$$ I_s = 1812 \mu A $$
+
+Rezystancja szeregowa wynosi
+$$ r_s = \frac{\Delta U}{I_d} = \frac{U_d - U_k}{I_d} $$
+Obliczenia wykonane dla prądu $20mA$
+$$ r_s = \frac{0,756-0.7144}{0.02} = 2.08 \Omega $$
+
+
+
+
+
+
 \end{document}
