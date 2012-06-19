@@ -7,6 +7,8 @@ nout <- paste("out/",typ,"-normal.png",sep="")
 lout <- paste("out/",typ,"-log.png",sep="")
 dane <- read.csv2(plik,dec=",")
 
+dane$I <- dane$I/1000 #Poprawka na miliamperach
+
 png(nout)
 l <- lm(tail(rev(dane),n=400))
 Vzero <- polyroot(as.vector(l$coefficients))
@@ -31,7 +33,7 @@ Nzero <- 1/zero$coefficients[2];
 print(Nzero)
 
 png(lout)
-plot(d,ylim=c(-10,-0))
+plot(d,ylim=c(-10,max(d$I)+0.5))
 abline(zero)
 dev.off()
 #######################################################################
@@ -42,6 +44,9 @@ plik <- paste(typ,".txt",sep="")
 nout <- paste("out/",typ,"-normal.png",sep="")
 lout <- paste("out/",typ,"-log.png",sep="")
 dane <- read.csv2(plik,dec=",")
+
+dane$I <- dane$I/1000 #poprawka na miliamperach
+
 png(nout)
 l <- lm(tail(rev(dane),n=400))
 Vzero <- polyroot(as.vector(l$coefficients))
@@ -62,7 +67,7 @@ print(Izero)
 Nzero <- 1/zero$coefficients[2];
 print(Nzero)
 png(lout)
-plot(d,ylim=c(min(zero$coefficients[1]-1,min(d$I)-1),-1))
+plot(d,ylim=c(min(zero$coefficients[1]-1,min(d$I)-1),max(d$I)+0.5))
 abline(zero)
 dev.off()
 #######################################################################
@@ -73,6 +78,8 @@ plik <- paste(typ,".txt",sep="")
 nout <- paste("out/",typ,"-normal.png",sep="")
 lout <- paste("out/",typ,"-log.png",sep="")
 dane <- read.csv2(plik,dec=",")
+dane$I <- dane$I/1000 # Poprawka na miliamperach
+
 png(nout)
 l <- lm(tail(rev(dane),n=400))
 Vzero <- polyroot(as.vector(l$coefficients))
@@ -105,10 +112,69 @@ dev.off()
 #Koniec diody impulsowej
 ########################################################################
 
-3v6 <- read.csv2("3v6.txt",dec=",")
-5v4 <- read.csv2("5v4.txt",dec=",")
-7v5 <- read.csv2("7v2.txt",dec=",")
+png("out/diody-all.png")
 
-plot(7v5)
-pair(5v4)
-pair(3v6)
+typ <- "prostownicza"
+plik <- paste(typ,".txt",sep="")
+nout <- paste("out/",typ,"-normal.png",sep="")
+lout <- paste("out/",typ,"-log.png",sep="")
+dane <- read.csv2(plik,dec=",")
+
+dane$I <- dane$I/1000 #Poprawka na miliamperach
+
+plot(dane,type="l")
+
+typ <- "germanowa"
+plik <- paste(typ,".txt",sep="")
+nout <- paste("out/",typ,"-normal.png",sep="")
+lout <- paste("out/",typ,"-log.png",sep="")
+dane <- read.csv2(plik,dec=",")
+
+dane$I <- dane$I/1000 #poprawka na miliamperach
+
+points(dane,type="l")
+
+typ <- "impulsowa"
+plik <- paste(typ,".txt",sep="")
+nout <- paste("out/",typ,"-normal.png",sep="")
+lout <- paste("out/",typ,"-log.png",sep="")
+dane <- read.csv2(plik,dec=",")
+dane$I <- dane$I/1000 # Poprawka na miliamperach
+
+points(dane,type="l")
+
+dev.off()
+
+########################################################################
+#Koniec normalnych diod
+########################################################################
+one <- read.csv2("3v6.txt",dec=",")
+two <- read.csv2("5v4.txt",dec=",")
+three <- read.csv2("7v5.txt",dec=",")
+
+png("out/stabilizacja.png")
+plot(three,type="l")
+points(two,type="l")
+points(one,type="l")
+dev.off()
+
+########################################################################
+#Koniec diod stabilizacyjnych
+########################################################################
+
+biala <- read.csv2("biala.txt",dec=",")
+zolta <- read.csv2("zolta.txt",dec=",")
+zielona <- read.csv2("zielona.txt",dec=",")
+pomaranczowa <- read.csv2("pomaranczowa.txt",dec=",")
+
+xmin <- min(biala$U,zielona$U,pomaranczowa$U)
+xmax <- max(biala$U,zielona$U,pomaranczowa$U)
+ymin <- min(biala$I,zielona$I,pomaranczowa$I)
+ymax <- max(biala$I,zielona$I,pomaranczowa$I)
+
+png("out/led-normal.png")
+plot(biala,type="l")
+points(zolta,type="l")
+points(zielona,type="l")
+points(pomaranczowa,type="l")
+dev.off()
