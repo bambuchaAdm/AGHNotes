@@ -33,12 +33,10 @@ Data wykoania & \multicolumn{3}{|l|}{Temat} & Ocena \\
 
 \subsection{Diody prostownicze}
 Zebrane charakterystyki
-\begin{multicols}{2}
-\includegraphics[scale=0.35]{out/prostownicza-normal.png}
-\columnbreak
-\includegraphics[scale=0.35]{out/prostownicza-log.png}
-\end{multicols}
-
+\begin{center}
+\includegraphics[scale=0.45]{out/prostownicza-normal.png}
+\includegraphics[scale=0.45]{out/prostownicza-log.png}
+\end{center}
 Ogólne równanie diody
 $$ i_d = I_{gr0}(e^{\frac{u_d - r_di_d}{U_t}} - 1) + I_0(e^{\frac{u_d - r_di_d}{U_t}} -1) $$
 Dla $ U_f > 100mV$ można przująć przybliżenie
@@ -61,6 +59,8 @@ $$ a = \frac{1}{n} \quad b = I_0 $$
 Czyli odpowiednie wartośći są równe
 $$ n = 4,20 \quad I_0 = 2924 \mu A $$
 
+Gdzie $n$ to współczynnik niedoskonałości łącza, a $I_0$ to wartość prądu dyfuzyjnego
+
 Wiadomym jest że $ I_0 < I_{GR0} $ tak więc, dla przyjętnego uproszczonego równia współczynik 
 $$ I_s = I_0 $$
 $$ I_s = 1812 \mu A $$
@@ -70,9 +70,33 @@ $$ r_s = \frac{\Delta U}{I_d} = \frac{U_d - U_k}{I_d} $$
 Obliczenia wykonane dla prądu $20mA$
 $$ r_s = \frac{0,756-0.7144}{0.02} = 2.08 \Omega $$
 
+\section{Dioda germanowa}
+Charakterystyki 
+\begin{center}
+\includegraphics[scale=0.48]{out/germanowa-normal.png}
+\includegraphics[scale=0.48]{out/germanowa-log.png}
+\end{center}
+\begin{description}
+\item[Napięcie progowe $U_k$] $=0,218\ V$
+\item[Współczynnik niedoskońałośći złącza $n$]  $=3.899$
+\item[Prąd dyfuzyjny $I_0$ ] $=15,05\ mA$
+\item[Rezystancja szeregowa ($I=75mA$) $r_s$ ] $=0,934\ \Omega$
+\end{description}
+\section{Dioda impulsowa}
+Charakterystyki 
+\begin{center}
+\includegraphics[scale=0.48]{out/germanowa-normal.png}
+\includegraphics[scale=0.48]{out/germanowa-log.png}
+\end{center}
+\begin{description}
+\item[Napięcie progowe $U_k$] $=0,7477\ V$
+\item[Współczynnik niedoskońałośći złącza $n$]  $=4,2542$
+\item[Prąd dyfuzyjny $I_0$ ] $=223\ \muA$
+\item[Rezystancja szeregowa ($I=73mA$) $r_s$ ] $=1,924\ \Omega$
+\end{description}
 
-
-
+\section{Diody stabilizacyjne}
+\includegraphics[scale=0.48]{out/stabilizacyjne.png}
 
 
 \end{document}
