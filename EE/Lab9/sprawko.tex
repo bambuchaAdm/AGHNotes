@@ -1,0 +1,82 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{polski}  
+\usepackage{indentfirst} 
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{placeins}
+\usepackage{wasysym}
+\usepackage{xspace}
+\usepackage{import}
+\usepackage{multicol}
+
+\begin{document}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Wydział & \underline{Łukasz Dubiel} & Rok & Grupa & Cw. nr \\
+%\hline
+EAIE & Daniel Iziorov, Piotr Mędrek & I & Grupa 6 & 9 \\
+\hline
+Data wykoania & \multicolumn{3}{|l|}{Temat} & Ocena \\
+29.05.2012 &  \multicolumn{3}{|p{10.5cm}|}{Tranzystory polowe MOS} & \\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Charakterystyki przejściowe tranzystora n-mos}
+
+\begin{center}
+\includegraphics[scale=0.45]{out/n-przejsciowa.png}
+\end{center}
+
+Charakterystyka półpierwiastkowa (dla $U_{ds} = 4V$)
+
+\begin{center}
+\includegraphics[scale=0.30]{out/n-pierwiastek.png}
+\end{center}
+
+$$ U_t = 1,63V $$
+
+
+\subsection{Prądy nasycenia $I_{dd}$}
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    $U_{ds} [V]$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+    \hline
+    $I_{dd} [mA]$ & 0 & 12 & 20 & 25 & 27 & 27 & 28 & 28 & 28 & 28 & 28 \\
+    \hline
+  \end{tabular}
+\end{center}
+
+\section{Charakterystykaw wyjściowa n-mos}
+
+\begin{center}
+\includegraphics[scale=0.45]{out/n-wyjsciowa.png}
+\end{center}
+
+\subsection{Współczynik $\lambda$}
+Wyznaczamy z przeicięcia lini regresji z obszaru nasyconego z osią OX
+\bigskip
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$U_{gs}[V]$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+\hline
+$\lambda$ & 0.03&-0.006&-0.034&-0.02&-0.017&-0.014&-0.011&-0.01&-0.009&-0.009&-0.011 \\
+\hline
+\end{tabular}
+
+\bigskip
+Rozrzut wynika z braku dokłąności przyrządów pomiarówych oraz przyjętej metody wyznaczania regresji. Zgodnie z rozkładem normanym najbardziej prawodopodobną wartośćią dla współczynika modulacji długośći wynosi.
+$$ \lambda = -0.01$$
+
+\section{Charakterystyka przejściowa p-mos}
+
+\end{document}
