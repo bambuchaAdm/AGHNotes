@@ -1,0 +1,166 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{polski}  
+\usepackage{indentfirst} 
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{placeins}
+
+\author{Łukasz Dubiel}
+\title{Matma semestr drugi powtorka}
+
+\begin{document}
+
+\maketitle
+
+\section{Wartość włsana}
+Wartością własną nazywamy każdą liczbę $\lambda \in \mathbb{R}$ spełniającą równanie
+$$ \det(\mathrm{A} - \lambda \mathrm{I}) = 0 $$
+
+\section{Wektor własny}
+Wektor $ v \in \mathbb{R}^n \backslash \left\{\overline{0}\right\}$ nazywamy wektorem związanym z wartością własną $\lambda$, gdy spełnia równanie.
+$$ \mathrm{A} v = \lambda v $$
+
+\section{WKW diagonalizowalności}
+Endomorfizm $f : \mathbb{R^n} \to R^{m}$ jest diagonalizowalny, wtw gdy $$\det {(\mathrm{A}_f -\lambda \mathrm{I}) = \sum_{i=1}(\lambda - \lambda_i)^{k_i}}$$
+$$ \dim{(\mathrm{A}_f - \lambda_i \mathrm{I})} = k_i $$ 
+
+\section{WW na diagonalizowalność}
+Endomorfizm jest diagonalizowalny, gdy posiada $n$ różnych wartości własnych.
+
+\section{Iloczyn Couchy'ego szeregów}
+Jeśli $\sum{a_n}$ i $\sum{b_n}$ jest szeregami bezwzględnie zbieżnymi to szereg $\sum{c_n}$ gdzie 
+$$ c_n = \sum_{k=0}^{n}{a_k \cdot b_{n-k}}$$
+też jest zbieżny a jego granica 
+$$ \sum{c_n} = \left( \sum{a_n} \right)\left( \sum{b_n} \right) $$
+
+\section{Kryterium zbieżności}
+\subsection{Porównawcze}
+Niech $n_0 \in \mathbb{N}$ takie, że $ 0 \leq a_n \leq b_n \forall n \in \mathbb{N}$
+$$ \sum{b_n} - \hbox{ zbieżny } \implies \sum{a_n} - \hbox{ zbieżny}$$
+$$ \sum{a_n} - \hbox{ rozbieżny } \implies \sum{b_n} - \hbox{ rozbiezny }$$
+
+\subsection{Ilorazowe}
+$$ \lim_{n \to \infty}{\frac{a_n}{b_n}} \in (0,\infty) \implies \left( \sum{a_n} - \hbox{ zbiezny } \iff \sum{b_n} - \hbox{ zbiezny } \right) $$
+
+\subsection{Kryterium d'Alamberta}
+\begin{enumerate}
+\item{
+$$ \lim_{n \to \infty}{\left|\frac{a_{n+1}}{a_n}\right| } < 1 \implies \sum{a_n} < \infty $$}
+\item{
+$$ \lim_{n \to \infty}{\left|\frac{a_{n+1}}{a_n}\right| } > 1 \implies \sum{a_n} = \infty $$} 
+\end{enumerate}
+Dla ilorazu równego $1$ kryterium nie rozstrzyga
+
+\subsection{Kryterium Couchy'ego}
+\begin{enumerate}
+\item{
+$$ \lim_{n \to \infty}{\sqrt[n]{a_n}} < 1 \implies \sum{a_n} < \infty $$}
+\item{
+$$ \lim_{n \to \infty}{\sqrt[n]{a_n}} > 1\implies \sum{a_n} = \infty $$} 
+\end{enumerate}
+Dla wartości granicy równej $1$ kryterium nie rozstrzyga
+
+\subsection{Kryterium całkowe}
+$\sum_{n = n_0}{a_n}$ - szereg liczbowy, $ a_n \geq 0 $
+$f : <n,\infty) \to \mathbb{R}, f \in \mathcal{C}(<n,\infty)) f - $ malejąca $ f(n) = a_n $
+
+$$ \sum_{n = n_0}{a_n} - \hbox{ zbiezny } \iff \int_{n_0}^{\infty} f(x)dx - \hbox{ zbieżna} $$
+
+\subsection{Kryterium Laibnitza}
+Jeśli $a_n >0 \forall n \in \mathbb{N}, (a_n)_{n \in \mathbb{N}^+}$ - ciąg malejący oraz
+$\lim_{n \to \infty}{a_n} = 0$ 
+$$ \sum{a_n} \hbox{ jest zbieżny }$$
+
+\section{Ciąg funkcyjny}
+Zbiór funkcji
+$$ F = \left\{ f : X \to \mathbb{R}, X \subset \mathbb{R} \right\} $$
+$$(f_n)_{n \in \mathbb{N}} - \hbox{ ciąg funkcyjny } \iff f_n \in F \quad \forall n \in \mathbb{N} $$
+
+\section{Zbieżność punktowa}
+Mówimy, że ciąg $(f_n)$ funkcyjny jest zbieży punktowo do funkcji $f: X \to \mathbb{R}$ na zbiorze $X \subset \mathbb{R}$, wtw gdy $$\forall x \in X \quad \lim_{ n \to \infty}{|f_n(x) - f(x)| = 0}$$
+innymi słowy
+$$ \lim_{n \to \infty}{f_n(x)} = f(x) $$
+\subsection{Duga wersja}
+$$ f_n \xrightarrow{x \to \infty} f \iff \forall \epsilon > 0 \ \forall x \in X \ \exists n_0 \in \mathbb{N}\ \forall n \geq n_0 \quad |f_n(x) - f(x)| < \epsilon$$
+
+\section{Zbieżność jednostajna}
+$$f_n \mathop{\rightrightarrows}_{n \to \infty} f \iff \forall \epsilon > 0\ \exists n \in \mathbb{N}\ \forall x \in X\ \forall n > n_0\quad |f_n(x) - f(x)| < \epsilon$$
+\subsection{definicja dla ludzi}
+$$f_n \mathop{\rightrightarrows}_{n \to \infty} f \iff \lim_{n\to \infty}{\sup_{x \in X}{f_n(x)}} = 0$$
+
+\section{Szereg funkcyjny}
+Niech $(f_n)\ n \in \mathbb{R}$ - ciąg funkcyjny, $f_u X \to \mathbb{R}, X \subset \mathbb{R}$
+
+Szeregiem funkcyjnym $\sum{f_n}$ nazywamy ciąg sum częściowych ciągu funkcyjneg $(f_n)_{n \in \mathbb{N}}$ 
+$$ s_0 = f_0 \quad s_1 = f_0 + f_1 \quad s_2 = f_0 + f_1 + f_3 \quad s_n = f_0 + f_1 + \ldots + f_n $$
+
+Suma szeregu $\sum{f_n}$ to granica ciągu sum częściowych $(s_n)_{n \in \mathbb{N}}$
+
+\section{Zbieżność szeregów funkcyjnych}
+\subsection{Punktowa}
+$\sum{f_n}$ 0 zbieżny punktowo do $S \iff$ ciąg
+$(s_n)_{n \in \mathbb{N}}$ jest zbieżny punktowo do $S$ na $X$. 
+$$ \sum_{f_n} = s \iff s_n \mathop{\longrightarrow}_{n \to \infty}^{x} s $$
+
+\subsection{Jednostajna}
+$\sum{f_n}$ jest zbieżny jednostajnie do $S$ na $X \iff
+s_n \mathop{\rightrightarrows}_{n \to \infty}^{x} s$
+
+\subsection{Bezwzględna}
+$\sum{f_n}$ jest zbieżny bezwzględnie do $S$ na $X \iff$ $ \sum{|f_n|}$ jest zbieżny punktowo do $S$ 
+\section{Szereg potęgowy}
+Szereg funkcyjny w postaci $$ \sum_{n = 0}{a_n (x - x_0)^n} $$
+gdzie $a_n \in \mathbb{R} \quad \forall n \in \mathbb{N}$
+oraz $ x,x_0 \in \mathbb{R}$ oraz $x_0$ jest jego środkiem.
+
+\section{Warunek konieczny szeregów funkcyjnych}
+\begin{enumerate}
+\item{
+szereg zbieżny punktowo do $f(x)$ na $X$ $\implies f_n(x) \to 0 $}
+\item{Jak wyżej tylko bezwzględnie}
+\item{Jak wyżej tylko że w obu stronach jednostajnie}
+\end{enumerate}
+
+\section{Kryterium Weistrassa}
+Niech $X \subset \mathbb{R} f_n : X \to \mathbb{R} \forall n \in \mathbb{N}$
+Jeśli "da się ograniczyć"
+Jeśli $\forall n \in \mathbb{N} \forall x \in X |f_n(x)| < a_n$ oraz $ \sum{a_n} < \infty $ to szereg funkcyjny jest zbieżny bezwzględnie i jednostajnie na $X$.
+\section{Promien zbiezności szeregu}
+Niech $ \sum_{n = 0}^{\infty}{a_n (x - x_0)^n}$ - szereg potęgowy. Promieniem zbieżności szeregu nazywamy 
+$$ R := \sup{ \left\{r : \sum_{n = 0}^{\infty}{a_n (x - x_0)^n} \hbox{ jest zbieżny punktowo w } (x_0 - r, x_0 +r)\right\}}$$
+
+\section{Lemat Abela}
+Jeśli szereg potęgowy jest zbieżny w punkcie $ \alpha \in \mathbb{R} \backslash \{ x_0 \}$, to szereg jest zbieżny bezwzględnie w przedziale $(x_0 - r , x_0 + r)$ oraz zbieżny jednostajnie w każdym przedziale domkniętym zawartym w $(x_0 - r, x_0 + r)$ gdzie $r = |\alpha - x_0|$ 
+
+\section{Twierdzenie d'Alamberta}
+Niech $ \sum_{n = 0}^{\infty}{a_n (x - x_0)^n}$ - szereg potęgowy oraz $ a_n \not = 0 \quad \forall n \in \mathbb{N}$
+Jeśli $$ \lambda = \left| \frac{a_{n+1}}{a_n} \right| \implies R = \frac{1}{\lambda} $$
+Gdy $ \lambda = 0 \implies R = \infty$ oraz $ \lambda = \infty \implies R = 0 $
+
+\section{Couchy'ego - Hadamara}
+Niech $ \sum_{n = 0}^{\infty}{a_n (x - x_0)^n}$ - szereg potęgowy.
+$$ \lambda = \lim_{n \to \infty}{\sqrt[n]{|a_n|}} \implies R = \frac{1}{\lambda} $$
+Przypadki skrajne jak w twierdzeniu $d'Alamberta$
+
+\section{Twierdzenie o różniczkowalności szeregu potęgowego}
+Niech $ \sum_{n = 0}^{\infty}{a_n (x - x_0)^n}$ - szereg potęgowy o promieniu zbieżnosci $R$.
+Jeśli  $$ \sum_{n = 0}^{\infty}{a_n (x - x_0)^n} = f(x) \quad \forall x \in (x_0 - R , x_0 + R) $$ 
+to
+$$ f \in \mathcal{C}^{\infty}$$
+$$ f^{(k)}(x) = \sum_{n = k}{k! {n \choose k} a_n(x-x_0)^{n-k}}$$
+
+
+
+\section{Twierdzenie o całkowaniu szeregu}
+
+Niech $ \sum_{n = 0}^{\infty}{a_n (x - x_0)^n}$ - szereg potęgowy o promieniu zbieżnosci $R$. Wtedy dla $x \in (x_0 - R , x_0 + R)$
+$$ \int_{x_0}^x ( \sum_{n = 0}^{\infty}{a_n (x - x_0)^n}) dt = \sum_{n = 0}^{\infty}{\frac{a_n}{n+1} (x - x_0)^{n+1}}$$
+
+
+\end{document}
